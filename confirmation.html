@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Confirmed — The Roma Palace | The Roma Palace</title>
+  <meta name="description" content="Discover timeless hospitality, refined comfort and unforgettable experiences across India's most iconic luxury palace retreats.">
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Luxury Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement / Demo Bar (College Viva Helper) -->
+  <div style="background: #0C0D0F; color: #DFCAAB; font-size: 0.75rem; padding: 0.35rem 1rem; text-align: center; border-bottom: 1px solid rgba(197,168,128,0.25); letter-spacing: 0.5px; z-index: 1001; position: relative;">
+    <span><i class="fa-solid fa-graduation-cap" style="color: #C5A880; margin-right: 5px;"></i> BTech CSE DBMS Mini Project — <strong>The Roma Palace</strong></span>
+    <span style="margin: 0 10px; opacity: 0.4;">|</span>
+    <a href="admin/admin-login.html" style="color: #FFFFFF; text-decoration: underline; font-weight: 600;"><i class="fa-solid fa-lock" style="font-size: 0.7rem;"></i> Admin Portal</a>
+    <span style="margin: 0 10px; opacity: 0.4;">|</span>
+    <a href="admin/demo-presentation.html" style="color: #C5A880; font-weight: 700;"><i class="fa-solid fa-chart-pie"></i> Professor Viva Dashboard</a>
+  </div>
+
+  <!-- Dynamic Sticky Navigation -->
+  <header class="site-header scrolled">
+    <div class="nav-container">
+      
+      <!-- Brand Logo + RP Monogram -->
+      <a href="index.html" class="brand-logo-link" title="The Roma Palace Homepage">
+        <div class="rp-monogram">
+          <span>RP</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">THE ROMA PALACE</span>
+          <span class="brand-subtitle">Luxury Hotels & Resorts</span>
+        </div>
+      </a>
+
+      <!-- Main Navigation Menu -->
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="hotels.html" class="nav-link ">PALACES</a></li>
+          <li><a href="rooms.html" class="nav-link ">ROOMS & SUITES</a></li>
+          <li><a href="dining.html" class="nav-link ">DINING</a></li>
+          <li><a href="experiences.html" class="nav-link ">EXPERIENCES</a></li>
+          <li><a href="offers.html" class="nav-link ">OFFERS</a></li>
+          <li><a href="wellness.html" class="nav-link ">WELLNESS</a></li>
+          <li><a href="index.php#about" class="nav-link">ABOUT</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions (Login / Account + Book a Stay) -->
+      <div class="nav-actions">
+                  <a href="login.html" class="btn-nav-login" title="Guest Sign In">
+            <i class="fa-regular fa-user"></i>
+            <span>LOGIN</span>
+          </a>
+        
+        <a href="booking.html" class="btn-book-nav">
+          <i class="fa-solid fa-calendar-check"></i>
+          <span>BOOK A STAY</span>
+        </a>
+
+        <button class="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Flash Messages -->
+  
+  
+<section class="section-spacing bg-ivory" style="padding-top: 5rem;">
+  <div class="container">
+    
+    <!-- Top Action Bar (Print & Return) -->
+    <div style="max-width: 860px; margin: 0 auto 2rem auto; display: flex; justify-content: space-between; align-items: center;" class="no-print">
+      <a href="index.html" class="btn-outline-dark" style="padding: 0.6rem 1.2rem; font-size: 0.8rem;">
+        <i class="fa-solid fa-house"></i> Return Home
+      </a>
+      <div style="display: flex; gap: 0.8rem;">
+        <button onclick="window.print()" class="btn-primary" style="padding: 0.6rem 1.5rem; font-size: 0.8rem;">
+          <i class="fa-solid fa-print"></i> PRINT OFFICIAL TAX INVOICE
+        </button>
+      </div>
+    </div>
+
+    <!-- Official Printable Luxury Tax Invoice -->
+    <div class="confirmation-invoice-wrapper">
+      
+      <!-- Invoice Header -->
+      <div class="invoice-header">
+        <div class="invoice-brand-block">
+          <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem;">
+            <div class="rp-monogram" style="background: var(--color-charcoal);">
+              <span>RP</span>
+            </div>
+            <div>
+              <h2>THE ROMA PALACE</h2>
+              <p>Luxury Hotels & Heritage Retreats</p>
+            </div>
+          </div>
+          <p style="font-size: 0.82rem; color: var(--text-dark-secondary); margin-top: 0.5rem; line-height: 1.5;">
+            <strong>The Roma Palace Jaipur</strong><br>
+            Bhawani Singh Road, Rambagh Enclave, Jaipur, Rajasthan 302005<br>
+            GSTIN: 08AAAAA0000A1Z5 | Phone: +91 141 278 9000          </p>
+        </div>
+
+        <div class="invoice-meta-block">
+          <span class="booking-ref-badge">RP-2026-0701</span>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.3rem;">
+            Date of Issue: 18 Aug 2026, 07:12 PM          </div>
+          <div style="margin-top: 0.5rem;">
+            <span class="badge badge-success">BOOKING COMPLETED</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Guest & Stay Coordinates Grid -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; background: var(--color-ivory); padding: 1.5rem; border-radius: 3px; border: 1px solid var(--border-light);">
+        
+        <div>
+          <strong style="font-family: var(--font-accent); font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--color-gold-dark); display: block; margin-bottom: 0.6rem;">
+            Guest Information
+          </strong>
+          <h4 style="font-size: 1.1rem; color: var(--color-charcoal); margin-bottom: 0.3rem;">Kavita Patel</h4>
+          <div style="font-size: 0.86rem; color: var(--text-dark-secondary); line-height: 1.6;">
+            Email: kavita.patel@example.com<br>
+            Phone: +91 98250 77889<br>
+            Govt ID: Aadhaar Card (3214 9876 5432)          </div>
+        </div>
+
+        <div>
+          <strong style="font-family: var(--font-accent); font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--color-gold-dark); display: block; margin-bottom: 0.6rem;">
+            Stay Schedule & Room
+          </strong>
+          <h4 style="font-size: 1.1rem; color: var(--color-charcoal); margin-bottom: 0.3rem;">
+            Executive Room (Room JP-202)
+          </h4>
+          <div style="font-size: 0.86rem; color: var(--text-dark-secondary); line-height: 1.6;">
+            Check-in: <strong>10 Jul 2026</strong> (02:00 PM)<br>
+            Check-out: <strong>13 Jul 2026</strong> (12:00 Noon)<br>
+            Duration: 3 Nights | 2 Guests
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Itemized Financial Breakdown Table -->
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem; font-size: 0.88rem;">
+        <thead>
+          <tr style="background: var(--color-charcoal); color: var(--color-gold-light);">
+            <th style="padding: 0.8rem 1rem; text-align: left;">Description</th>
+            <th style="padding: 0.8rem 1rem; text-align: center;">Qty / Nights</th>
+            <th style="padding: 0.8rem 1rem; text-align: right;">Unit Rate</th>
+            <th style="padding: 0.8rem 1rem; text-align: right;">Total Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Room Charges -->
+          <tr style="border-bottom: 1px solid var(--border-light);">
+            <td style="padding: 1rem;">
+              <strong>Accommodation: Executive Room</strong><br>
+              <small style="color: var(--text-muted);">The Roma Palace Jaipur</small>
+            </td>
+            <td style="padding: 1rem; text-align: center;">3 Nights</td>
+            <td style="padding: 1rem; text-align: right;">₹32,000</td>
+            <td style="padding: 1rem; text-align: right; font-weight: 600;">₹96,000</td>
+          </tr>
+
+          <!-- Selected Services -->
+          
+          <!-- Promo Discount if any -->
+                      <tr style="border-bottom: 1px solid var(--border-light); color: #03543F;">
+              <td style="padding: 0.8rem 1rem;" colspan="3">
+                <strong>Privilege Promo Savings (SUMMER15)</strong>
+              </td>
+              <td style="padding: 0.8rem 1rem; text-align: right; font-weight: 600;">- ₹14,400</td>
+            </tr>
+          
+          <!-- Tax Row -->
+          <tr style="border-bottom: 1px solid var(--border-light);">
+            <td style="padding: 0.8rem 1rem;" colspan="3">
+              <strong>Luxury Goods & Services Tax (GST 18%)</strong>
+            </td>
+            <td style="padding: 0.8rem 1rem; text-align: right; font-weight: 600;">₹16,218</td>
+          </tr>
+
+          <!-- Grand Total -->
+          <tr style="background: var(--color-cream); font-family: var(--font-serif-brand);">
+            <td style="padding: 1.2rem 1rem; font-size: 1.1rem; font-weight: 700;" colspan="3">GRAND TOTAL (INR)</td>
+            <td style="padding: 1.2rem 1rem; text-align: right; font-size: 1.3rem; font-weight: 700; color: var(--color-charcoal);">₹106,318</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Payment & Transaction Details -->
+      <div style="display: flex; justify-content: space-between; align-items: center; background: var(--color-ivory); padding: 1.2rem 1.5rem; border-radius: 2px; border-left: 4px solid var(--color-gold-dark); margin-bottom: 2rem;">
+        <div>
+          <span class="price-label">Settlement Mode</span>
+          <strong style="color: var(--color-charcoal); font-size: 0.95rem;">Credit Card</strong>
+        </div>
+        <div>
+          <span class="price-label">Transaction ID</span>
+          <code style="background: var(--color-white); padding: 0.2rem 0.5rem; border-radius: 2px; border: 1px solid var(--border-light); font-weight: 700;">CC_HDFC_3344556677</code>
+        </div>
+        <div>
+          <span class="price-label">Payment Status</span>
+          <span class="badge badge-success">PAID</span>
+        </div>
+      </div>
+
+      <!-- Barcode / QR Simulation for Reception Check-in -->
+      <div style="text-align: center; padding-top: 1.5rem; border-top: 1px dashed var(--border-light);">
+        <div style="font-family: 'Courier New', monospace; letter-spacing: 5px; font-size: 1.4rem; color: var(--color-charcoal); margin-bottom: 0.4rem;">
+          ||||| | |||| ||| |||||| | |||| |||||
+        </div>
+        <small style="color: var(--text-muted); font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase;">
+          Please present this digital receipt or Booking Reference ID upon arrival at the Reception Desk.
+        </small>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  <!-- Global Editorial Footer (Dark Background for Strict Contrast) -->
+  <footer class="site-footer" id="about">
+    <div class="container">
+      <div class="footer-top-grid">
+        
+        <!-- Brand Summary -->
+        <div class="footer-brand-col">
+          <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem;">
+            <div class="rp-monogram" style="background: rgba(255,255,255,0.05); border-color: var(--color-gold);">
+              <span>RP</span>
+            </div>
+            <div>
+              <h3>THE ROMA PALACE</h3>
+              <p class="footer-tagline">“A Legacy of Luxury, A Stay to Remember.”</p>
+            </div>
+          </div>
+          <p class="footer-about-text">
+            For over two decades, The Roma Palace has preserved the soul of Indian regal hospitality, blending timeless palatial architecture with intuitive contemporary luxury.
+          </p>
+          <div class="footer-social-links">
+            <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Palaces -->
+        <div class="footer-col">
+          <h4>OUR PALACES</h4>
+          <ul class="footer-links">
+            <li><a href="hotels.php#jaipur">Roma Palace Jaipur</a></li>
+            <li><a href="hotels.php#goa">Roma Palace Goa</a></li>
+            <li><a href="hotels.php#udaipur">Roma Palace Udaipur</a></li>
+            <li><a href="hotels.php#lucknow">Roma Palace Lucknow</a></li>
+            <li><a href="hotels.html">Kerala & Varanasi</a></li>
+          </ul>
+        </div>
+
+        <!-- Stays & Suites -->
+        <div class="footer-col">
+          <h4>EXPLORE</h4>
+          <ul class="footer-links">
+            <li><a href="rooms.php?type=Deluxe+Room">Deluxe Rooms</a></li>
+            <li><a href="rooms.php?type=Premium+Room">Premium Rooms</a></li>
+            <li><a href="rooms.php?type=Executive+Room">Executive Suites</a></li>
+            <li><a href="rooms.php?type=Luxury+Suite">Luxury Suites</a></li>
+            <li><a href="rooms.php?type=Royal+Suite">The Royal Suite</a></li>
+            <li><a href="offers.html">Signature Offers</a></li>
+          </ul>
+        </div>
+
+        <!-- Experiences & Dining -->
+        <div class="footer-col">
+          <h4>LIFESTYLE</h4>
+          <ul class="footer-links">
+            <li><a href="dining.html">The Roma Table</a></li>
+            <li><a href="dining.html">Palazzo Café Goa</a></li>
+            <li><a href="dining.html">Spice Route Awadh</a></li>
+            <li><a href="dining.html">Azure Lake Lounge</a></li>
+            <li><a href="wellness.html">Ayurvedic Spa & Gym</a></li>
+            <li><a href="experiences.html">Curated Tours</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter & Concierge -->
+        <div class="footer-col">
+          <h4>CONCIERGE DESK</h4>
+          <p style="font-size: 0.85rem; color: var(--text-light-secondary); margin-bottom: 0.8rem;">
+            Subscribe to receive private invitations to royal events and seasonal privilege packages.
+          </p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to The Roma Palace private dispatch.');">
+            <input type="email" class="newsletter-input" placeholder="Your email address" required>
+            <button type="submit" class="newsletter-btn"><i class="fa-solid fa-arrow-right"></i></button>
+          </form>
+          <div style="margin-top: 1.5rem; font-size: 0.82rem; color: var(--color-gold-light);">
+            <div><i class="fa-solid fa-phone" style="margin-right: 6px;"></i> +91 (0) 141 278 9000</div>
+            <div style="margin-top: 4px;"><i class="fa-solid fa-envelope" style="margin-right: 6px;"></i> concierge@romapalace.com</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>Copyright &copy; 2026 The Roma Palace Hotels & Resorts Ltd. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Stay</a>
+          <a href="#">Cancellation Policy</a>
+          <a href="admin/admin-login.html">Staff & Admin Login</a>
+          <a href="admin/demo-presentation.html" style="color: var(--color-gold); font-weight: 600;">DBMS Project Demo</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

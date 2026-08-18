@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Control Center | The Roma Palace</title>
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Admin Design System -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- Left Executive Sidebar -->
+  <aside class="admin-sidebar">
+    
+    <!-- Brand -->
+    <a href="dashboard.html" class="admin-brand" style="text-decoration: none;">
+      <div class="rp-monogram">
+        <span>RP</span>
+      </div>
+      <div class="admin-brand-text">
+        <h2>THE ROMA PALACE</h2>
+        <span>ADMINISTRATION</span>
+      </div>
+    </a>
+
+    <!-- Nav List -->
+    <div class="admin-nav-section">
+      
+      <div class="admin-nav-title">CORE OPERATIONS</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="dashboard.html"><i class="fa-solid fa-gauge-high"></i> <span>Dashboard</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="checkin.html"><i class="fa-solid fa-bell-concierge"></i> <span>Front Desk Check-In</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="checkout.html"><i class="fa-solid fa-receipt"></i> <span>Check-Out & Folio</span></a>
+        </li>
+        <li class="admin-nav-item active">
+          <a href="bookings.html"><i class="fa-solid fa-calendar-check"></i> <span>Bookings Master</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">PROPERTY & INVENTORY</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="hotels.html"><i class="fa-solid fa-hotel"></i> <span>Hotels & Palaces</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="rooms.html"><i class="fa-solid fa-door-open"></i> <span>Rooms Management</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="services.html"><i class="fa-solid fa-spa"></i> <span>Services & Orders</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="restaurants.html"><i class="fa-solid fa-utensils"></i> <span>Restaurants</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="menu.html"><i class="fa-solid fa-book-open"></i> <span>Menu Items</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">ACCOUNTS & GUESTS</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="customers.html"><i class="fa-solid fa-users"></i> <span>Customer CRM</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="payments.html"><i class="fa-solid fa-credit-card"></i> <span>Payments Ledger</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="staff.html"><i class="fa-solid fa-user-tie"></i> <span>Staff Directory</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="offers.html"><i class="fa-solid fa-tags"></i> <span>Offers & Packages</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="reviews.html"><i class="fa-solid fa-star"></i> <span>Guest Reviews</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="reports.html"><i class="fa-solid fa-chart-line"></i> <span>Reports & Exports</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">COLLEGE VIVA & SYSTEM</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="demo-presentation.html">
+            <i class="fa-solid fa-graduation-cap text-gold"></i> 
+            <span>Demo Dashboard</span>
+            <span class="admin-badge-viva">Viva</span>
+          </a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="settings.html"><i class="fa-solid fa-sliders"></i> <span>Settings & Reset</span></a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> <span>Sign Out</span></a>
+        </li>
+      </ul>
+
+    </div>
+
+  </aside>
+
+  <!-- Main Administrative Container -->
+  <div class="admin-main-wrapper">
+    
+    <!-- Top Administrative Header -->
+    <header class="admin-top-header">
+      <div class="admin-header-left">
+        <h1 class="admin-page-title">Administration Control Center</h1>
+        <span class="badge badge-info" style="font-size: 0.7rem;">
+          <i class="fa-solid fa-database"></i> DB: SQLITE        </span>
+      </div>
+
+      <div class="admin-header-right">
+        <div class="admin-time-badge">
+          <i class="fa-regular fa-clock text-gold"></i>
+          <span id="adminLiveClock">--:--:--</span>
+        </div>
+
+        <a href="../index.html" target="_blank" class="btn-action-icon" title="Preview Public Luxury Website">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+        <div class="admin-user-menu">
+          <div class="admin-avatar">
+            R          </div>
+          <div class="admin-user-info">
+            <span class="admin-user-name">Ranvijay Singh Rathore</span>
+            <span class="admin-user-role">General Manager &amp; Director</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Flash Alerts -->
+    
+    
+    <!-- Body Container -->
+    <main class="admin-content-body">
+
+<div class="admin-card">
+  <div class="admin-card-header">
+    <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+      <h3 class="admin-card-title"><i class="fa-solid fa-calendar-check text-gold"></i> Master Bookings (16 Records)</h3>
+      
+      <!-- Filters -->
+      <form method="GET" action="bookings.php" style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
+        <select name="hotel_id" onchange="this.form.submit()" style="padding: 0.45rem 0.7rem; border-radius: 4px; border: 1px solid var(--admin-border); font-size: 0.82rem;">
+          <option value="">All Palaces</option>
+                      <option value="2" >
+              The Roma Palace Goa            </option>
+                      <option value="1" >
+              The Roma Palace Jaipur            </option>
+                      <option value="4" >
+              The Roma Palace Lucknow            </option>
+                      <option value="3" >
+              The Roma Palace Udaipur            </option>
+                  </select>
+
+        <select name="status" onchange="this.form.submit()" style="padding: 0.45rem 0.7rem; border-radius: 4px; border: 1px solid var(--admin-border); font-size: 0.82rem;">
+          <option value="">All Statuses</option>
+          <option value="Confirmed" >Confirmed</option>
+          <option value="Checked-In" >Checked-In</option>
+          <option value="Completed" >Completed</option>
+          <option value="Cancelled" >Cancelled</option>
+        </select>
+
+        <select name="payment" onchange="this.form.submit()" style="padding: 0.45rem 0.7rem; border-radius: 4px; border: 1px solid var(--admin-border); font-size: 0.82rem;">
+          <option value="">All Payments</option>
+          <option value="Paid" >Paid</option>
+          <option value="Pending" >Pending</option>
+          <option value="Refunded" >Refunded</option>
+        </select>
+
+              </form>
+    </div>
+
+    <div class="admin-actions-bar">
+      <div class="search-input-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search ref, guest, phone..." data-table-search="bookingsMasterTable">
+      </div>
+      <a href="../booking.html" target="_blank" class="admin-btn-primary">
+        <i class="fa-solid fa-plus"></i> New Reservation
+      </a>
+    </div>
+  </div>
+
+  <div class="admin-table-responsive">
+    <table class="admin-table" id="bookingsMasterTable">
+      <thead>
+        <tr>
+          <th>Booking Ref</th>
+          <th>Guest Details</th>
+          <th>Property & Room</th>
+          <th>Stay Dates</th>
+          <th>Financials</th>
+          <th>Payment</th>
+          <th>Status</th>
+          <th>Reception Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+                  <tr>
+            <td>
+              <strong style="font-size: 0.95rem;">RP-2026-76962</strong><br>
+              <small style="color: var(--admin-text-muted);">18 Aug 2026, 05:21 PM</small>
+            </td>
+            <td>
+              <strong>priyanshu jaiswal</strong><br>
+              <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> 8979677687</small><br>
+              <small style="color: var(--color-gold-dark); font-weight: 600;">Passport</small>
+            </td>
+            <td>
+              <strong>The Roma Palace Jaipur</strong><br>
+              <span style="font-size: 0.82rem; color: var(--admin-text-muted);">Royal Suite (Rm JP-302)</span>
+            </td>
+            <td>
+              <strong>19 Aug 2026</strong><br>
+              <small style="color: var(--admin-text-muted);">to 20 Aug 2026</small>
+            </td>
+            <td>
+              <strong style="font-size: 1rem; color: var(--admin-primary);">₹106,613</strong><br>
+              <small style="color: var(--admin-text-muted);">Tax: ₹16,263</small>
+            </td>
+            <td>
+              <span class="badge badge-success">
+                Paid              </span><br>
+              <small style="font-size: 0.72rem; color: var(--admin-text-muted);">Net Banking</small>
+            </td>
+            <td>
+              <span class="badge badge-success">CONFIRMED</span>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <a href="../confirmation.html?ref=RP-2026-76962" target="_blank" class="btn-action-icon" title="View / Print Tax Invoice">
+                  <i class="fa-solid fa-file-invoice"></i>
+                </a>
+
+                                  <a href="checkin.html?booking_id=16" class="btn-action-icon" title="Perform Check-In" style="color: #03543F;">
+                    <i class="fa-solid fa-bell-concierge"></i>
+                  </a>
+                  <form method="POST" action="bookings.php" onsubmit="return confirm('Cancel reservation RP-2026-76962?');" style="display: inline;">
+                    <input type="hidden" name="action" value="cancel_booking">
+                    <input type="hidden" name="booking_id" value="16">
+                    <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Cancel Reservation">
+                      <i class="fa-solid fa-ban"></i>
+                    </button>
+                  </form>
+                              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong style="font-size: 0.95rem;">RP-2026-0811</strong><br>
+              <small style="color: var(--admin-text-muted);">15 Aug 2026, 06:45 PM</small>
+            </td>
+            <td>
+              <strong>Devendra Rathore</strong><br>
+              <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 97110 00112</small><br>
+              <small style="color: var(--color-gold-dark); font-weight: 600;">Passport</small>
+            </td>
+            <td>
+              <strong>The Roma Palace Udaipur</strong><br>
+              <span style="font-size: 0.82rem; color: var(--admin-text-muted);">Executive Room (Rm UD-202)</span>
+            </td>
+            <td>
+              <strong>24 Aug 2026</strong><br>
+              <small style="color: var(--admin-text-muted);">to 27 Aug 2026</small>
+            </td>
+            <td>
+              <strong style="font-size: 1rem; color: var(--admin-primary);">₹182,900</strong><br>
+              <small style="color: var(--admin-text-muted);">Tax: ₹27,900</small>
+            </td>
+            <td>
+              <span class="badge badge-success">
+                Paid              </span><br>
+              <small style="font-size: 0.72rem; color: var(--admin-text-muted);">Credit Card</small>
+            </td>
+            <td>
+              <span class="badge badge-success">CONFIRMED</span>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <a href="../confirmation.html?ref=RP-2026-0811" target="_blank" class="btn-action-icon" title="View / Print Tax Invoice">
+                  <i class="fa-solid fa-file-invoice"></i>
+                </a>
+
+                                  <a href="checkin.html?booking_id=15" class="btn-action-icon" title="Perform Check-In" style="color: #03543F;">
+                    <i class="fa-solid fa-bell-concierge"></i>
+                  </a>
+                  <form method="POST" action="bookings.php" onsubmit="return confirm('Cancel reservation RP-2026-0811?');" style="display: inline;">
+                    <input type="hidden" name="action" value="cancel_booking">
+                    <input type="hidden" name="booking_id" value="15">
+                    <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Cancel Reservation">
+                      <i class="fa-solid fa-ban"></i>
+                    </button>
+                  </form>
+                              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong style="font-size: 0.95rem;">RP-2026-0810</strong><br>
+              <small style="color: var(--admin-text-muted);">28 Jul 2026, 10:00 AM</small>
+            </td>
+            <td>
+              <strong>Deepak Gupta</strong><br>
+              <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 94250 33445</small><br>
+              <small style="color: var(--color-gold-dark); font-weight: 600;">Driving License</small>
+            </td>
+            <td>
+              <strong>The Roma Palace Goa</strong><br>
+              <span style="font-size: 0.82rem; color: var(--admin-text-muted);">Deluxe Room (Rm GA-102)</span>
+            </td>
+            <td>
+              <strong>01 Aug 2026</strong><br>
+              <small style="color: var(--admin-text-muted);">to 03 Aug 2026</small>
+            </td>
+            <td>
+              <strong style="font-size: 1rem; color: var(--admin-primary);">₹56,050</strong><br>
+              <small style="color: var(--admin-text-muted);">Tax: ₹8,550</small>
+            </td>
+            <td>
+              <span class="badge badge-danger">
+                Refunded              </span><br>
+              <small style="font-size: 0.72rem; color: var(--admin-text-muted);">UPI</small>
+            </td>
+            <td>
+              <span class="badge badge-danger">CANCELLED</span>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <a href="../confirmation.html?ref=RP-2026-0810" target="_blank" class="btn-action-icon" title="View / Print Tax Invoice">
+                  <i class="fa-solid fa-file-invoice"></i>
+                </a>
+
+                              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong style="font-size: 0.95rem;">RP-2026-0809</strong><br>
+              <small style="color: var(--admin-text-muted);">16 Aug 2026, 01:00 PM</small>
+            </td>
+            <td>
+              <strong>Tanya Bhatia</strong><br>
+              <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 98140 66778</small><br>
+              <small style="color: var(--color-gold-dark); font-weight: 600;">Aadhaar Card</small>
+            </td>
+            <td>
+              <strong>The Roma Palace Jaipur</strong><br>
+              <span style="font-size: 0.82rem; color: var(--admin-text-muted);">Royal Suite (Rm JP-302)</span>
+            </td>
+            <td>
+              <strong>30 Aug 2026</strong><br>
+              <small style="color: var(--admin-text-muted);">to 02 Sep 2026</small>
+            </td>
+            <td>
+              <strong style="font-size: 1rem; color: var(--admin-primary);">₹270,220</strong><br>
+              <small style="color: var(--admin-text-muted);">Tax: ₹41,220</small>
+            </td>
+            <td>
+              <span class="badge badge-success">
+                Paid              </span><br>
+              <small style="font-size: 0.72rem; color: var(--admin-text-muted);">Credit Card</small>
+            </td>
+            <td>
+              <span class="badge badge-success">CONFIRMED</span>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <a href="../confirmation.html?ref=RP-2026-0809" target="_blank" class="btn-action-icon" title="View / Print Tax Invoice">
+                  <i class="fa-solid fa-file-invoice"></i>
+                </a>
+
+                                  <a href="checkin.html?booking_id=13" class="btn-action-icon" title="Perform Check-In" style="color: #03543F;">
+                    <i class="fa-solid fa-bell-concierge"></i>
+                  </a>
+                  <form method="POST" action="bookings.php" onsubmit="return confirm('Cancel reservation RP-2026-0809?');" style="display: inline;">
+                    <input type="hidden" name="action" value="cancel_booking">
+                    <input type="hidden" name="booking_id" value="13">
+                    <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Cancel Reservation">
+                      <i class="fa-solid fa-ban"></i>
+                    </button>
+                  </form>
+                              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong style="font-size: 0.95rem;">RP-2026-0704</strong><br>
+              <small style="color: var(--admin-text-muted);">18 Jul 2026, 07:20 PM</small>
+            </td>
+            <td>
+              <strong>Aditya Kapoor</strong><br>
+              <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 98100 99887</small><br>
+              <small style="color: var(--color-gold-dark); font-weight: 600;">Passport</small>
+            </td>
+            <td>
+              <strong>The Roma Palace Lucknow</strong><br>
+              <span style="font-size: 0.82rem; color: var(--admin-text-muted);">Luxury Suite (Rm LK-301)</span>
+            </td>
+            <td>
+              <strong>25 Jul 2026</strong><br>
+              <small style="color: var(--admin-text-muted);">to 27 Jul 2026</small>
+            </td>
+            <td>
+              <strong style="font-size: 1rem; color: var(--admin-primary);">₹110,330</strong><br>
+              <small style="color: var(--admin-text-muted);">Tax: ₹16,830</small>
+            </td>
+            <td>
+              <span class="badge badge-success">
+                Paid              </span><br>
+              <small style="font-size: 0.72rem; color: var(--admin-text-muted);">Net Banking</small>
+            </td>
+            <td>
+              <span class="badge badge-secondary">COMPLETED</span>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <a href="../confirmation.html?ref=RP-2026-0704" target="_blank" class="btn-action-icon" title="View / Print Tax Invoice">
+                  <i class="fa-solid fa-file-invoice"></i>
+                </a>
+
+                              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong style="font-size: 0.95rem;">RP-2026-0703</strong><br>
+              <small style="color: var(--admin-text-muted);">12 Jul 2026, 11:15 AM</small>
+            </td>
+            <td>
+              <strong>Meera Iyer</strong><br>
+              <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 98400 11224</small><br>
+              <small style="color: var(--color-gold-dark); font-weight: 600;">Aadhaar Card</small>
+            </td>
+            <td>
+              <strong>The Roma Palace Udaipur</strong><br>
+              <span style="font-size: 0.82rem; color: var(--admin-text-muted);">Deluxe Room (Rm UD-101)</span>
+            </td>
+            <td>
+              <strong>20 Jul 2026</strong><br>
+              <small style="color: var(--admin-text-muted);">to 22 Jul 2026</small>
+            </td>
+            <td>
+              <strong style="font-size: 1rem; color: var(--admin-primary);">₹72,570</strong><br>
+              <small style="color: var(--admin-text-muted);">Tax: ₹11,070</small>
+            </td>
+            <td>
+              <span class="badge badge-success">
+                Paid              </span><br>
+              <small style="font-size: 0.72rem; color: var(--admin-text-muted);">UPI</small>
+            </td>
+            <td>
+              <span class="badge badge-secondary">COMPLETED</span>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <a href="../confirmation.html?ref=RP-2026-0703" target="_blank" class="btn-action-icon" title="View / Print Tax Invoice">
+                  <i class="fa-solid fa-file-invoice"></i>
+                </a>
+
+                              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong style="font-size: 0.95rem;">RP-2026-0702</strong><br>
+              <small style="color: var(--admin-text-muted);">05 Jul 2026, 03:40 PM</small>
+            </td>
+            <td>
+              <strong>Siddharth Roy</strong><br>
+              <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 98300 88990</small><br>
+              <small style="color: var(--color-gold-dark); font-weight: 600;">Passport</small>
+            </td>
+            <td>
+              <strong>The Roma Palace Goa</strong><br>
+              <span style="font-size: 0.82rem; color: var(--admin-text-muted);">Luxury Suite (Rm GA-301)</span>
+            </td>
+            <td>
+              <strong>15 Jul 2026</strong><br>
+              <small style="color: var(--admin-text-muted);">to 18 Jul 2026</small>
+            </td>
+            <td>
+              <strong style="font-size: 1rem; color: var(--admin-primary);">₹220,660</strong><br>
+              <small style="color: var(--admin-text-muted);">Tax: ₹33,660</small>
+            </td>
+            <td>
+              <span class="badge badge-success">
+                Paid              </span><br>
+              <small style="font-size: 0.72rem; color: var(--admin-text-muted);">Credit Card</small>
+            </td>
+            <td>
+              <span class="badge badge-secondary">COMPLETED</span>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <a href="../confirmation.html?ref=RP-2026-0702" target="_blank" class="btn-action-icon" title="View / Print Tax Invoice">
+                  <i class="fa-solid fa-file-invoice"></i>
+                </a>
+
+                              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong style="font-size: 0.95rem;">RP-2026-0701</strong><br>
+              <small style="color: var(--admin-text-muted);">01 Jul 2026, 08:30 AM</small>
+            </td>
+            <td>
+              <strong>Kavita Patel</strong><br>
+              <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 98250 77889</small><br>
+              <small style="color: var(--color-gold-dark); font-weight: 600;">Aadhaar Card</small>
+            </td>
+            <td>
+              <strong>The Roma Palace Jaipur</strong><br>
+              <span style="font-size: 0.82rem; color: var(--admin-text-muted);">Executive Room (Rm JP-202)</span>
+            </td>
+            <td>
+              <strong>10 Jul 2026</strong><br>
+              <small style="color: var(--admin-text-muted);">to 13 Jul 2026</small>
+            </td>
+            <td>
+              <strong style="font-size: 1rem; color: var(--admin-primary);">₹106,318</strong><br>
+              <small style="color: var(--admin-text-muted);">Tax: ₹16,218</small>
+            </td>
+            <td>
+              <span class="badge badge-success">
+                Paid              </span><br>
+              <small style="font-size: 0.72rem; color: var(--admin-text-muted);">Credit Card</small>
+            </td>
+            <td>
+              <span class="badge badge-secondary">COMPLETED</span>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <a href="../confirmation.html?ref=RP-2026-0701" target="_blank" class="btn-action-icon" title="View / Print Tax Invoice">
+                  <i class="fa-solid fa-file-invoice"></i>
+                </a>
+
+                              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong style="font-size: 0.95rem;">RP-2026-0808</strong><br>
+              <small style="color: var(--admin-text-muted);">15 Aug 2026, 10:05 AM</small>
+            </td>
+            <td>
+              <strong>Rohit Verma</strong><br>
+              <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 99350 44556</small><br>
+              <small style="color: var(--color-gold-dark); font-weight: 600;">Voter ID</small>
+            </td>
+            <td>
+              <strong>The Roma Palace Lucknow</strong><br>
+              <span style="font-size: 0.82rem; color: var(--admin-text-muted);">Premium Room (Rm LK-201)</span>
+            </td>
+            <td>
+              <strong>28 Aug 2026</strong><br>
+              <small style="color: var(--admin-text-muted);">to 30 Aug 2026</small>
+            </td>
+            <td>
+              <strong style="font-size: 1rem; color: var(--admin-primary);">₹48,852</strong><br>
+              <small style="color: var(--admin-text-muted);">Tax: ₹7,452</small>
+            </td>
+            <td>
+              <span class="badge badge-success">
+                Paid              </span><br>
+              <small style="font-size: 0.72rem; color: var(--admin-text-muted);">Debit Card</small>
+            </td>
+            <td>
+              <span class="badge badge-success">CONFIRMED</span>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <a href="../confirmation.html?ref=RP-2026-0808" target="_blank" class="btn-action-icon" title="View / Print Tax Invoice">
+                  <i class="fa-solid fa-file-invoice"></i>
+                </a>
+
+                                  <a href="checkin.html?booking_id=8" class="btn-action-icon" title="Perform Check-In" style="color: #03543F;">
+                    <i class="fa-solid fa-bell-concierge"></i>
+                  </a>
+                  <form method="POST" action="bookings.php" onsubmit="return confirm('Cancel reservation RP-2026-0808?');" style="display: inline;">
+                    <input type="hidden" name="action" value="cancel_booking">
+                    <input type="hidden" name="booking_id" value="8">
+                    <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Cancel Reservation">
+                      <i class="fa-solid fa-ban"></i>
+                    </button>
+                  </form>
+                              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong style="font-size: 0.95rem;">RP-2026-0807</strong><br>
+              <small style="color: var(--admin-text-muted);">02 Aug 2026, 12:10 PM</small>
+            </td>
+            <td>
+              <strong>Sneha Reddy</strong><br>
+              <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 98480 55667</small><br>
+              <small style="color: var(--color-gold-dark); font-weight: 600;">PAN Card</small>
+            </td>
+            <td>
+              <strong>The Roma Palace Udaipur</strong><br>
+              <span style="font-size: 0.82rem; color: var(--admin-text-muted);">Luxury Suite (Rm UD-301)</span>
+            </td>
+            <td>
+              <strong>16 Aug 2026</strong><br>
+              <small style="color: var(--admin-text-muted);">to 19 Aug 2026</small>
+            </td>
+            <td>
+              <strong style="font-size: 1rem; color: var(--admin-primary);">₹272,580</strong><br>
+              <small style="color: var(--admin-text-muted);">Tax: ₹41,580</small>
+            </td>
+            <td>
+              <span class="badge badge-success">
+                Paid              </span><br>
+              <small style="font-size: 0.72rem; color: var(--admin-text-muted);">Net Banking</small>
+            </td>
+            <td>
+              <span class="badge badge-info">CHECKED-IN</span>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <a href="../confirmation.html?ref=RP-2026-0807" target="_blank" class="btn-action-icon" title="View / Print Tax Invoice">
+                  <i class="fa-solid fa-file-invoice"></i>
+                </a>
+
+                                  <a href="checkout.html?booking_id=7" class="btn-action-icon" title="Perform Check-Out" style="color: #9B1C1C;">
+                    <i class="fa-solid fa-receipt"></i>
+                  </a>
+                              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong style="font-size: 0.95rem;">RP-2026-0806</strong><br>
+              <small style="color: var(--admin-text-muted);">08 Aug 2026, 05:30 PM</small>
+            </td>
+            <td>
+              <strong>Vikram Mehta</strong><br>
+              <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 98791 22334</small><br>
+              <small style="color: var(--color-gold-dark); font-weight: 600;">Aadhaar Card</small>
+            </td>
+            <td>
+              <strong>The Roma Palace Goa</strong><br>
+              <span style="font-size: 0.82rem; color: var(--admin-text-muted);">Premium Room (Rm GA-201)</span>
+            </td>
+            <td>
+              <strong>18 Aug 2026</strong><br>
+              <small style="color: var(--admin-text-muted);">to 22 Aug 2026</small>
+            </td>
+            <td>
+              <strong style="font-size: 1rem; color: var(--admin-primary);">₹151,040</strong><br>
+              <small style="color: var(--admin-text-muted);">Tax: ₹23,040</small>
+            </td>
+            <td>
+              <span class="badge badge-success">
+                Paid              </span><br>
+              <small style="font-size: 0.72rem; color: var(--admin-text-muted);">Credit Card</small>
+            </td>
+            <td>
+              <span class="badge badge-info">CHECKED-IN</span>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <a href="../confirmation.html?ref=RP-2026-0806" target="_blank" class="btn-action-icon" title="View / Print Tax Invoice">
+                  <i class="fa-solid fa-file-invoice"></i>
+                </a>
+
+                                  <a href="checkout.html?booking_id=6" class="btn-action-icon" title="Perform Check-Out" style="color: #9B1C1C;">
+                    <i class="fa-solid fa-receipt"></i>
+                  </a>
+                              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong style="font-size: 0.95rem;">RP-2026-0805</strong><br>
+              <small style="color: var(--admin-text-muted);">14 Aug 2026, 04:00 PM</small>
+            </td>
+            <td>
+              <strong>Ananya Deshmukh</strong><br>
+              <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 97654 33221</small><br>
+              <small style="color: var(--color-gold-dark); font-weight: 600;">Passport</small>
+            </td>
+            <td>
+              <strong>The Roma Palace Lucknow</strong><br>
+              <span style="font-size: 0.82rem; color: var(--admin-text-muted);">Deluxe Room (Rm LK-101)</span>
+            </td>
+            <td>
+              <strong>25 Aug 2026</strong><br>
+              <small style="color: var(--admin-text-muted);">to 28 Aug 2026</small>
+            </td>
+            <td>
+              <strong style="font-size: 1rem; color: var(--admin-primary);">₹48,380</strong><br>
+              <small style="color: var(--admin-text-muted);">Tax: ₹7,380</small>
+            </td>
+            <td>
+              <span class="badge badge-warning">
+                Pending              </span><br>
+              <small style="font-size: 0.72rem; color: var(--admin-text-muted);">Cash at Hotel</small>
+            </td>
+            <td>
+              <span class="badge badge-success">CONFIRMED</span>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <a href="../confirmation.html?ref=RP-2026-0805" target="_blank" class="btn-action-icon" title="View / Print Tax Invoice">
+                  <i class="fa-solid fa-file-invoice"></i>
+                </a>
+
+                                  <a href="checkin.html?booking_id=5" class="btn-action-icon" title="Perform Check-In" style="color: #03543F;">
+                    <i class="fa-solid fa-bell-concierge"></i>
+                  </a>
+                  <form method="POST" action="bookings.php" onsubmit="return confirm('Cancel reservation RP-2026-0805?');" style="display: inline;">
+                    <input type="hidden" name="action" value="cancel_booking">
+                    <input type="hidden" name="booking_id" value="5">
+                    <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Cancel Reservation">
+                      <i class="fa-solid fa-ban"></i>
+                    </button>
+                  </form>
+                              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong style="font-size: 0.95rem;">RP-2026-0804</strong><br>
+              <small style="color: var(--admin-text-muted);">12 Aug 2026, 09:45 AM</small>
+            </td>
+            <td>
+              <strong>Arjun Singh Shekhawat</strong><br>
+              <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 94140 11223</small><br>
+              <small style="color: var(--color-gold-dark); font-weight: 600;">Driving License</small>
+            </td>
+            <td>
+              <strong>The Roma Palace Jaipur</strong><br>
+              <span style="font-size: 0.82rem; color: var(--admin-text-muted);">Premium Room (Rm JP-201)</span>
+            </td>
+            <td>
+              <strong>17 Aug 2026</strong><br>
+              <small style="color: var(--admin-text-muted);">to 19 Aug 2026</small>
+            </td>
+            <td>
+              <strong style="font-size: 1rem; color: var(--admin-primary);">₹61,006</strong><br>
+              <small style="color: var(--admin-text-muted);">Tax: ₹9,306</small>
+            </td>
+            <td>
+              <span class="badge badge-success">
+                Paid              </span><br>
+              <small style="font-size: 0.72rem; color: var(--admin-text-muted);">UPI</small>
+            </td>
+            <td>
+              <span class="badge badge-info">CHECKED-IN</span>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <a href="../confirmation.html?ref=RP-2026-0804" target="_blank" class="btn-action-icon" title="View / Print Tax Invoice">
+                  <i class="fa-solid fa-file-invoice"></i>
+                </a>
+
+                                  <a href="checkout.html?booking_id=4" class="btn-action-icon" title="Perform Check-Out" style="color: #9B1C1C;">
+                    <i class="fa-solid fa-receipt"></i>
+                  </a>
+                              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong style="font-size: 0.95rem;">RP-2026-0803</strong><br>
+              <small style="color: var(--admin-text-muted);">05 Aug 2026, 11:20 AM</small>
+            </td>
+            <td>
+              <strong>Priya Nair</strong><br>
+              <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 94470 98765</small><br>
+              <small style="color: var(--color-gold-dark); font-weight: 600;">Aadhaar Card</small>
+            </td>
+            <td>
+              <strong>The Roma Palace Udaipur</strong><br>
+              <span style="font-size: 0.82rem; color: var(--admin-text-muted);">Premium Room (Rm UD-102)</span>
+            </td>
+            <td>
+              <strong>18 Aug 2026</strong><br>
+              <small style="color: var(--admin-text-muted);">to 21 Aug 2026</small>
+            </td>
+            <td>
+              <strong style="font-size: 1rem; color: var(--admin-primary);">₹131,180</strong><br>
+              <small style="color: var(--admin-text-muted);">Tax: ₹19,980</small>
+            </td>
+            <td>
+              <span class="badge badge-success">
+                Paid              </span><br>
+              <small style="font-size: 0.72rem; color: var(--admin-text-muted);">Net Banking</small>
+            </td>
+            <td>
+              <span class="badge badge-info">CHECKED-IN</span>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <a href="../confirmation.html?ref=RP-2026-0803" target="_blank" class="btn-action-icon" title="View / Print Tax Invoice">
+                  <i class="fa-solid fa-file-invoice"></i>
+                </a>
+
+                                  <a href="checkout.html?booking_id=3" class="btn-action-icon" title="Perform Check-Out" style="color: #9B1C1C;">
+                    <i class="fa-solid fa-receipt"></i>
+                  </a>
+                              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong style="font-size: 0.95rem;">RP-2026-0802</strong><br>
+              <small style="color: var(--admin-text-muted);">11 Aug 2026, 02:15 PM</small>
+            </td>
+            <td>
+              <strong>Rajesh Sharma</strong><br>
+              <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 98201 23456</small><br>
+              <small style="color: var(--color-gold-dark); font-weight: 600;">Passport</small>
+            </td>
+            <td>
+              <strong>The Roma Palace Goa</strong><br>
+              <span style="font-size: 0.82rem; color: var(--admin-text-muted);">Deluxe Room (Rm GA-101)</span>
+            </td>
+            <td>
+              <strong>22 Aug 2026</strong><br>
+              <small style="color: var(--admin-text-muted);">to 26 Aug 2026</small>
+            </td>
+            <td>
+              <strong style="font-size: 1rem; color: var(--admin-primary);">₹112,100</strong><br>
+              <small style="color: var(--admin-text-muted);">Tax: ₹17,100</small>
+            </td>
+            <td>
+              <span class="badge badge-success">
+                Paid              </span><br>
+              <small style="font-size: 0.72rem; color: var(--admin-text-muted);">Credit Card</small>
+            </td>
+            <td>
+              <span class="badge badge-success">CONFIRMED</span>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <a href="../confirmation.html?ref=RP-2026-0802" target="_blank" class="btn-action-icon" title="View / Print Tax Invoice">
+                  <i class="fa-solid fa-file-invoice"></i>
+                </a>
+
+                                  <a href="checkin.html?booking_id=2" class="btn-action-icon" title="Perform Check-In" style="color: #03543F;">
+                    <i class="fa-solid fa-bell-concierge"></i>
+                  </a>
+                  <form method="POST" action="bookings.php" onsubmit="return confirm('Cancel reservation RP-2026-0802?');" style="display: inline;">
+                    <input type="hidden" name="action" value="cancel_booking">
+                    <input type="hidden" name="booking_id" value="2">
+                    <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Cancel Reservation">
+                      <i class="fa-solid fa-ban"></i>
+                    </button>
+                  </form>
+                              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong style="font-size: 0.95rem;">RP-2026-0801</strong><br>
+              <small style="color: var(--admin-text-muted);">10 Aug 2026, 10:30 AM</small>
+            </td>
+            <td>
+              <strong>Rohan Malhotra</strong><br>
+              <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 98110 54321</small><br>
+              <small style="color: var(--color-gold-dark); font-weight: 600;">Aadhaar Card</small>
+            </td>
+            <td>
+              <strong>The Roma Palace Jaipur</strong><br>
+              <span style="font-size: 0.82rem; color: var(--admin-text-muted);">Deluxe Room (Rm JP-101)</span>
+            </td>
+            <td>
+              <strong>20 Aug 2026</strong><br>
+              <small style="color: var(--admin-text-muted);">to 23 Aug 2026</small>
+            </td>
+            <td>
+              <strong style="font-size: 1rem; color: var(--admin-primary);">₹65,254</strong><br>
+              <small style="color: var(--admin-text-muted);">Tax: ₹9,954</small>
+            </td>
+            <td>
+              <span class="badge badge-success">
+                Paid              </span><br>
+              <small style="font-size: 0.72rem; color: var(--admin-text-muted);">UPI</small>
+            </td>
+            <td>
+              <span class="badge badge-success">CONFIRMED</span>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <a href="../confirmation.html?ref=RP-2026-0801" target="_blank" class="btn-action-icon" title="View / Print Tax Invoice">
+                  <i class="fa-solid fa-file-invoice"></i>
+                </a>
+
+                                  <a href="checkin.html?booking_id=1" class="btn-action-icon" title="Perform Check-In" style="color: #03543F;">
+                    <i class="fa-solid fa-bell-concierge"></i>
+                  </a>
+                  <form method="POST" action="bookings.php" onsubmit="return confirm('Cancel reservation RP-2026-0801?');" style="display: inline;">
+                    <input type="hidden" name="action" value="cancel_booking">
+                    <input type="hidden" name="booking_id" value="1">
+                    <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Cancel Reservation">
+                      <i class="fa-solid fa-ban"></i>
+                    </button>
+                  </form>
+                              </div>
+            </td>
+          </tr>
+              </tbody>
+    </table>
+  </div>
+</div>
+
+    </main>
+
+    <!-- Admin Bottom Bar -->
+    <footer style="padding: 1.5rem 2rem; background: #FFFFFF; border-top: 1px solid var(--admin-border); font-size: 0.8rem; color: var(--admin-text-muted); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+      <div>
+        <strong>The Roma Palace Hotel Management System</strong> &bull; BTech CSE DBMS Mini Project
+      </div>
+      <div>
+        <a href="demo-presentation.html" style="color: var(--admin-gold-dark); font-weight: 700; text-decoration: underline; margin-right: 15px;">
+          <i class="fa-solid fa-graduation-cap"></i> Project Demo & Viva Mode
+        </a>
+        <span>System Version 2.4 (Enterprise Edition)</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Admin Scripts -->
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

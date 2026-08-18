@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Control Center | The Roma Palace</title>
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Admin Design System -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- Left Executive Sidebar -->
+  <aside class="admin-sidebar">
+    
+    <!-- Brand -->
+    <a href="dashboard.html" class="admin-brand" style="text-decoration: none;">
+      <div class="rp-monogram">
+        <span>RP</span>
+      </div>
+      <div class="admin-brand-text">
+        <h2>THE ROMA PALACE</h2>
+        <span>ADMINISTRATION</span>
+      </div>
+    </a>
+
+    <!-- Nav List -->
+    <div class="admin-nav-section">
+      
+      <div class="admin-nav-title">CORE OPERATIONS</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="dashboard.html"><i class="fa-solid fa-gauge-high"></i> <span>Dashboard</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="checkin.html"><i class="fa-solid fa-bell-concierge"></i> <span>Front Desk Check-In</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="checkout.html"><i class="fa-solid fa-receipt"></i> <span>Check-Out & Folio</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="bookings.html"><i class="fa-solid fa-calendar-check"></i> <span>Bookings Master</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">PROPERTY & INVENTORY</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="hotels.html"><i class="fa-solid fa-hotel"></i> <span>Hotels & Palaces</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="rooms.html"><i class="fa-solid fa-door-open"></i> <span>Rooms Management</span></a>
+        </li>
+        <li class="admin-nav-item active">
+          <a href="services.html"><i class="fa-solid fa-spa"></i> <span>Services & Orders</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="restaurants.html"><i class="fa-solid fa-utensils"></i> <span>Restaurants</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="menu.html"><i class="fa-solid fa-book-open"></i> <span>Menu Items</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">ACCOUNTS & GUESTS</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="customers.html"><i class="fa-solid fa-users"></i> <span>Customer CRM</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="payments.html"><i class="fa-solid fa-credit-card"></i> <span>Payments Ledger</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="staff.html"><i class="fa-solid fa-user-tie"></i> <span>Staff Directory</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="offers.html"><i class="fa-solid fa-tags"></i> <span>Offers & Packages</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="reviews.html"><i class="fa-solid fa-star"></i> <span>Guest Reviews</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="reports.html"><i class="fa-solid fa-chart-line"></i> <span>Reports & Exports</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">COLLEGE VIVA & SYSTEM</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="demo-presentation.html">
+            <i class="fa-solid fa-graduation-cap text-gold"></i> 
+            <span>Demo Dashboard</span>
+            <span class="admin-badge-viva">Viva</span>
+          </a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="settings.html"><i class="fa-solid fa-sliders"></i> <span>Settings & Reset</span></a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> <span>Sign Out</span></a>
+        </li>
+      </ul>
+
+    </div>
+
+  </aside>
+
+  <!-- Main Administrative Container -->
+  <div class="admin-main-wrapper">
+    
+    <!-- Top Administrative Header -->
+    <header class="admin-top-header">
+      <div class="admin-header-left">
+        <h1 class="admin-page-title">Administration Control Center</h1>
+        <span class="badge badge-info" style="font-size: 0.7rem;">
+          <i class="fa-solid fa-database"></i> DB: SQLITE        </span>
+      </div>
+
+      <div class="admin-header-right">
+        <div class="admin-time-badge">
+          <i class="fa-regular fa-clock text-gold"></i>
+          <span id="adminLiveClock">--:--:--</span>
+        </div>
+
+        <a href="../index.html" target="_blank" class="btn-action-icon" title="Preview Public Luxury Website">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+        <div class="admin-user-menu">
+          <div class="admin-avatar">
+            R          </div>
+          <div class="admin-user-info">
+            <span class="admin-user-name">Ranvijay Singh Rathore</span>
+            <span class="admin-user-role">General Manager &amp; Director</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Flash Alerts -->
+    
+    
+    <!-- Body Container -->
+    <main class="admin-content-body">
+
+<!-- Section 1: In-Room Service Orders -->
+<div class="admin-card" id="orders">
+  <div class="admin-card-header">
+    <h3 class="admin-card-title"><i class="fa-solid fa-bell-concierge text-gold"></i> Live In-Room Guest Orders (0 Requests)</h3>
+    <div class="search-input-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Search orders..." data-table-search="serviceOrdersTable">
+    </div>
+  </div>
+
+  <div class="admin-table-responsive">
+    <table class="admin-table" id="serviceOrdersTable">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Room & Ref</th>
+          <th>Guest Details</th>
+          <th>Service Item</th>
+          <th>Qty & Bill</th>
+          <th>Instructions</th>
+          <th>Date</th>
+          <th>Order Status</th>
+        </tr>
+      </thead>
+      <tbody>
+                  <tr><td colspan="8" style="text-align: center; padding: 2rem; color: var(--admin-text-muted);">No in-room service orders currently placed.</td></tr>
+              </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Section 2: Services Catalog Management -->
+<div class="admin-card">
+  <div class="admin-card-header">
+    <h3 class="admin-card-title"><i class="fa-solid fa-spa text-gold"></i> Hotel Amenities & Experiences Catalog</h3>
+    <button type="button" class="admin-btn-primary" onclick="openServiceModal()">
+      <i class="fa-solid fa-plus"></i> Add New Service
+    </button>
+  </div>
+
+  <div class="admin-table-responsive">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Service Name</th>
+          <th>Category</th>
+          <th>Rate (INR)</th>
+          <th>Billing Unit</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+                  <tr>
+            <td>
+              <i class="fa-solid fa-utensils text-gold" style="margin-right: 6px;"></i>
+              <strong>Royal Gourmet Breakfast Buffet</strong>
+            </td>
+            <td><span class="badge badge-secondary">Dining</span></td>
+            <td><strong>₹1,850</strong></td>
+            <td><small>Per Guest / Per Day</small></td>
+            <td><small>Elaborate sunrise spread featuring international delicacies, Awadhi kebabs, and farm-fresh bakery items.</small></td>
+            <td><span class="badge badge-success">Available</span></td>
+            <td>
+              <form method="POST" action="services.php" onsubmit="return confirm('Delete service?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_service">
+                <input type="hidden" name="service_id" value="1">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Service">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <i class="fa-solid fa-champagne-glasses text-gold" style="margin-right: 6px;"></i>
+              <strong>Candlelight Royal Dining by the Lake</strong>
+            </td>
+            <td><span class="badge badge-secondary">Dining</span></td>
+            <td><strong>₹8,500</strong></td>
+            <td><small>Per Couple</small></td>
+            <td><small>Exclusive 5-course curated degustation menu with premium beverages in a private poolside or lake cabana.</small></td>
+            <td><span class="badge badge-success">Available</span></td>
+            <td>
+              <form method="POST" action="services.php" onsubmit="return confirm('Delete service?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_service">
+                <input type="hidden" name="service_id" value="4">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Service">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <i class="fa-solid fa-mug-saucer text-gold" style="margin-right: 6px;"></i>
+              <strong>Traditional Indian High Tea</strong>
+            </td>
+            <td><span class="badge badge-secondary">Dining</span></td>
+            <td><strong>₹1,950</strong></td>
+            <td><small>Per Couple</small></td>
+            <td><small>Afternoon royal tea service with artisanal teas, Darjeeling blends, silver tiers of savoury snacks and pastries.</small></td>
+            <td><span class="badge badge-success">Available</span></td>
+            <td>
+              <form method="POST" action="services.php" onsubmit="return confirm('Delete service?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_service">
+                <input type="hidden" name="service_id" value="9">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Service">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <i class="fa-solid fa-shirt text-gold" style="margin-right: 6px;"></i>
+              <strong>Express Garment Laundry &amp; Pressing</strong>
+            </td>
+            <td><span class="badge badge-secondary">Housekeeping</span></td>
+            <td><strong>₹1,200</strong></td>
+            <td><small>Per Laundry Bag</small></td>
+            <td><small>Same-day luxury laundry, delicate fabric dry cleaning, and hand-pressed garment service.</small></td>
+            <td><span class="badge badge-success">Available</span></td>
+            <td>
+              <form method="POST" action="services.php" onsubmit="return confirm('Delete service?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_service">
+                <input type="hidden" name="service_id" value="5">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Service">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <i class="fa-solid fa-landmark text-gold" style="margin-right: 6px;"></i>
+              <strong>Private Heritage Walking Tour</strong>
+            </td>
+            <td><span class="badge badge-secondary">Recreation</span></td>
+            <td><strong>₹2,500</strong></td>
+            <td><small>Per Group (up to 4)</small></td>
+            <td><small>Guided private historical exploration with palace historians uncovering royal architecture and legends.</small></td>
+            <td><span class="badge badge-success">Available</span></td>
+            <td>
+              <form method="POST" action="services.php" onsubmit="return confirm('Delete service?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_service">
+                <input type="hidden" name="service_id" value="7">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Service">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <i class="fa-solid fa-sailboat text-gold" style="margin-right: 6px;"></i>
+              <strong>Sunset Champagne Cruise</strong>
+            </td>
+            <td><span class="badge badge-secondary">Recreation</span></td>
+            <td><strong>₹6,500</strong></td>
+            <td><small>Per Couple</small></td>
+            <td><small>Private motorboat / yacht cruise across the lake with chilled bubbly, fresh canapes, and live flute music.</small></td>
+            <td><span class="badge badge-success">Available</span></td>
+            <td>
+              <form method="POST" action="services.php" onsubmit="return confirm('Delete service?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_service">
+                <input type="hidden" name="service_id" value="8">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Service">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <i class="fa-solid fa-hat-chef text-gold" style="margin-right: 6px;"></i>
+              <strong>Royal Chef Masterclass</strong>
+            </td>
+            <td><span class="badge badge-secondary">Recreation</span></td>
+            <td><strong>₹4,500</strong></td>
+            <td><small>Per Person</small></td>
+            <td><small>Interactive cooking session with the Executive Chef mastering royal Mughlai or coastal spice recipes.</small></td>
+            <td><span class="badge badge-success">Available</span></td>
+            <td>
+              <form method="POST" action="services.php" onsubmit="return confirm('Delete service?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_service">
+                <input type="hidden" name="service_id" value="12">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Service">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <i class="fa-solid fa-bed text-gold" style="margin-right: 6px;"></i>
+              <strong>Rollaway Luxury Extra Bed</strong>
+            </td>
+            <td><span class="badge badge-secondary">Special</span></td>
+            <td><strong>₹4,000</strong></td>
+            <td><small>Per Night</small></td>
+            <td><small>Premium orthopedic plush mattress with 500-thread-count Egyptian cotton linens and pillow menu.</small></td>
+            <td><span class="badge badge-success">Available</span></td>
+            <td>
+              <form method="POST" action="services.php" onsubmit="return confirm('Delete service?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_service">
+                <input type="hidden" name="service_id" value="6">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Service">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <i class="fa-solid fa-car-rear text-gold" style="margin-right: 6px;"></i>
+              <strong>Luxury Airport Chauffeur Transfer</strong>
+            </td>
+            <td><span class="badge badge-secondary">Transport</span></td>
+            <td><strong>₹3,500</strong></td>
+            <td><small>Per Vehicle / One Way</small></td>
+            <td><small>Private airport pickup and drop-off in a luxury Mercedes/BMW sedan with cold towels and refreshments.</small></td>
+            <td><span class="badge badge-success">Available</span></td>
+            <td>
+              <form method="POST" action="services.php" onsubmit="return confirm('Delete service?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_service">
+                <input type="hidden" name="service_id" value="2">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Service">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <i class="fa-solid fa-spa text-gold" style="margin-right: 6px;"></i>
+              <strong>Ayurvedic Abhyanga Spa &amp; Therapy</strong>
+            </td>
+            <td><span class="badge badge-secondary">Wellness &amp; Spa</span></td>
+            <td><strong>₹5,500</strong></td>
+            <td><small>Per Person / 90 Mins</small></td>
+            <td><small>Traditional full-body synchronized herbal massage using warm therapeutic oils for total rejuvenation.</small></td>
+            <td><span class="badge badge-success">Available</span></td>
+            <td>
+              <form method="POST" action="services.php" onsubmit="return confirm('Delete service?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_service">
+                <input type="hidden" name="service_id" value="3">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Service">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <i class="fa-solid fa-hot-tub-person text-gold" style="margin-right: 6px;"></i>
+              <strong>Couples Imperial Hammam Ritual</strong>
+            </td>
+            <td><span class="badge badge-secondary">Wellness &amp; Spa</span></td>
+            <td><strong>₹9,500</strong></td>
+            <td><small>Per Couple / 120 Mins</small></td>
+            <td><small>Exotic Turkish-style hammam bath with mineral mud scrub, aromatic steam, and customized massage.</small></td>
+            <td><span class="badge badge-success">Available</span></td>
+            <td>
+              <form method="POST" action="services.php" onsubmit="return confirm('Delete service?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_service">
+                <input type="hidden" name="service_id" value="10">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Service">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <i class="fa-solid fa-peace text-gold" style="margin-right: 6px;"></i>
+              <strong>Private Yoga &amp; Meditation Session</strong>
+            </td>
+            <td><span class="badge badge-secondary">Wellness &amp; Spa</span></td>
+            <td><strong>₹2,000</strong></td>
+            <td><small>Per Session / 60 Mins</small></td>
+            <td><small>One-on-one session with our resident yogic master at the sunrise pavilion.</small></td>
+            <td><span class="badge badge-success">Available</span></td>
+            <td>
+              <form method="POST" action="services.php" onsubmit="return confirm('Delete service?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_service">
+                <input type="hidden" name="service_id" value="11">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Service">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+              </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal: Service Form -->
+<div id="serviceModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.65); z-index: 1000; align-items: center; justify-content: center;">
+  <div style="background: #FFFFFF; max-width: 550px; width: 90%; border-radius: 6px; padding: 2.5rem; border: 1px solid var(--admin-border); margin: 2rem auto; box-shadow: 0 20px 50px rgba(0,0,0,0.25); position: relative;">
+    <button onclick="closeServiceModal()" style="position: absolute; top: 1.2rem; right: 1.2rem; background: none; border: none; font-size: 1.4rem; cursor: pointer;">&times;</button>
+    <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;">Add New Service</h3>
+
+    <form method="POST" action="services.php">
+      <input type="hidden" name="action" value="create_service">
+
+      <div class="form-group">
+        <label>Service Title</label>
+        <input type="text" name="name" class="form-control" placeholder="e.g. Royal Aromatherapy Bath" required>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div class="form-group">
+          <label>Category</label>
+          <select name="category" class="form-control" required>
+            <option value="Dining">Dining</option>
+            <option value="Wellness & Spa">Wellness & Spa</option>
+            <option value="Transport">Transport</option>
+            <option value="Housekeeping">Housekeeping</option>
+            <option value="Recreation">Recreation</option>
+            <option value="Special">Special</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Price (INR)</label>
+          <input type="number" name="price" class="form-control" placeholder="3500" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Billing Unit</label>
+        <input type="text" name="unit" class="form-control" value="Per Session / 60 Mins" required>
+      </div>
+
+      <div class="form-group">
+        <label>FontAwesome Icon Class</label>
+        <input type="text" name="icon_class" class="form-control" value="fa-solid fa-spa">
+      </div>
+
+      <div class="form-group">
+        <label>Service Description</label>
+        <textarea name="description" class="form-control" rows="2" placeholder="Description of amenity..." required></textarea>
+      </div>
+
+      <div style="text-align: right; margin-top: 1.5rem;">
+        <button type="button" class="btn-outline-dark" onclick="closeServiceModal()" style="padding: 0.6rem 1.2rem; margin-right: 0.5rem;">Cancel</button>
+        <button type="submit" class="admin-btn-primary" style="padding: 0.6rem 1.5rem;">Save Service</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+function openServiceModal() { document.getElementById('serviceModal').style.display = 'flex'; }
+function closeServiceModal() { document.getElementById('serviceModal').style.display = 'none'; }
+</script>
+
+    </main>
+
+    <!-- Admin Bottom Bar -->
+    <footer style="padding: 1.5rem 2rem; background: #FFFFFF; border-top: 1px solid var(--admin-border); font-size: 0.8rem; color: var(--admin-text-muted); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+      <div>
+        <strong>The Roma Palace Hotel Management System</strong> &bull; BTech CSE DBMS Mini Project
+      </div>
+      <div>
+        <a href="demo-presentation.html" style="color: var(--admin-gold-dark); font-weight: 700; text-decoration: underline; margin-right: 15px;">
+          <i class="fa-solid fa-graduation-cap"></i> Project Demo & Viva Mode
+        </a>
+        <span>System Version 2.4 (Enterprise Edition)</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Admin Scripts -->
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luxury Rooms &amp; Royal Suites | The Roma Palace</title>
+  <meta name="description" content="Discover timeless hospitality, refined comfort and unforgettable experiences across India's most iconic luxury palace retreats.">
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Luxury Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement / Demo Bar (College Viva Helper) -->
+  <div style="background: #0C0D0F; color: #DFCAAB; font-size: 0.75rem; padding: 0.35rem 1rem; text-align: center; border-bottom: 1px solid rgba(197,168,128,0.25); letter-spacing: 0.5px; z-index: 1001; position: relative;">
+    <span><i class="fa-solid fa-graduation-cap" style="color: #C5A880; margin-right: 5px;"></i> BTech CSE DBMS Mini Project — <strong>The Roma Palace</strong></span>
+    <span style="margin: 0 10px; opacity: 0.4;">|</span>
+    <a href="admin/admin-login.html" style="color: #FFFFFF; text-decoration: underline; font-weight: 600;"><i class="fa-solid fa-lock" style="font-size: 0.7rem;"></i> Admin Portal</a>
+    <span style="margin: 0 10px; opacity: 0.4;">|</span>
+    <a href="admin/demo-presentation.html" style="color: #C5A880; font-weight: 700;"><i class="fa-solid fa-chart-pie"></i> Professor Viva Dashboard</a>
+  </div>
+
+  <!-- Dynamic Sticky Navigation -->
+  <header class="site-header scrolled">
+    <div class="nav-container">
+      
+      <!-- Brand Logo + RP Monogram -->
+      <a href="index.html" class="brand-logo-link" title="The Roma Palace Homepage">
+        <div class="rp-monogram">
+          <span>RP</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">THE ROMA PALACE</span>
+          <span class="brand-subtitle">Luxury Hotels & Resorts</span>
+        </div>
+      </a>
+
+      <!-- Main Navigation Menu -->
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="hotels.html" class="nav-link ">PALACES</a></li>
+          <li><a href="rooms.html" class="nav-link active">ROOMS & SUITES</a></li>
+          <li><a href="dining.html" class="nav-link ">DINING</a></li>
+          <li><a href="experiences.html" class="nav-link ">EXPERIENCES</a></li>
+          <li><a href="offers.html" class="nav-link ">OFFERS</a></li>
+          <li><a href="wellness.html" class="nav-link ">WELLNESS</a></li>
+          <li><a href="index.php#about" class="nav-link">ABOUT</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions (Login / Account + Book a Stay) -->
+      <div class="nav-actions">
+                  <a href="login.html" class="btn-nav-login" title="Guest Sign In">
+            <i class="fa-regular fa-user"></i>
+            <span>LOGIN</span>
+          </a>
+        
+        <a href="booking.html" class="btn-book-nav">
+          <i class="fa-solid fa-calendar-check"></i>
+          <span>BOOK A STAY</span>
+        </a>
+
+        <button class="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Flash Messages -->
+  
+  
+<!-- Page Banner -->
+<section style="background: linear-gradient(rgba(18,19,22,0.7), rgba(18,19,22,0.85)), url('https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat; padding: 7rem 2rem 4rem 2rem; text-align: center; color: #FFFFFF;">
+  <div class="container">
+    <span class="section-tag" style="color: var(--color-gold-light);">ROYAL LIVING</span>
+    <h1 style="color: #FFFFFF; font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 0.8rem;">ROOMS & SUITES</h1>
+    <p style="color: var(--text-light-secondary); max-width: 650px; margin: 0 auto;">
+      Immerse yourself in hand-crafted furniture, gold leaf accents, marble en-suites, and round-the-clock bespoke butler service.
+    </p>
+  </div>
+</section>
+
+<!-- Filter Section -->
+<section class="bg-ivory" style="padding: 2.5rem 0 0 0;">
+  <div class="container">
+    
+    <div class="filter-bar">
+      <!-- Category Buttons -->
+      <div class="filter-group">
+        <a href="rooms.html" class="filter-btn active">All Categories</a>
+        <a href="rooms.php?type=Deluxe+Room" class="filter-btn ">Deluxe Room</a>
+        <a href="rooms.php?type=Premium+Room" class="filter-btn ">Premium Room</a>
+        <a href="rooms.php?type=Executive+Room" class="filter-btn ">Executive Room</a>
+        <a href="rooms.php?type=Luxury+Suite" class="filter-btn ">Luxury Suite</a>
+        <a href="rooms.php?type=Royal+Suite" class="filter-btn ">Royal Suite</a>
+      </div>
+
+      <!-- Quick Hotel Selector -->
+      <form method="GET" action="rooms.php" style="display: flex; gap: 0.5rem; align-items: center;">
+                <select name="hotel_id" onchange="this.form.submit()" style="padding: 0.55rem 0.8rem; border-radius: 2px; border: 1px solid var(--border-light); font-size: 0.82rem; background: var(--color-white);">
+          <option value="">Filter by Hotel</option>
+                      <option value="2" >
+              The Roma Palace Goa (Goa)            </option>
+                      <option value="1" >
+              The Roma Palace Jaipur (Jaipur)            </option>
+                      <option value="4" >
+              The Roma Palace Lucknow (Lucknow)            </option>
+                      <option value="3" >
+              The Roma Palace Udaipur (Udaipur)            </option>
+                  </select>
+              </form>
+    </div>
+
+    <!-- Active Search Filter Badge -->
+    
+  </div>
+</section>
+
+<!-- Rooms Grid -->
+<section class="section-spacing bg-ivory" style="padding-top: 1rem;">
+  <div class="container">
+    
+          
+      <div class="rooms-grid">
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Deluxe Room" loading="lazy">
+              <span class="room-type-tag">Deluxe Room</span>
+              <span class="room-status-badge status-available">
+                Available              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Deluxe Room (Room LK-101)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Lucknow (Lucknow)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 460 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> King Bed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 2</div>
+              </div>
+
+              <p class="room-desc">Chikankari-inspired wall motifs, plush velvet headboards, and serene courtyard perspectives.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹14,500</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=19" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=19" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Deluxe Room" loading="lazy">
+              <span class="room-type-tag">Deluxe Room</span>
+              <span class="room-status-badge status-available">
+                Available              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Deluxe Room (Room LK-102)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Lucknow (Lucknow)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 460 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> Twin Beds</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 2</div>
+              </div>
+
+              <p class="room-desc">Refined city retreat with dual workstation, smart control panel, and premium sound insulation.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹14,500</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=20" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=20" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Deluxe Room" loading="lazy">
+              <span class="room-type-tag">Deluxe Room</span>
+              <span class="room-status-badge status-available">
+                Available              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Deluxe Room (Room JP-101)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Jaipur (Jaipur)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 480 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> King Bed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 2</div>
+              </div>
+
+              <p class="room-desc">Elegantly appointed room featuring authentic Rajasthani jharokhas, handcrafted wooden furnishings, and garden views.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹18,500</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=1" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=1" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Deluxe Room" loading="lazy">
+              <span class="room-type-tag">Deluxe Room</span>
+              <span class="room-status-badge status-available">
+                Available              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Deluxe Room (Room JP-102)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Jaipur (Jaipur)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 480 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> Twin Beds</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 2</div>
+              </div>
+
+              <p class="room-desc">Warm tones with twin beds, Italian marble bath with soaking tub, and high-speed Wi-Fi.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹18,500</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=2" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=2" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Premium Room" loading="lazy">
+              <span class="room-type-tag">Premium Room</span>
+              <span class="room-status-badge status-available">
+                Available              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Premium Room (Room LK-201)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Lucknow (Lucknow)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 540 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> King Bed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 2</div>
+              </div>
+
+              <p class="room-desc">High ceilings, crystal chandelier accents, and expansive glass bay windows looking across the riverfront.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹19,500</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=21" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=21" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Deluxe Room" loading="lazy">
+              <span class="room-type-tag">Deluxe Room</span>
+              <span class="room-status-badge status-available">
+                Available              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Deluxe Room (Room GA-101)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Goa (Goa)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 520 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> King Bed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 2</div>
+              </div>
+
+              <p class="room-desc">Airy coastal decor with teakwood finishes, open-plan marble bath, and private garden patio.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹22,000</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=7" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=7" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1595576508898-0ad5c879a061?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Deluxe Room" loading="lazy">
+              <span class="room-type-tag">Deluxe Room</span>
+              <span class="room-status-badge status-available">
+                Available              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Deluxe Room (Room GA-102)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Goa (Goa)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 520 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> Twin Beds</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 2</div>
+              </div>
+
+              <p class="room-desc">Contemporary coastal living with soft linen tones, espresso machine, and rain shower.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹22,000</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=8" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=8" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Premium Room" loading="lazy">
+              <span class="room-type-tag">Premium Room</span>
+              <span class="room-status-badge status-occupied">
+                Occupied              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Premium Room (Room JP-201)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Jaipur (Jaipur)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 560 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> King Bed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 2</div>
+              </div>
+
+              <p class="room-desc">Expanded luxury with a private sit-out balcony overlooking the illuminated fountain courtyards.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹24,000</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=3" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=3" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Executive Room" loading="lazy">
+              <span class="room-type-tag">Executive Room</span>
+              <span class="room-status-badge status-available">
+                Available              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Executive Room (Room LK-202)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Lucknow (Lucknow)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 680 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> King Bed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 3</div>
+              </div>
+
+              <p class="room-desc">Executive privilege suite with meeting table for four, espresso bar, and airport chauffeur service.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹26,000</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=22" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=22" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Deluxe Room" loading="lazy">
+              <span class="room-type-tag">Deluxe Room</span>
+              <span class="room-status-badge status-available">
+                Available              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Deluxe Room (Room UD-101)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Udaipur (Udaipur)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 500 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> King Bed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 2</div>
+              </div>
+
+              <p class="room-desc">Traditional Mewari inlays with mother-of-pearl decor and window seats overlooking Lake Pichola.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹28,000</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=13" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=13" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Premium Room" loading="lazy">
+              <span class="room-type-tag">Premium Room</span>
+              <span class="room-status-badge status-occupied">
+                Occupied              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Premium Room (Room GA-201)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Goa (Goa)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 600 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> King Bed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 2</div>
+              </div>
+
+              <p class="room-desc">Direct ocean breeze, expansive glass doors opening to private sea-view deck.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹29,000</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=9" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=9" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Executive Room" loading="lazy">
+              <span class="room-type-tag">Executive Room</span>
+              <span class="room-status-badge status-available">
+                Available              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Executive Room (Room JP-202)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Jaipur (Jaipur)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 650 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> King Bed + Daybed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 3</div>
+              </div>
+
+              <p class="room-desc">Spacious executive sanctuary with dedicated work bureau, lounge seating, and complimentary evening canapes.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹32,000</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=4" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=4" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Premium Room" loading="lazy">
+              <span class="room-type-tag">Premium Room</span>
+              <span class="room-status-badge status-reserved">
+                Reserved              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Premium Room (Room UD-102)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Udaipur (Udaipur)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 620 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> King Bed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 2</div>
+              </div>
+
+              <p class="room-desc">Archways carved from Rajasthani marble, private balcony hovering directly above the gentle lake ripples.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹36,000</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=14" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=14" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Premium Room" loading="lazy">
+              <span class="room-type-tag">Premium Room</span>
+              <span class="room-status-badge status-available">
+                Available              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Premium Room (Room UD-201)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Udaipur (Udaipur)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 620 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> Twin Beds</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 2</div>
+              </div>
+
+              <p class="room-desc">Twin bedroom with heritage tapestries, marble ensuite with deep soaking tub, and lake vistas.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹36,000</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=15" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=15" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Executive Room" loading="lazy">
+              <span class="room-type-tag">Executive Room</span>
+              <span class="room-status-badge status-available">
+                Available              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Executive Room (Room GA-202)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Goa (Goa)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 700 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> King Bed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 3</div>
+              </div>
+
+              <p class="room-desc">Designed for coastal indulgence with private sun lounger balcony and bespoke bar cabinet.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹38,000</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=10" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=10" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Luxury Suite" loading="lazy">
+              <span class="room-type-tag">Luxury Suite</span>
+              <span class="room-status-badge status-available">
+                Available              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Luxury Suite (Room LK-301)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Lucknow (Lucknow)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 980 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> King Bed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 3</div>
+              </div>
+
+              <p class="room-desc">Awadhi elegance with separate living lounge, walk-in dressing wardrobe, and marble bathroom with Jacuzzi.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹42,000</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=23" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=23" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Luxury Suite" loading="lazy">
+              <span class="room-type-tag">Luxury Suite</span>
+              <span class="room-status-badge status-reserved">
+                Reserved              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Luxury Suite (Room JP-301)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Jaipur (Jaipur)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 950 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> King Bed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 3</div>
+              </div>
+
+              <p class="room-desc">Opulent master bedroom, separate dining salon, Jacuzzi bath, and dedicated 24-hour butler service.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹48,000</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=5" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=5" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Executive Room" loading="lazy">
+              <span class="room-type-tag">Executive Room</span>
+              <span class="room-status-badge status-available">
+                Available              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Executive Room (Room UD-202)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Udaipur (Udaipur)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 750 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> King Bed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 3</div>
+              </div>
+
+              <p class="room-desc">Lavish executive room with separate drawing alcove, silver-embossed mirrors, and afternoon high tea service.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹48,000</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=16" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=16" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Luxury Suite" loading="lazy">
+              <span class="room-type-tag">Luxury Suite</span>
+              <span class="room-status-badge status-available">
+                Available              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Luxury Suite (Room GA-301)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Goa (Goa)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 1100 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> King Bed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 3</div>
+              </div>
+
+              <p class="room-desc">Stunning corner suite with 180-degree ocean views, freestanding bathtub overlooking the sea, and champagne bar.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹56,000</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=11" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=11" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Luxury Suite" loading="lazy">
+              <span class="room-type-tag">Luxury Suite</span>
+              <span class="room-status-badge status-occupied">
+                Occupied              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Luxury Suite (Room UD-301)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Udaipur (Udaipur)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 1200 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> King Bed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 3</div>
+              </div>
+
+              <p class="room-desc">Heritage living salon, brass telescope for starry nights over the lake, and round-the-clock royal butler.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹72,000</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=17" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=17" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Royal Suite" loading="lazy">
+              <span class="room-type-tag">Royal Suite</span>
+              <span class="room-status-badge status-available">
+                Available              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Royal Suite (Room LK-302)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Lucknow (Lucknow)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 1500 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> Emperor Bed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 4</div>
+              </div>
+
+              <p class="room-desc">The Nawab Wajid Ali Shah Suite: antique silver tea sets, royal diwan seating, private library, and personal majordomo.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹75,000</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=24" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=24" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Royal Suite" loading="lazy">
+              <span class="room-type-tag">Royal Suite</span>
+              <span class="room-status-badge status-available">
+                Available              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Royal Suite (Room JP-302)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Jaipur (Jaipur)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 1600 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> Emperor Bed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 4</div>
+              </div>
+
+              <p class="room-desc">The pinnacle of Jaipur aristocracy: gold-leaf ceilings, private terrace plunge pool, dining room for six, and private lift access.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹85,000</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=6" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=6" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Royal Suite" loading="lazy">
+              <span class="room-type-tag">Royal Suite</span>
+              <span class="room-status-badge status-available">
+                Available              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Royal Suite (Room GA-302)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Goa (Goa)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 1850 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> Emperor Bed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 4</div>
+              </div>
+
+              <p class="room-desc">Private beach bungalow with infinity plunge pool, personal chef on request, and private cabana.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹95,000</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=12" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=12" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+                  <div class="room-card">
+            <div class="room-card-media">
+              <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Royal Suite" loading="lazy">
+              <span class="room-type-tag">Royal Suite</span>
+              <span class="room-status-badge status-available">
+                Available              </span>
+            </div>
+
+            <div class="room-card-body">
+              <h3>Royal Suite (Room UD-302)</h3>
+              <p style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.5rem;">
+                <i class="fa-solid fa-hotel"></i> The Roma Palace Udaipur (Udaipur)              </p>
+
+              <div class="room-specs">
+                <div class="room-spec-item"><i class="fa-solid fa-vector-square"></i> 2100 sq.ft</div>
+                <div class="room-spec-item"><i class="fa-solid fa-bed"></i> Emperor Bed</div>
+                <div class="room-spec-item"><i class="fa-solid fa-users"></i> Up to 4</div>
+              </div>
+
+              <p class="room-desc">The Maharana Presidential Suite: hand-painted frescoes, private heated terrace pool, private dining pavilion, and royal yacht transfers.</p>
+
+              <div class="room-card-footer">
+                <div class="hotel-price-block">
+                  <span class="price-label">Per Night</span>
+                  <span class="price-value">₹125,000</span>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <a href="room-details.html?id=18" class="btn-outline-dark" style="padding: 0.6rem 0.9rem; font-size: 0.75rem;">
+                    DETAILS
+                  </a>
+                  <a href="booking.html?room_id=18" class="btn-primary" style="padding: 0.6rem 1rem; font-size: 0.75rem;">
+                    RESERVE
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+              </div>
+
+    
+  </div>
+</section>
+
+  <!-- Global Editorial Footer (Dark Background for Strict Contrast) -->
+  <footer class="site-footer" id="about">
+    <div class="container">
+      <div class="footer-top-grid">
+        
+        <!-- Brand Summary -->
+        <div class="footer-brand-col">
+          <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem;">
+            <div class="rp-monogram" style="background: rgba(255,255,255,0.05); border-color: var(--color-gold);">
+              <span>RP</span>
+            </div>
+            <div>
+              <h3>THE ROMA PALACE</h3>
+              <p class="footer-tagline">“A Legacy of Luxury, A Stay to Remember.”</p>
+            </div>
+          </div>
+          <p class="footer-about-text">
+            For over two decades, The Roma Palace has preserved the soul of Indian regal hospitality, blending timeless palatial architecture with intuitive contemporary luxury.
+          </p>
+          <div class="footer-social-links">
+            <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Palaces -->
+        <div class="footer-col">
+          <h4>OUR PALACES</h4>
+          <ul class="footer-links">
+            <li><a href="hotels.php#jaipur">Roma Palace Jaipur</a></li>
+            <li><a href="hotels.php#goa">Roma Palace Goa</a></li>
+            <li><a href="hotels.php#udaipur">Roma Palace Udaipur</a></li>
+            <li><a href="hotels.php#lucknow">Roma Palace Lucknow</a></li>
+            <li><a href="hotels.html">Kerala & Varanasi</a></li>
+          </ul>
+        </div>
+
+        <!-- Stays & Suites -->
+        <div class="footer-col">
+          <h4>EXPLORE</h4>
+          <ul class="footer-links">
+            <li><a href="rooms.php?type=Deluxe+Room">Deluxe Rooms</a></li>
+            <li><a href="rooms.php?type=Premium+Room">Premium Rooms</a></li>
+            <li><a href="rooms.php?type=Executive+Room">Executive Suites</a></li>
+            <li><a href="rooms.php?type=Luxury+Suite">Luxury Suites</a></li>
+            <li><a href="rooms.php?type=Royal+Suite">The Royal Suite</a></li>
+            <li><a href="offers.html">Signature Offers</a></li>
+          </ul>
+        </div>
+
+        <!-- Experiences & Dining -->
+        <div class="footer-col">
+          <h4>LIFESTYLE</h4>
+          <ul class="footer-links">
+            <li><a href="dining.html">The Roma Table</a></li>
+            <li><a href="dining.html">Palazzo Café Goa</a></li>
+            <li><a href="dining.html">Spice Route Awadh</a></li>
+            <li><a href="dining.html">Azure Lake Lounge</a></li>
+            <li><a href="wellness.html">Ayurvedic Spa & Gym</a></li>
+            <li><a href="experiences.html">Curated Tours</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter & Concierge -->
+        <div class="footer-col">
+          <h4>CONCIERGE DESK</h4>
+          <p style="font-size: 0.85rem; color: var(--text-light-secondary); margin-bottom: 0.8rem;">
+            Subscribe to receive private invitations to royal events and seasonal privilege packages.
+          </p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to The Roma Palace private dispatch.');">
+            <input type="email" class="newsletter-input" placeholder="Your email address" required>
+            <button type="submit" class="newsletter-btn"><i class="fa-solid fa-arrow-right"></i></button>
+          </form>
+          <div style="margin-top: 1.5rem; font-size: 0.82rem; color: var(--color-gold-light);">
+            <div><i class="fa-solid fa-phone" style="margin-right: 6px;"></i> +91 (0) 141 278 9000</div>
+            <div style="margin-top: 4px;"><i class="fa-solid fa-envelope" style="margin-right: 6px;"></i> concierge@romapalace.com</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>Copyright &copy; 2026 The Roma Palace Hotels & Resorts Ltd. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Stay</a>
+          <a href="#">Cancellation Policy</a>
+          <a href="admin/admin-login.html">Staff & Admin Login</a>
+          <a href="admin/demo-presentation.html" style="color: var(--color-gold); font-weight: 600;">DBMS Project Demo</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

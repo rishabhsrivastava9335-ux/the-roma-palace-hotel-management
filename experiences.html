@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experiences Beyond The Room | The Roma Palace</title>
+  <meta name="description" content="Discover timeless hospitality, refined comfort and unforgettable experiences across India's most iconic luxury palace retreats.">
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Luxury Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement / Demo Bar (College Viva Helper) -->
+  <div style="background: #0C0D0F; color: #DFCAAB; font-size: 0.75rem; padding: 0.35rem 1rem; text-align: center; border-bottom: 1px solid rgba(197,168,128,0.25); letter-spacing: 0.5px; z-index: 1001; position: relative;">
+    <span><i class="fa-solid fa-graduation-cap" style="color: #C5A880; margin-right: 5px;"></i> BTech CSE DBMS Mini Project — <strong>The Roma Palace</strong></span>
+    <span style="margin: 0 10px; opacity: 0.4;">|</span>
+    <a href="admin/admin-login.html" style="color: #FFFFFF; text-decoration: underline; font-weight: 600;"><i class="fa-solid fa-lock" style="font-size: 0.7rem;"></i> Admin Portal</a>
+    <span style="margin: 0 10px; opacity: 0.4;">|</span>
+    <a href="admin/demo-presentation.html" style="color: #C5A880; font-weight: 700;"><i class="fa-solid fa-chart-pie"></i> Professor Viva Dashboard</a>
+  </div>
+
+  <!-- Dynamic Sticky Navigation -->
+  <header class="site-header scrolled">
+    <div class="nav-container">
+      
+      <!-- Brand Logo + RP Monogram -->
+      <a href="index.html" class="brand-logo-link" title="The Roma Palace Homepage">
+        <div class="rp-monogram">
+          <span>RP</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">THE ROMA PALACE</span>
+          <span class="brand-subtitle">Luxury Hotels & Resorts</span>
+        </div>
+      </a>
+
+      <!-- Main Navigation Menu -->
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="hotels.html" class="nav-link ">PALACES</a></li>
+          <li><a href="rooms.html" class="nav-link ">ROOMS & SUITES</a></li>
+          <li><a href="dining.html" class="nav-link ">DINING</a></li>
+          <li><a href="experiences.html" class="nav-link active">EXPERIENCES</a></li>
+          <li><a href="offers.html" class="nav-link ">OFFERS</a></li>
+          <li><a href="wellness.html" class="nav-link ">WELLNESS</a></li>
+          <li><a href="index.php#about" class="nav-link">ABOUT</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions (Login / Account + Book a Stay) -->
+      <div class="nav-actions">
+                  <a href="login.html" class="btn-nav-login" title="Guest Sign In">
+            <i class="fa-regular fa-user"></i>
+            <span>LOGIN</span>
+          </a>
+        
+        <a href="booking.html" class="btn-book-nav">
+          <i class="fa-solid fa-calendar-check"></i>
+          <span>BOOK A STAY</span>
+        </a>
+
+        <button class="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Flash Messages -->
+  
+  
+<!-- Page Banner -->
+<section style="background: linear-gradient(rgba(18,19,22,0.7), rgba(18,19,22,0.85)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat; padding: 7rem 2rem 4rem 2rem; text-align: center; color: #FFFFFF;">
+  <div class="container">
+    <span class="section-tag" style="color: var(--color-gold-light);">TIMELESS MOMENTS</span>
+    <h1 style="color: #FFFFFF; font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 0.8rem;">EXPERIENCES BEYOND THE ROOM</h1>
+    <p style="color: var(--text-light-secondary); max-width: 650px; margin: 0 auto;">
+      From private twilight boat cruises with champagne to centuries-old Awadhi masterclasses and sunrise yoga pavilions.
+    </p>
+  </div>
+</section>
+
+<!-- Experiences Grid -->
+<section class="section-spacing bg-ivory">
+  <div class="container">
+    
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem;">
+              <div class="hotel-card">
+          <div class="hotel-card-media" style="height: 320px;">
+            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Heritage Palace &amp; Rampart Walk" loading="lazy">
+            <div class="hotel-location-badge">
+              Royal Heritage            </div>
+          </div>
+
+          <div class="hotel-card-body">
+            <div style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.3rem;">
+              <i class="fa-solid fa-hotel"></i> The Roma Palace Jaipur (Jaipur)            </div>
+            
+            <h3>Heritage Palace &amp; Rampart Walk</h3>
+            <p style="font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem;">Discover the centuries-old history, hidden subterranean chambers, and Rajputana royal architecture under the guidance of our chief palace curator.</p>
+
+            <div class="room-specs">
+              <div class="room-spec-item"><i class="fa-regular fa-clock"></i> 2.5 Hours</div>
+              <div class="room-spec-item"><i class="fa-solid fa-sun"></i> 07:30 AM &amp; 04:30 PM</div>
+            </div>
+
+            <div class="hotel-card-footer">
+              <div class="hotel-price-block">
+                <span class="price-label">Price per person</span>
+                <span class="price-value">₹2,500</span>
+              </div>
+              <a href="booking.html" class="btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.78rem;">
+                RESERVE WITH STAY
+              </a>
+            </div>
+          </div>
+        </div>
+              <div class="hotel-card">
+          <div class="hotel-card-media" style="height: 320px;">
+            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Private Sunset Boat Cruise on Pichola" loading="lazy">
+            <div class="hotel-location-badge">
+              Lake &amp; Romance            </div>
+          </div>
+
+          <div class="hotel-card-body">
+            <div style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.3rem;">
+              <i class="fa-solid fa-hotel"></i> The Roma Palace Udaipur (Udaipur)            </div>
+            
+            <h3>Private Sunset Boat Cruise on Pichola</h3>
+            <p style="font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem;">Watch the sun sink behind the Aravalli mountains while sipping French champagne on our private teakwood royal barge.</p>
+
+            <div class="room-specs">
+              <div class="room-spec-item"><i class="fa-regular fa-clock"></i> 1.5 Hours</div>
+              <div class="room-spec-item"><i class="fa-solid fa-sun"></i> 05:00 PM – 06:30 PM</div>
+            </div>
+
+            <div class="hotel-card-footer">
+              <div class="hotel-price-block">
+                <span class="price-label">Price per person</span>
+                <span class="price-value">₹4,500</span>
+              </div>
+              <a href="booking.html" class="btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.78rem;">
+                RESERVE WITH STAY
+              </a>
+            </div>
+          </div>
+        </div>
+              <div class="hotel-card">
+          <div class="hotel-card-media" style="height: 320px;">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Royal Awadhi Dastarkhwan Masterclass" loading="lazy">
+            <div class="hotel-location-badge">
+              Culinary Art            </div>
+          </div>
+
+          <div class="hotel-card-body">
+            <div style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.3rem;">
+              <i class="fa-solid fa-hotel"></i> The Roma Palace Lucknow (Lucknow)            </div>
+            
+            <h3>Royal Awadhi Dastarkhwan Masterclass</h3>
+            <p style="font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem;">An interactive culinary journey inside the palace kitchen where you learn to balance 160 herbs and spices.</p>
+
+            <div class="room-specs">
+              <div class="room-spec-item"><i class="fa-regular fa-clock"></i> 3.0 Hours</div>
+              <div class="room-spec-item"><i class="fa-solid fa-sun"></i> 11:00 AM – 02:00 PM</div>
+            </div>
+
+            <div class="hotel-card-footer">
+              <div class="hotel-price-block">
+                <span class="price-label">Price per person</span>
+                <span class="price-value">₹3,800</span>
+              </div>
+              <a href="booking.html" class="btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.78rem;">
+                RESERVE WITH STAY
+              </a>
+            </div>
+          </div>
+        </div>
+              <div class="hotel-card">
+          <div class="hotel-card-media" style="height: 320px;">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Private Oceanfront Candlelight Dinner" loading="lazy">
+            <div class="hotel-location-badge">
+              Fine Dining            </div>
+          </div>
+
+          <div class="hotel-card-body">
+            <div style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.3rem;">
+              <i class="fa-solid fa-hotel"></i> The Roma Palace Goa (Goa)            </div>
+            
+            <h3>Private Oceanfront Candlelight Dinner</h3>
+            <p style="font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem;">Dine under a canopy of stars with the gentle sound of the Arabian Sea waves and a private butler at your service.</p>
+
+            <div class="room-specs">
+              <div class="room-spec-item"><i class="fa-regular fa-clock"></i> 3.0 Hours</div>
+              <div class="room-spec-item"><i class="fa-solid fa-sun"></i> 07:30 PM – 10:30 PM</div>
+            </div>
+
+            <div class="hotel-card-footer">
+              <div class="hotel-price-block">
+                <span class="price-label">Price per person</span>
+                <span class="price-value">₹8,500</span>
+              </div>
+              <a href="booking.html" class="btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.78rem;">
+                RESERVE WITH STAY
+              </a>
+            </div>
+          </div>
+        </div>
+              <div class="hotel-card">
+          <div class="hotel-card-media" style="height: 320px;">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Peacock Courtyard Cultural Evenings" loading="lazy">
+            <div class="hotel-location-badge">
+              Art &amp; Culture            </div>
+          </div>
+
+          <div class="hotel-card-body">
+            <div style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.3rem;">
+              <i class="fa-solid fa-hotel"></i> The Roma Palace Jaipur (Jaipur)            </div>
+            
+            <h3>Peacock Courtyard Cultural Evenings</h3>
+            <p style="font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem;">Immerse yourself in traditional folk artistry with Kalbelia dancers, puppet maestros, and royal refreshments.</p>
+
+            <div class="room-specs">
+              <div class="room-spec-item"><i class="fa-regular fa-clock"></i> 2.0 Hours</div>
+              <div class="room-spec-item"><i class="fa-solid fa-sun"></i> 07:00 PM – 09:00 PM</div>
+            </div>
+
+            <div class="hotel-card-footer">
+              <div class="hotel-price-block">
+                <span class="price-label">Price per person</span>
+                <span class="price-value">₹1,800</span>
+              </div>
+              <a href="booking.html" class="btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.78rem;">
+                RESERVE WITH STAY
+              </a>
+            </div>
+          </div>
+        </div>
+              <div class="hotel-card">
+          <div class="hotel-card-media" style="height: 320px;">
+            <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Ayurvedic Sunrise Yoga &amp; Pranayama" loading="lazy">
+            <div class="hotel-location-badge">
+              Wellness            </div>
+          </div>
+
+          <div class="hotel-card-body">
+            <div style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.3rem;">
+              <i class="fa-solid fa-hotel"></i> The Roma Palace Udaipur (Udaipur)            </div>
+            
+            <h3>Ayurvedic Sunrise Yoga &amp; Pranayama</h3>
+            <p style="font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem;">Conducted by our certified Himalayan yogic master, blending mindful asanas, breathwork, and sound bath meditation.</p>
+
+            <div class="room-specs">
+              <div class="room-spec-item"><i class="fa-regular fa-clock"></i> 1.5 Hours</div>
+              <div class="room-spec-item"><i class="fa-solid fa-sun"></i> 06:30 AM – 08:00 AM</div>
+            </div>
+
+            <div class="hotel-card-footer">
+              <div class="hotel-price-block">
+                <span class="price-label">Price per person</span>
+                <span class="price-value">₹1,500</span>
+              </div>
+              <a href="booking.html" class="btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.78rem;">
+                RESERVE WITH STAY
+              </a>
+            </div>
+          </div>
+        </div>
+              <div class="hotel-card">
+          <div class="hotel-card-media" style="height: 320px;">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Dolphin Safari &amp; Coastal Trail" loading="lazy">
+            <div class="hotel-location-badge">
+              Nature &amp; Wildlife            </div>
+          </div>
+
+          <div class="hotel-card-body">
+            <div style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.3rem;">
+              <i class="fa-solid fa-hotel"></i> The Roma Palace Goa (Goa)            </div>
+            
+            <h3>Dolphin Safari &amp; Coastal Trail</h3>
+            <p style="font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem;">Cruise through pristine coastal backwaters and headland cliffs with light refreshments and snorkeling opportunities.</p>
+
+            <div class="room-specs">
+              <div class="room-spec-item"><i class="fa-regular fa-clock"></i> 3.0 Hours</div>
+              <div class="room-spec-item"><i class="fa-solid fa-sun"></i> 06:30 AM – 09:30 AM</div>
+            </div>
+
+            <div class="hotel-card-footer">
+              <div class="hotel-price-block">
+                <span class="price-label">Price per person</span>
+                <span class="price-value">₹3,200</span>
+              </div>
+              <a href="booking.html" class="btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.78rem;">
+                RESERVE WITH STAY
+              </a>
+            </div>
+          </div>
+        </div>
+              <div class="hotel-card">
+          <div class="hotel-card-media" style="height: 320px;">
+            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Lucknowi Chikankari &amp; Attar Trail" loading="lazy">
+            <div class="hotel-location-badge">
+              Crafts &amp; Heritage            </div>
+          </div>
+
+          <div class="hotel-card-body">
+            <div style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.3rem;">
+              <i class="fa-solid fa-hotel"></i> The Roma Palace Lucknow (Lucknow)            </div>
+            
+            <h3>Lucknowi Chikankari &amp; Attar Trail</h3>
+            <p style="font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem;">Explore traditional attar-making (rose, mitti, shamama) and meet master craftspeople preserving delicate hand embroidery.</p>
+
+            <div class="room-specs">
+              <div class="room-spec-item"><i class="fa-regular fa-clock"></i> 4.0 Hours</div>
+              <div class="room-spec-item"><i class="fa-solid fa-sun"></i> 02:00 PM – 06:00 PM</div>
+            </div>
+
+            <div class="hotel-card-footer">
+              <div class="hotel-price-block">
+                <span class="price-label">Price per person</span>
+                <span class="price-value">₹2,800</span>
+              </div>
+              <a href="booking.html" class="btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.78rem;">
+                RESERVE WITH STAY
+              </a>
+            </div>
+          </div>
+        </div>
+              <div class="hotel-card">
+          <div class="hotel-card-media" style="height: 320px;">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Royal Vintage Car City Tour" loading="lazy">
+            <div class="hotel-location-badge">
+              Royal Luxury            </div>
+          </div>
+
+          <div class="hotel-card-body">
+            <div style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.3rem;">
+              <i class="fa-solid fa-hotel"></i> The Roma Palace Jaipur (Jaipur)            </div>
+            
+            <h3>Royal Vintage Car City Tour</h3>
+            <p style="font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem;">A regal tour through Hawa Mahal, Jal Mahal, and the Pink City bazars with a liveried chauffeur.</p>
+
+            <div class="room-specs">
+              <div class="room-spec-item"><i class="fa-regular fa-clock"></i> 2.5 Hours</div>
+              <div class="room-spec-item"><i class="fa-solid fa-sun"></i> 04:00 PM – 06:30 PM</div>
+            </div>
+
+            <div class="hotel-card-footer">
+              <div class="hotel-price-block">
+                <span class="price-label">Price per person</span>
+                <span class="price-value">₹6,000</span>
+              </div>
+              <a href="booking.html" class="btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.78rem;">
+                RESERVE WITH STAY
+              </a>
+            </div>
+          </div>
+        </div>
+              <div class="hotel-card">
+          <div class="hotel-card-media" style="height: 320px;">
+            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Stargazing with Royal Astronomer" loading="lazy">
+            <div class="hotel-location-badge">
+              Evening Wonder            </div>
+          </div>
+
+          <div class="hotel-card-body">
+            <div style="font-size: 0.8rem; color: var(--color-gold-dark); margin-bottom: 0.3rem;">
+              <i class="fa-solid fa-hotel"></i> The Roma Palace Udaipur (Udaipur)            </div>
+            
+            <h3>Stargazing with Royal Astronomer</h3>
+            <p style="font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem;">An enchanting astronomy session on the palace rooftop with storytelling inspired by ancient Indian celestial navigation.</p>
+
+            <div class="room-specs">
+              <div class="room-spec-item"><i class="fa-regular fa-clock"></i> 1.5 Hours</div>
+              <div class="room-spec-item"><i class="fa-solid fa-sun"></i> 09:00 PM – 10:30 PM</div>
+            </div>
+
+            <div class="hotel-card-footer">
+              <div class="hotel-price-block">
+                <span class="price-label">Price per person</span>
+                <span class="price-value">₹2,000</span>
+              </div>
+              <a href="booking.html" class="btn-primary" style="padding: 0.65rem 1.4rem; font-size: 0.78rem;">
+                RESERVE WITH STAY
+              </a>
+            </div>
+          </div>
+        </div>
+          </div>
+
+  </div>
+</section>
+
+  <!-- Global Editorial Footer (Dark Background for Strict Contrast) -->
+  <footer class="site-footer" id="about">
+    <div class="container">
+      <div class="footer-top-grid">
+        
+        <!-- Brand Summary -->
+        <div class="footer-brand-col">
+          <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem;">
+            <div class="rp-monogram" style="background: rgba(255,255,255,0.05); border-color: var(--color-gold);">
+              <span>RP</span>
+            </div>
+            <div>
+              <h3>THE ROMA PALACE</h3>
+              <p class="footer-tagline">“A Legacy of Luxury, A Stay to Remember.”</p>
+            </div>
+          </div>
+          <p class="footer-about-text">
+            For over two decades, The Roma Palace has preserved the soul of Indian regal hospitality, blending timeless palatial architecture with intuitive contemporary luxury.
+          </p>
+          <div class="footer-social-links">
+            <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Palaces -->
+        <div class="footer-col">
+          <h4>OUR PALACES</h4>
+          <ul class="footer-links">
+            <li><a href="hotels.php#jaipur">Roma Palace Jaipur</a></li>
+            <li><a href="hotels.php#goa">Roma Palace Goa</a></li>
+            <li><a href="hotels.php#udaipur">Roma Palace Udaipur</a></li>
+            <li><a href="hotels.php#lucknow">Roma Palace Lucknow</a></li>
+            <li><a href="hotels.html">Kerala & Varanasi</a></li>
+          </ul>
+        </div>
+
+        <!-- Stays & Suites -->
+        <div class="footer-col">
+          <h4>EXPLORE</h4>
+          <ul class="footer-links">
+            <li><a href="rooms.php?type=Deluxe+Room">Deluxe Rooms</a></li>
+            <li><a href="rooms.php?type=Premium+Room">Premium Rooms</a></li>
+            <li><a href="rooms.php?type=Executive+Room">Executive Suites</a></li>
+            <li><a href="rooms.php?type=Luxury+Suite">Luxury Suites</a></li>
+            <li><a href="rooms.php?type=Royal+Suite">The Royal Suite</a></li>
+            <li><a href="offers.html">Signature Offers</a></li>
+          </ul>
+        </div>
+
+        <!-- Experiences & Dining -->
+        <div class="footer-col">
+          <h4>LIFESTYLE</h4>
+          <ul class="footer-links">
+            <li><a href="dining.html">The Roma Table</a></li>
+            <li><a href="dining.html">Palazzo Café Goa</a></li>
+            <li><a href="dining.html">Spice Route Awadh</a></li>
+            <li><a href="dining.html">Azure Lake Lounge</a></li>
+            <li><a href="wellness.html">Ayurvedic Spa & Gym</a></li>
+            <li><a href="experiences.html">Curated Tours</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter & Concierge -->
+        <div class="footer-col">
+          <h4>CONCIERGE DESK</h4>
+          <p style="font-size: 0.85rem; color: var(--text-light-secondary); margin-bottom: 0.8rem;">
+            Subscribe to receive private invitations to royal events and seasonal privilege packages.
+          </p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to The Roma Palace private dispatch.');">
+            <input type="email" class="newsletter-input" placeholder="Your email address" required>
+            <button type="submit" class="newsletter-btn"><i class="fa-solid fa-arrow-right"></i></button>
+          </form>
+          <div style="margin-top: 1.5rem; font-size: 0.82rem; color: var(--color-gold-light);">
+            <div><i class="fa-solid fa-phone" style="margin-right: 6px;"></i> +91 (0) 141 278 9000</div>
+            <div style="margin-top: 4px;"><i class="fa-solid fa-envelope" style="margin-right: 6px;"></i> concierge@romapalace.com</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>Copyright &copy; 2026 The Roma Palace Hotels & Resorts Ltd. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Stay</a>
+          <a href="#">Cancellation Policy</a>
+          <a href="admin/admin-login.html">Staff & Admin Login</a>
+          <a href="admin/demo-presentation.html" style="color: var(--color-gold); font-weight: 600;">DBMS Project Demo</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

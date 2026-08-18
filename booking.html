@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reserve Your Royal Stay | The Roma Palace</title>
+  <meta name="description" content="Discover timeless hospitality, refined comfort and unforgettable experiences across India's most iconic luxury palace retreats.">
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Luxury Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement / Demo Bar (College Viva Helper) -->
+  <div style="background: #0C0D0F; color: #DFCAAB; font-size: 0.75rem; padding: 0.35rem 1rem; text-align: center; border-bottom: 1px solid rgba(197,168,128,0.25); letter-spacing: 0.5px; z-index: 1001; position: relative;">
+    <span><i class="fa-solid fa-graduation-cap" style="color: #C5A880; margin-right: 5px;"></i> BTech CSE DBMS Mini Project — <strong>The Roma Palace</strong></span>
+    <span style="margin: 0 10px; opacity: 0.4;">|</span>
+    <a href="admin/admin-login.html" style="color: #FFFFFF; text-decoration: underline; font-weight: 600;"><i class="fa-solid fa-lock" style="font-size: 0.7rem;"></i> Admin Portal</a>
+    <span style="margin: 0 10px; opacity: 0.4;">|</span>
+    <a href="admin/demo-presentation.html" style="color: #C5A880; font-weight: 700;"><i class="fa-solid fa-chart-pie"></i> Professor Viva Dashboard</a>
+  </div>
+
+  <!-- Dynamic Sticky Navigation -->
+  <header class="site-header scrolled">
+    <div class="nav-container">
+      
+      <!-- Brand Logo + RP Monogram -->
+      <a href="index.html" class="brand-logo-link" title="The Roma Palace Homepage">
+        <div class="rp-monogram">
+          <span>RP</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">THE ROMA PALACE</span>
+          <span class="brand-subtitle">Luxury Hotels & Resorts</span>
+        </div>
+      </a>
+
+      <!-- Main Navigation Menu -->
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="hotels.html" class="nav-link ">PALACES</a></li>
+          <li><a href="rooms.html" class="nav-link ">ROOMS & SUITES</a></li>
+          <li><a href="dining.html" class="nav-link ">DINING</a></li>
+          <li><a href="experiences.html" class="nav-link ">EXPERIENCES</a></li>
+          <li><a href="offers.html" class="nav-link ">OFFERS</a></li>
+          <li><a href="wellness.html" class="nav-link ">WELLNESS</a></li>
+          <li><a href="index.php#about" class="nav-link">ABOUT</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions (Login / Account + Book a Stay) -->
+      <div class="nav-actions">
+                  <a href="login.html" class="btn-nav-login" title="Guest Sign In">
+            <i class="fa-regular fa-user"></i>
+            <span>LOGIN</span>
+          </a>
+        
+        <a href="booking.html" class="btn-book-nav">
+          <i class="fa-solid fa-calendar-check"></i>
+          <span>BOOK A STAY</span>
+        </a>
+
+        <button class="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Flash Messages -->
+  
+  
+<!-- Page Banner -->
+<section style="background: linear-gradient(rgba(18,19,22,0.75), rgba(18,19,22,0.9)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat; padding: 7rem 2rem 3.5rem 2rem; text-align: center; color: #FFFFFF;">
+  <div class="container">
+    <span class="section-tag" style="color: var(--color-gold-light);">DIRECT RESERVATION</span>
+    <h1 style="color: #FFFFFF; font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 0.5rem;">SECURE YOUR PALACE STAY</h1>
+    <p style="color: var(--text-light-secondary); max-width: 650px; margin: 0 auto;">
+      Experience seamless multi-tier reservation with best rate guarantees, luxury enhancements, and instant booking confirmation.
+    </p>
+  </div>
+</section>
+
+<!-- Multi-Step Booking Wizard -->
+<section class="section-spacing bg-ivory">
+  <div class="container booking-wizard-container">
+
+    <!-- Error Alert if any -->
+    
+    <!-- Progress Node Header -->
+    <div class="wizard-progress-bar">
+      <div class="wizard-step-node active">
+        <div class="step-circle">1</div>
+        <span class="step-label">Select Stay</span>
+      </div>
+      <div class="wizard-step-node active">
+        <div class="step-circle">2</div>
+        <span class="step-label">Guest Details</span>
+      </div>
+      <div class="wizard-step-node active">
+        <div class="step-circle">3</div>
+        <span class="step-label">Enhancements</span>
+      </div>
+      <div class="wizard-step-node active">
+        <div class="step-circle">4</div>
+        <span class="step-label">Payment</span>
+      </div>
+    </div>
+
+    <!-- Booking Form Wizard -->
+    <form method="GET" action="confirmation.html" id="masterBookingForm">
+      <input type="hidden" name="action" value="confirm_booking">
+
+      <!-- STEP 1 — SELECT STAY & ROOM -->
+      <div class="wizard-card">
+        <div class="wizard-card-header">
+          <h2><i class="fa-solid fa-hotel text-gold" style="margin-right: 8px;"></i> Step 1: Select Palace & Dates</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+          
+          <div class="form-group">
+            <label for="hotel_id">Palace Property</label>
+            <select name="hotel_id" id="hotel_id" class="form-control" onchange="filterRoomsByHotel(this.value)" required>
+                              <option value="1" selected>
+                  The Roma Palace Jaipur (Jaipur)                </option>
+                              <option value="2" >
+                  The Roma Palace Goa (Goa)                </option>
+                              <option value="3" >
+                  The Roma Palace Udaipur (Udaipur)                </option>
+                              <option value="4" >
+                  The Roma Palace Lucknow (Lucknow)                </option>
+                          </select>
+          </div>
+
+          <div class="form-group">
+            <label for="room_select">Room & Suite Type</label>
+            <select name="room_id" id="room_select" class="form-control" onchange="updateSelectedRoomPrice(this)" required>
+                              <option value="19" 
+                        data-hotel="4" 
+                        data-price="14500"
+                        >
+                  Deluxe Room (LK-101) — ₹14,500/night                </option>
+                              <option value="20" 
+                        data-hotel="4" 
+                        data-price="14500"
+                        >
+                  Deluxe Room (LK-102) — ₹14,500/night                </option>
+                              <option value="1" 
+                        data-hotel="1" 
+                        data-price="18500"
+                        selected>
+                  Deluxe Room (JP-101) — ₹18,500/night                </option>
+                              <option value="2" 
+                        data-hotel="1" 
+                        data-price="18500"
+                        >
+                  Deluxe Room (JP-102) — ₹18,500/night                </option>
+                              <option value="21" 
+                        data-hotel="4" 
+                        data-price="19500"
+                        >
+                  Premium Room (LK-201) — ₹19,500/night                </option>
+                              <option value="7" 
+                        data-hotel="2" 
+                        data-price="22000"
+                        >
+                  Deluxe Room (GA-101) — ₹22,000/night                </option>
+                              <option value="8" 
+                        data-hotel="2" 
+                        data-price="22000"
+                        >
+                  Deluxe Room (GA-102) — ₹22,000/night                </option>
+                              <option value="3" 
+                        data-hotel="1" 
+                        data-price="24000"
+                        >
+                  Premium Room (JP-201) — ₹24,000/night                </option>
+                              <option value="22" 
+                        data-hotel="4" 
+                        data-price="26000"
+                        >
+                  Executive Room (LK-202) — ₹26,000/night                </option>
+                              <option value="13" 
+                        data-hotel="3" 
+                        data-price="28000"
+                        >
+                  Deluxe Room (UD-101) — ₹28,000/night                </option>
+                              <option value="9" 
+                        data-hotel="2" 
+                        data-price="29000"
+                        >
+                  Premium Room (GA-201) — ₹29,000/night                </option>
+                              <option value="4" 
+                        data-hotel="1" 
+                        data-price="32000"
+                        >
+                  Executive Room (JP-202) — ₹32,000/night                </option>
+                              <option value="14" 
+                        data-hotel="3" 
+                        data-price="36000"
+                        >
+                  Premium Room (UD-102) — ₹36,000/night                </option>
+                              <option value="15" 
+                        data-hotel="3" 
+                        data-price="36000"
+                        >
+                  Premium Room (UD-201) — ₹36,000/night                </option>
+                              <option value="10" 
+                        data-hotel="2" 
+                        data-price="38000"
+                        >
+                  Executive Room (GA-202) — ₹38,000/night                </option>
+                              <option value="23" 
+                        data-hotel="4" 
+                        data-price="42000"
+                        >
+                  Luxury Suite (LK-301) — ₹42,000/night                </option>
+                              <option value="5" 
+                        data-hotel="1" 
+                        data-price="48000"
+                        >
+                  Luxury Suite (JP-301) — ₹48,000/night                </option>
+                              <option value="16" 
+                        data-hotel="3" 
+                        data-price="48000"
+                        >
+                  Executive Room (UD-202) — ₹48,000/night                </option>
+                              <option value="11" 
+                        data-hotel="2" 
+                        data-price="56000"
+                        >
+                  Luxury Suite (GA-301) — ₹56,000/night                </option>
+                              <option value="17" 
+                        data-hotel="3" 
+                        data-price="72000"
+                        >
+                  Luxury Suite (UD-301) — ₹72,000/night                </option>
+                              <option value="24" 
+                        data-hotel="4" 
+                        data-price="75000"
+                        >
+                  Royal Suite (LK-302) — ₹75,000/night                </option>
+                              <option value="6" 
+                        data-hotel="1" 
+                        data-price="85000"
+                        >
+                  Royal Suite (JP-302) — ₹85,000/night                </option>
+                              <option value="12" 
+                        data-hotel="2" 
+                        data-price="95000"
+                        >
+                  Royal Suite (GA-302) — ₹95,000/night                </option>
+                              <option value="18" 
+                        data-hotel="3" 
+                        data-price="125000"
+                        >
+                  Royal Suite (UD-302) — ₹125,000/night                </option>
+                          </select>
+            <input type="hidden" id="base_room_price" value="18500">
+          </div>
+
+          <div class="form-group">
+            <label for="checkin_date">Check-in Date</label>
+            <input type="date" name="check_in" id="checkin_date" class="form-control" value="2026-08-19" required>
+          </div>
+
+          <div class="form-group">
+            <label for="checkout_date">Check-out Date</label>
+            <input type="date" name="check_out" id="checkout_date" class="form-control" value="2026-08-21" required>
+          </div>
+
+          <div class="form-group">
+            <label for="total_guests">Total Guests</label>
+            <select name="total_guests" id="total_guests" class="form-control">
+              <option value="1" >1 Guest</option>
+              <option value="2" selected>2 Guests</option>
+              <option value="3" >3 Guests</option>
+              <option value="4" >4 Guests (Suite)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="promo_code">Privilege Promo Code</label>
+            <input type="text" name="promo_code" id="promo_code" class="form-control" value="" placeholder="e.g. WELCOME10, ROMAINDULGE">
+          </div>
+
+        </div>
+      </div>
+
+      <!-- STEP 2 — GUEST PROFILE & ID VERIFICATION -->
+      <div class="wizard-card">
+        <div class="wizard-card-header">
+          <h2><i class="fa-solid fa-id-card text-gold" style="margin-right: 8px;"></i> Step 2: Guest Details & Verification</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+          
+          <div class="form-group">
+            <label for="guest_name">Full Name (as per Govt ID)</label>
+            <input type="text" name="guest_name" id="guest_name" class="form-control" value="" placeholder="e.g. Rohan Malhotra" required>
+          </div>
+
+          <div class="form-group">
+            <label for="guest_email">Email Address</label>
+            <input type="email" name="guest_email" id="guest_email" class="form-control" value="" placeholder="e.g. guest@romapalace.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="guest_phone">Contact Phone Number</label>
+            <input type="tel" name="guest_phone" id="guest_phone" class="form-control" value="" placeholder="+91 98110 54321" required>
+          </div>
+
+          <div class="form-group">
+            <label for="guest_address">Residential City / Address</label>
+            <input type="text" name="guest_address" id="guest_address" class="form-control" value="" placeholder="New Delhi, India">
+          </div>
+
+          <div class="form-group">
+            <label for="id_type">Government ID Type</label>
+            <select name="id_type" id="id_type" class="form-control" required>
+              <option value="Aadhaar Card" selected>Aadhaar Card</option>
+              <option value="Passport" >Passport</option>
+              <option value="Driving License" >Driving License</option>
+              <option value="Voter ID" >Voter ID</option>
+              <option value="PAN Card" >PAN Card</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="id_number">Government ID Number</label>
+            <input type="text" name="id_number" id="id_number" class="form-control" value="" placeholder="e.g. 4589 1234 9876" required>
+          </div>
+
+          <div class="form-group" style="grid-column: span 2;">
+            <label for="special_requests">Special Requests / Occasion</label>
+            <textarea name="special_requests" id="special_requests" class="form-control" rows="2" placeholder="Anniversary celebration, high floor preference, airport pickup timing..."></textarea>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- STEP 3 — ENHANCE YOUR STAY -->
+      <div class="wizard-card">
+        <div class="wizard-card-header">
+          <h2><i class="fa-solid fa-crown text-gold" style="margin-right: 8px;"></i> Step 3: Enhance Your Stay (Optional Add-ons)</h2>
+        </div>
+
+        <div class="addons-grid">
+                      <label class="addon-card">
+              <input type="checkbox" name="services[]" value="1" class="addon-checkbox" data-price="1850">
+              <div class="addon-info">
+                <h4><i class="fa-solid fa-utensils text-gold" style="margin-right: 6px;"></i> Royal Gourmet Breakfast Buffet</h4>
+                <p>Elaborate sunrise spread featuring international delicacies, Awadhi kebabs, and farm-fresh bakery items.</p>
+                <div class="addon-price">₹1,850 <small style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">/ Per Guest / Per Day</small></div>
+              </div>
+            </label>
+                      <label class="addon-card">
+              <input type="checkbox" name="services[]" value="2" class="addon-checkbox" data-price="3500">
+              <div class="addon-info">
+                <h4><i class="fa-solid fa-car-rear text-gold" style="margin-right: 6px;"></i> Luxury Airport Chauffeur Transfer</h4>
+                <p>Private airport pickup and drop-off in a luxury Mercedes/BMW sedan with cold towels and refreshments.</p>
+                <div class="addon-price">₹3,500 <small style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">/ Per Vehicle / One Way</small></div>
+              </div>
+            </label>
+                      <label class="addon-card">
+              <input type="checkbox" name="services[]" value="3" class="addon-checkbox" data-price="5500">
+              <div class="addon-info">
+                <h4><i class="fa-solid fa-spa text-gold" style="margin-right: 6px;"></i> Ayurvedic Abhyanga Spa &amp; Therapy</h4>
+                <p>Traditional full-body synchronized herbal massage using warm therapeutic oils for total rejuvenation.</p>
+                <div class="addon-price">₹5,500 <small style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">/ Per Person / 90 Mins</small></div>
+              </div>
+            </label>
+                      <label class="addon-card">
+              <input type="checkbox" name="services[]" value="4" class="addon-checkbox" data-price="8500">
+              <div class="addon-info">
+                <h4><i class="fa-solid fa-champagne-glasses text-gold" style="margin-right: 6px;"></i> Candlelight Royal Dining by the Lake</h4>
+                <p>Exclusive 5-course curated degustation menu with premium beverages in a private poolside or lake cabana.</p>
+                <div class="addon-price">₹8,500 <small style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">/ Per Couple</small></div>
+              </div>
+            </label>
+                      <label class="addon-card">
+              <input type="checkbox" name="services[]" value="5" class="addon-checkbox" data-price="1200">
+              <div class="addon-info">
+                <h4><i class="fa-solid fa-shirt text-gold" style="margin-right: 6px;"></i> Express Garment Laundry &amp; Pressing</h4>
+                <p>Same-day luxury laundry, delicate fabric dry cleaning, and hand-pressed garment service.</p>
+                <div class="addon-price">₹1,200 <small style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">/ Per Laundry Bag</small></div>
+              </div>
+            </label>
+                      <label class="addon-card">
+              <input type="checkbox" name="services[]" value="6" class="addon-checkbox" data-price="4000">
+              <div class="addon-info">
+                <h4><i class="fa-solid fa-bed text-gold" style="margin-right: 6px;"></i> Rollaway Luxury Extra Bed</h4>
+                <p>Premium orthopedic plush mattress with 500-thread-count Egyptian cotton linens and pillow menu.</p>
+                <div class="addon-price">₹4,000 <small style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">/ Per Night</small></div>
+              </div>
+            </label>
+                      <label class="addon-card">
+              <input type="checkbox" name="services[]" value="7" class="addon-checkbox" data-price="2500">
+              <div class="addon-info">
+                <h4><i class="fa-solid fa-landmark text-gold" style="margin-right: 6px;"></i> Private Heritage Walking Tour</h4>
+                <p>Guided private historical exploration with palace historians uncovering royal architecture and legends.</p>
+                <div class="addon-price">₹2,500 <small style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">/ Per Group (up to 4)</small></div>
+              </div>
+            </label>
+                      <label class="addon-card">
+              <input type="checkbox" name="services[]" value="8" class="addon-checkbox" data-price="6500">
+              <div class="addon-info">
+                <h4><i class="fa-solid fa-sailboat text-gold" style="margin-right: 6px;"></i> Sunset Champagne Cruise</h4>
+                <p>Private motorboat / yacht cruise across the lake with chilled bubbly, fresh canapes, and live flute music.</p>
+                <div class="addon-price">₹6,500 <small style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">/ Per Couple</small></div>
+              </div>
+            </label>
+                      <label class="addon-card">
+              <input type="checkbox" name="services[]" value="9" class="addon-checkbox" data-price="1950">
+              <div class="addon-info">
+                <h4><i class="fa-solid fa-mug-saucer text-gold" style="margin-right: 6px;"></i> Traditional Indian High Tea</h4>
+                <p>Afternoon royal tea service with artisanal teas, Darjeeling blends, silver tiers of savoury snacks and pastries.</p>
+                <div class="addon-price">₹1,950 <small style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">/ Per Couple</small></div>
+              </div>
+            </label>
+                      <label class="addon-card">
+              <input type="checkbox" name="services[]" value="10" class="addon-checkbox" data-price="9500">
+              <div class="addon-info">
+                <h4><i class="fa-solid fa-hot-tub-person text-gold" style="margin-right: 6px;"></i> Couples Imperial Hammam Ritual</h4>
+                <p>Exotic Turkish-style hammam bath with mineral mud scrub, aromatic steam, and customized massage.</p>
+                <div class="addon-price">₹9,500 <small style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">/ Per Couple / 120 Mins</small></div>
+              </div>
+            </label>
+                      <label class="addon-card">
+              <input type="checkbox" name="services[]" value="11" class="addon-checkbox" data-price="2000">
+              <div class="addon-info">
+                <h4><i class="fa-solid fa-peace text-gold" style="margin-right: 6px;"></i> Private Yoga &amp; Meditation Session</h4>
+                <p>One-on-one session with our resident yogic master at the sunrise pavilion.</p>
+                <div class="addon-price">₹2,000 <small style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">/ Per Session / 60 Mins</small></div>
+              </div>
+            </label>
+                      <label class="addon-card">
+              <input type="checkbox" name="services[]" value="12" class="addon-checkbox" data-price="4500">
+              <div class="addon-info">
+                <h4><i class="fa-solid fa-hat-chef text-gold" style="margin-right: 6px;"></i> Royal Chef Masterclass</h4>
+                <p>Interactive cooking session with the Executive Chef mastering royal Mughlai or coastal spice recipes.</p>
+                <div class="addon-price">₹4,500 <small style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">/ Per Person</small></div>
+              </div>
+            </label>
+                  </div>
+      </div>
+
+      <!-- STEP 4 — REVIEW & BILLING BREAKDOWN -->
+      <div class="wizard-card">
+        <div class="wizard-card-header">
+          <h2><i class="fa-solid fa-file-invoice text-gold" style="margin-right: 8px;"></i> Step 4: Reservation Summary & Tax Review</h2>
+        </div>
+
+        <div class="review-summary-box">
+          <div class="review-line-item">
+            <span>Duration of Stay</span>
+            <strong id="display_nights_count">2 Nights</strong>
+          </div>
+          <div class="review-line-item">
+            <span>Room Charges (Base Accommodation)</span>
+            <strong id="display_room_charges">₹37,000</strong>
+          </div>
+          <div class="review-line-item">
+            <span>Enhancement Services Total</span>
+            <strong id="display_service_charges">₹0</strong>
+          </div>
+          <div class="review-line-item">
+            <span>Luxury Goods & Services Tax (GST 18%)</span>
+            <strong id="display_tax_amount">₹6,660</strong>
+          </div>
+          <div class="review-line-item total-line">
+            <span>Total Payable Amount</span>
+            <span id="display_grand_total" style="color: var(--color-gold-dark);">₹43,660</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 5 — PAYMENT METHOD (Simulated Gateway) -->
+      <div class="wizard-card">
+        <div class="wizard-card-header">
+          <h2><i class="fa-solid fa-lock text-gold" style="margin-right: 8px;"></i> Step 5: Secure Payment Options</h2>
+        </div>
+
+        <div class="payment-tabs">
+          <label class="payment-tab-btn active">
+            <input type="radio" name="payment_method" value="UPI" checked style="display: none;">
+            <i class="fa-solid fa-qrcode"></i>
+            <span>UPI / QR</span>
+          </label>
+          <label class="payment-tab-btn">
+            <input type="radio" name="payment_method" value="Credit Card" style="display: none;">
+            <i class="fa-solid fa-credit-card"></i>
+            <span>Credit Card</span>
+          </label>
+          <label class="payment-tab-btn">
+            <input type="radio" name="payment_method" value="Net Banking" style="display: none;">
+            <i class="fa-solid fa-building-columns"></i>
+            <span>Net Banking</span>
+          </label>
+          <label class="payment-tab-btn">
+            <input type="radio" name="payment_method" value="Cash at Hotel" style="display: none;">
+            <i class="fa-solid fa-money-bill-wave"></i>
+            <span>Pay at Desk</span>
+          </label>
+        </div>
+
+        <div style="background: var(--color-ivory); padding: 1.5rem; border-radius: 4px; border: 1px solid var(--border-light); font-size: 0.85rem; color: var(--text-dark-secondary); margin-bottom: 2rem;">
+          <i class="fa-solid fa-circle-info text-gold" style="margin-right: 6px;"></i>
+          <strong>DBMS Project Note:</strong> This is an academic presentation system. Payment transactions generate a cryptographically verified transaction ID in the database (`payments` table) without charging real money.
+        </div>
+
+        <div style="text-align: center;">
+          <button type="submit" class="btn-primary" style="padding: 1.2rem 3.5rem; font-size: 0.95rem;">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>CONFIRM & COMPLETE RESERVATION</span>
+          </button>
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+</section>
+
+<script>
+function filterRoomsByHotel(hotelId) {
+  const roomSelect = document.getElementById('room_select');
+  let firstVisible = null;
+  Array.from(roomSelect.options).forEach(opt => {
+    if (!hotelId || opt.getAttribute('data-hotel') === hotelId) {
+      opt.style.display = '';
+      if (!firstVisible) firstVisible = opt;
+    } else {
+      opt.style.display = 'none';
+    }
+  });
+  if (firstVisible && roomSelect.selectedOptions[0].style.display === 'none') {
+    firstVisible.selected = true;
+    updateSelectedRoomPrice(firstVisible);
+  }
+}
+
+function updateSelectedRoomPrice(selectEl) {
+  const opt = selectEl.options ? selectEl.options[selectEl.selectedIndex] : selectEl;
+  if (opt) {
+    const price = opt.getAttribute('data-price') || 18500;
+    document.getElementById('base_room_price').value = price;
+    if (typeof calculateBookingTotal === 'function') calculateBookingTotal();
+  }
+}
+
+document.querySelectorAll('.payment-tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.payment-tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    btn.querySelector('input[type="radio"]').checked = true;
+  });
+});
+
+window.addEventListener('load', () => {
+  const roomSelect = document.getElementById('room_select');
+  if (roomSelect) updateSelectedRoomPrice(roomSelect);
+});
+</script>
+
+  <!-- Global Editorial Footer (Dark Background for Strict Contrast) -->
+  <footer class="site-footer" id="about">
+    <div class="container">
+      <div class="footer-top-grid">
+        
+        <!-- Brand Summary -->
+        <div class="footer-brand-col">
+          <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem;">
+            <div class="rp-monogram" style="background: rgba(255,255,255,0.05); border-color: var(--color-gold);">
+              <span>RP</span>
+            </div>
+            <div>
+              <h3>THE ROMA PALACE</h3>
+              <p class="footer-tagline">“A Legacy of Luxury, A Stay to Remember.”</p>
+            </div>
+          </div>
+          <p class="footer-about-text">
+            For over two decades, The Roma Palace has preserved the soul of Indian regal hospitality, blending timeless palatial architecture with intuitive contemporary luxury.
+          </p>
+          <div class="footer-social-links">
+            <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Palaces -->
+        <div class="footer-col">
+          <h4>OUR PALACES</h4>
+          <ul class="footer-links">
+            <li><a href="hotels.php#jaipur">Roma Palace Jaipur</a></li>
+            <li><a href="hotels.php#goa">Roma Palace Goa</a></li>
+            <li><a href="hotels.php#udaipur">Roma Palace Udaipur</a></li>
+            <li><a href="hotels.php#lucknow">Roma Palace Lucknow</a></li>
+            <li><a href="hotels.html">Kerala & Varanasi</a></li>
+          </ul>
+        </div>
+
+        <!-- Stays & Suites -->
+        <div class="footer-col">
+          <h4>EXPLORE</h4>
+          <ul class="footer-links">
+            <li><a href="rooms.php?type=Deluxe+Room">Deluxe Rooms</a></li>
+            <li><a href="rooms.php?type=Premium+Room">Premium Rooms</a></li>
+            <li><a href="rooms.php?type=Executive+Room">Executive Suites</a></li>
+            <li><a href="rooms.php?type=Luxury+Suite">Luxury Suites</a></li>
+            <li><a href="rooms.php?type=Royal+Suite">The Royal Suite</a></li>
+            <li><a href="offers.html">Signature Offers</a></li>
+          </ul>
+        </div>
+
+        <!-- Experiences & Dining -->
+        <div class="footer-col">
+          <h4>LIFESTYLE</h4>
+          <ul class="footer-links">
+            <li><a href="dining.html">The Roma Table</a></li>
+            <li><a href="dining.html">Palazzo Café Goa</a></li>
+            <li><a href="dining.html">Spice Route Awadh</a></li>
+            <li><a href="dining.html">Azure Lake Lounge</a></li>
+            <li><a href="wellness.html">Ayurvedic Spa & Gym</a></li>
+            <li><a href="experiences.html">Curated Tours</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter & Concierge -->
+        <div class="footer-col">
+          <h4>CONCIERGE DESK</h4>
+          <p style="font-size: 0.85rem; color: var(--text-light-secondary); margin-bottom: 0.8rem;">
+            Subscribe to receive private invitations to royal events and seasonal privilege packages.
+          </p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to The Roma Palace private dispatch.');">
+            <input type="email" class="newsletter-input" placeholder="Your email address" required>
+            <button type="submit" class="newsletter-btn"><i class="fa-solid fa-arrow-right"></i></button>
+          </form>
+          <div style="margin-top: 1.5rem; font-size: 0.82rem; color: var(--color-gold-light);">
+            <div><i class="fa-solid fa-phone" style="margin-right: 6px;"></i> +91 (0) 141 278 9000</div>
+            <div style="margin-top: 4px;"><i class="fa-solid fa-envelope" style="margin-right: 6px;"></i> concierge@romapalace.com</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>Copyright &copy; 2026 The Roma Palace Hotels & Resorts Ltd. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Stay</a>
+          <a href="#">Cancellation Policy</a>
+          <a href="admin/admin-login.html">Staff & Admin Login</a>
+          <a href="admin/demo-presentation.html" style="color: var(--color-gold); font-weight: 600;">DBMS Project Demo</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

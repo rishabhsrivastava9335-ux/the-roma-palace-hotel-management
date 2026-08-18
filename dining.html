@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fine Dining &amp; Royal Gastronomy | The Roma Palace</title>
+  <meta name="description" content="Discover timeless hospitality, refined comfort and unforgettable experiences across India's most iconic luxury palace retreats.">
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Luxury Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- Top Announcement / Demo Bar (College Viva Helper) -->
+  <div style="background: #0C0D0F; color: #DFCAAB; font-size: 0.75rem; padding: 0.35rem 1rem; text-align: center; border-bottom: 1px solid rgba(197,168,128,0.25); letter-spacing: 0.5px; z-index: 1001; position: relative;">
+    <span><i class="fa-solid fa-graduation-cap" style="color: #C5A880; margin-right: 5px;"></i> BTech CSE DBMS Mini Project — <strong>The Roma Palace</strong></span>
+    <span style="margin: 0 10px; opacity: 0.4;">|</span>
+    <a href="admin/admin-login.html" style="color: #FFFFFF; text-decoration: underline; font-weight: 600;"><i class="fa-solid fa-lock" style="font-size: 0.7rem;"></i> Admin Portal</a>
+    <span style="margin: 0 10px; opacity: 0.4;">|</span>
+    <a href="admin/demo-presentation.html" style="color: #C5A880; font-weight: 700;"><i class="fa-solid fa-chart-pie"></i> Professor Viva Dashboard</a>
+  </div>
+
+  <!-- Dynamic Sticky Navigation -->
+  <header class="site-header scrolled">
+    <div class="nav-container">
+      
+      <!-- Brand Logo + RP Monogram -->
+      <a href="index.html" class="brand-logo-link" title="The Roma Palace Homepage">
+        <div class="rp-monogram">
+          <span>RP</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">THE ROMA PALACE</span>
+          <span class="brand-subtitle">Luxury Hotels & Resorts</span>
+        </div>
+      </a>
+
+      <!-- Main Navigation Menu -->
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="hotels.html" class="nav-link ">PALACES</a></li>
+          <li><a href="rooms.html" class="nav-link ">ROOMS & SUITES</a></li>
+          <li><a href="dining.html" class="nav-link active">DINING</a></li>
+          <li><a href="experiences.html" class="nav-link ">EXPERIENCES</a></li>
+          <li><a href="offers.html" class="nav-link ">OFFERS</a></li>
+          <li><a href="wellness.html" class="nav-link ">WELLNESS</a></li>
+          <li><a href="index.php#about" class="nav-link">ABOUT</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions (Login / Account + Book a Stay) -->
+      <div class="nav-actions">
+                  <a href="login.html" class="btn-nav-login" title="Guest Sign In">
+            <i class="fa-regular fa-user"></i>
+            <span>LOGIN</span>
+          </a>
+        
+        <a href="booking.html" class="btn-book-nav">
+          <i class="fa-solid fa-calendar-check"></i>
+          <span>BOOK A STAY</span>
+        </a>
+
+        <button class="mobile-nav-toggle" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Flash Messages -->
+  
+  
+<!-- Page Banner -->
+<section style="background: linear-gradient(rgba(18,19,22,0.7), rgba(18,19,22,0.85)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat; padding: 7rem 2rem 4rem 2rem; text-align: center; color: #FFFFFF;">
+  <div class="container">
+    <span class="section-tag" style="color: var(--color-gold-light);">ROYAL FEASTS</span>
+    <h1 style="color: #FFFFFF; font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 0.8rem;">CULINARY EXCELLENCE</h1>
+    <p style="color: var(--text-light-secondary); max-width: 650px; margin: 0 auto;">
+      A celebration of ancient court recipes, Awadhi slow-dum artistry, and coastal seafood delicacies served under grand chandeliers.
+    </p>
+  </div>
+</section>
+
+<!-- Restaurants Showcase -->
+<section class="section-spacing bg-ivory">
+  <div class="container">
+    
+    <div style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto;">
+      <span class="section-tag">DESTINATION DINING</span>
+      <h2>OUR SIGNATURE RESTAURANTS</h2>
+      <p>Explore distinct culinary destinations across our palaces in Jaipur, Goa, Udaipur, and Lucknow.</p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 4.5rem;">
+              <div class="dining-showcase" style="">
+          
+          <div class="dining-media">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="The Roma Table" loading="lazy">
+          </div>
+
+          <div class="dining-info" style="">
+            <span class="dining-cuisine-tag">Indian Royal &amp; Contemporary Global</span>
+            <h3>The Roma Table</h3>
+            <p style="font-size: 0.85rem; color: var(--color-gold-dark); margin-bottom: 0.8rem;">
+              <i class="fa-solid fa-hotel"></i> The Roma Palace Jaipur (Jaipur)            </p>
+            
+            <p>An ode to aristocratic gastronomy: heritage Rajasthani Thalis served alongside progressive European classics under carved vaulted ceilings.</p>
+
+            <div class="dining-meta-grid">
+              <div class="dining-meta-item">
+                <strong>Opening Hours</strong>
+                07:00 AM – 11:30 PM              </div>
+              <div class="dining-meta-item">
+                <strong>Dress Code & Setting</strong>
+                Formal / Smart Casual              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+              <a href="#menu" class="btn-outline-dark">VIEW MENU</a>
+              <a href="#reserve" class="btn-primary" onclick="document.getElementById('rest_select').value='1'">RESERVE TABLE</a>
+            </div>
+
+          </div>
+
+        </div>
+              <div class="dining-showcase" style="direction: rtl;">
+          
+          <div class="dining-media">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Palazzo Café &amp; Ocean Grill" loading="lazy">
+          </div>
+
+          <div class="dining-info" style="direction: ltr;">
+            <span class="dining-cuisine-tag">Coastal Seafood &amp; All-Day Dining</span>
+            <h3>Palazzo Café &amp; Ocean Grill</h3>
+            <p style="font-size: 0.85rem; color: var(--color-gold-dark); margin-bottom: 0.8rem;">
+              <i class="fa-solid fa-hotel"></i> The Roma Palace Goa (Goa)            </p>
+            
+            <p>Al-fresco oceanfront dining with fresh Arabian Sea catch, wood-fired artisanal pizzas, and hand-crafted botanical cocktails.</p>
+
+            <div class="dining-meta-grid">
+              <div class="dining-meta-item">
+                <strong>Opening Hours</strong>
+                06:30 AM – 12:00 Midnight              </div>
+              <div class="dining-meta-item">
+                <strong>Dress Code & Setting</strong>
+                Resort Chic / Casual Elegance              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+              <a href="#menu" class="btn-outline-dark">VIEW MENU</a>
+              <a href="#reserve" class="btn-primary" onclick="document.getElementById('rest_select').value='2'">RESERVE TABLE</a>
+            </div>
+
+          </div>
+
+        </div>
+              <div class="dining-showcase" style="">
+          
+          <div class="dining-media">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Spice Route — Royal Dastarkhwan" loading="lazy">
+          </div>
+
+          <div class="dining-info" style="">
+            <span class="dining-cuisine-tag">Authentic Awadhi &amp; Mughlai Heritage</span>
+            <h3>Spice Route — Royal Dastarkhwan</h3>
+            <p style="font-size: 0.85rem; color: var(--color-gold-dark); margin-bottom: 0.8rem;">
+              <i class="fa-solid fa-hotel"></i> The Roma Palace Lucknow (Lucknow)            </p>
+            
+            <p>Preserving centuries-old dum-pukht techniques, succulent Galawati kebabs, and aromatic saffron biryanis perfected by Nawab court culinary lineages.</p>
+
+            <div class="dining-meta-grid">
+              <div class="dining-meta-item">
+                <strong>Opening Hours</strong>
+                12:30 PM – 03:30 PM &amp; 07:00 PM – 11:30 PM              </div>
+              <div class="dining-meta-item">
+                <strong>Dress Code & Setting</strong>
+                Traditional Elegant / Formal              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+              <a href="#menu" class="btn-outline-dark">VIEW MENU</a>
+              <a href="#reserve" class="btn-primary" onclick="document.getElementById('rest_select').value='3'">RESERVE TABLE</a>
+            </div>
+
+          </div>
+
+        </div>
+              <div class="dining-showcase" style="direction: rtl;">
+          
+          <div class="dining-media">
+            <img src="https://images.unsplash.com/photo-1572116469696-31de0f17cc34?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Azure Lounge &amp; Sunset Terrace" loading="lazy">
+          </div>
+
+          <div class="dining-info" style="direction: ltr;">
+            <span class="dining-cuisine-tag">Signature Beverages, Wine &amp; Patisserie</span>
+            <h3>Azure Lounge &amp; Sunset Terrace</h3>
+            <p style="font-size: 0.85rem; color: var(--color-gold-dark); margin-bottom: 0.8rem;">
+              <i class="fa-solid fa-hotel"></i> The Roma Palace Udaipur (Udaipur)            </p>
+            
+            <p>A refined rooftop sanctuary for vintage champagnes, rare single malts, artisanal tapas, and sunset serenades overlooking the illuminated waters.</p>
+
+            <div class="dining-meta-grid">
+              <div class="dining-meta-item">
+                <strong>Opening Hours</strong>
+                11:00 AM – 01:00 AM              </div>
+              <div class="dining-meta-item">
+                <strong>Dress Code & Setting</strong>
+                Evening Chic              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+              <a href="#menu" class="btn-outline-dark">VIEW MENU</a>
+              <a href="#reserve" class="btn-primary" onclick="document.getElementById('rest_select').value='4'">RESERVE TABLE</a>
+            </div>
+
+          </div>
+
+        </div>
+          </div>
+
+  </div>
+</section>
+
+<!-- Database-Driven Interactive Menu -->
+<section class="section-spacing bg-cream" id="menu">
+  <div class="container">
+    <div style="text-align: center; max-width: 700px; margin: 0 auto 2rem auto;">
+      <span class="section-tag">GASTRONOMIC SELECTION</span>
+      <h2>DISCOVER OUR MENUS</h2>
+      <p>Hand-crafted culinary creations prepared with heirloom spices, artisanal cheeses, and farm-to-table produce.</p>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="menu-category-nav">
+      <button class="menu-tab-btn active" data-category="all">All Specialties</button>
+      <button class="menu-tab-btn" data-category="Appetizers">Appetizers & Kebabs</button>
+      <button class="menu-tab-btn" data-category="Main Course">Main Course</button>
+      <button class="menu-tab-btn" data-category="Royal Thali">Royal Thalis</button>
+      <button class="menu-tab-btn" data-category="Desserts">Royal Desserts</button>
+      <button class="menu-tab-btn" data-category="Beverages & Wine">Signature Beverages</button>
+    </div>
+
+    <!-- Menu Items List -->
+    <div class="menu-items-grid">
+              <div class="menu-item-row" data-category="Beverages &amp; Wine">
+          <div class="menu-item-info">
+            <h4>
+              Goan Kokum Passionfruit Cooler                            <span class="diet-tag diet-vegan">
+                Vegan              </span>
+            </h4>
+            <p>Indigenous kokum extract infused with fresh passionfruit, mint, and sea salt.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Palazzo Café &amp; Ocean Grill</small>
+          </div>
+          <div class="menu-item-price">
+            ₹420          </div>
+        </div>
+              <div class="menu-item-row" data-category="Beverages &amp; Wine">
+          <div class="menu-item-info">
+            <h4>
+              Darjeeling First Flush Royal Tea                            <span class="diet-tag diet-vegan">
+                Vegan              </span>
+            </h4>
+            <p>Handpicked organic single-estate tea brewed at table with wild mountain honey.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at The Roma Table</small>
+          </div>
+          <div class="menu-item-price">
+            ₹450          </div>
+        </div>
+              <div class="menu-item-row" data-category="Desserts">
+          <div class="menu-item-info">
+            <h4>
+              Lucknowi Nimish / Makhan Malai                              <span style="background: var(--color-gold); color: var(--color-charcoal); font-size: 0.65rem; padding: 0.15rem 0.45rem; border-radius: 2px; font-weight: 700;">CHEF'S SPECIAL</span>
+                            <span class="diet-tag diet-veg">
+                Veg              </span>
+            </h4>
+            <p>Feather-light whipped milk foam scented with saffron, dew drops, and pistachio slivers.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Spice Route — Royal Dastarkhwan</small>
+          </div>
+          <div class="menu-item-price">
+            ₹480          </div>
+        </div>
+              <div class="menu-item-row" data-category="Desserts">
+          <div class="menu-item-info">
+            <h4>
+              Masala Chai Gelato with Almond Tuile                            <span class="diet-tag diet-veg">
+                Veg              </span>
+            </h4>
+            <p>Aromatic spiced tea gelato served with crispy honey almond crisp.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Azure Lounge &amp; Sunset Terrace</small>
+          </div>
+          <div class="menu-item-price">
+            ₹480          </div>
+        </div>
+              <div class="menu-item-row" data-category="Desserts">
+          <div class="menu-item-info">
+            <h4>
+              Traditional Goan Bebinca                            <span class="diet-tag diet-veg">
+                Veg              </span>
+            </h4>
+            <p>Seven-layered coconut milk pudding baked slowly with ghee and nutmeg.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Palazzo Café &amp; Ocean Grill</small>
+          </div>
+          <div class="menu-item-price">
+            ₹500          </div>
+        </div>
+              <div class="menu-item-row" data-category="Desserts">
+          <div class="menu-item-info">
+            <h4>
+              Kesar Pistachio Kulfi Falooda                            <span class="diet-tag diet-veg">
+                Veg              </span>
+            </h4>
+            <p>Traditional dense saffron ice cream served with rose syrup, basil seeds, and hand-spun falooda.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at The Roma Table</small>
+          </div>
+          <div class="menu-item-price">
+            ₹550          </div>
+        </div>
+              <div class="menu-item-row" data-category="Desserts">
+          <div class="menu-item-info">
+            <h4>
+              Shahi Tukda with Gold Vark                              <span style="background: var(--color-gold); color: var(--color-charcoal); font-size: 0.65rem; padding: 0.15rem 0.45rem; border-radius: 2px; font-weight: 700;">CHEF'S SPECIAL</span>
+                            <span class="diet-tag diet-veg">
+                Veg              </span>
+            </h4>
+            <p>Crisp brioche soaked in cardamom syrup, topped with thick rabri and 24K edible gold.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Spice Route — Royal Dastarkhwan</small>
+          </div>
+          <div class="menu-item-price">
+            ₹580          </div>
+        </div>
+              <div class="menu-item-row" data-category="Appetizers">
+          <div class="menu-item-info">
+            <h4>
+              Smoked Truffle Wild Mushroom Soup                            <span class="diet-tag diet-veg">
+                Veg              </span>
+            </h4>
+            <p>Forest mushrooms with aged Parmesan foam and roasted hazelnut crunch.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at The Roma Table</small>
+          </div>
+          <div class="menu-item-price">
+            ₹650          </div>
+        </div>
+              <div class="menu-item-row" data-category="Desserts">
+          <div class="menu-item-info">
+            <h4>
+              Valrhona Dark Chocolate Fondant                              <span style="background: var(--color-gold); color: var(--color-charcoal); font-size: 0.65rem; padding: 0.15rem 0.45rem; border-radius: 2px; font-weight: 700;">CHEF'S SPECIAL</span>
+                            <span class="diet-tag diet-veg">
+                Veg              </span>
+            </h4>
+            <p>Warm molten 70% French chocolate cake with housemade Madagascar vanilla bean gelato.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Azure Lounge &amp; Sunset Terrace</small>
+          </div>
+          <div class="menu-item-price">
+            ₹680          </div>
+        </div>
+              <div class="menu-item-row" data-category="Appetizers">
+          <div class="menu-item-info">
+            <h4>
+              Avocado &amp; Quinoa Citrus Salad                            <span class="diet-tag diet-vegan">
+                Vegan              </span>
+            </h4>
+            <p>Hass avocado, organic Peruvian quinoa, pomegranate pearls, and yuzu vinaigrette.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Palazzo Café &amp; Ocean Grill</small>
+          </div>
+          <div class="menu-item-price">
+            ₹750          </div>
+        </div>
+              <div class="menu-item-row" data-category="Appetizers">
+          <div class="menu-item-info">
+            <h4>
+              Truffle Edamame Dumplings                            <span class="diet-tag diet-vegan">
+                Vegan              </span>
+            </h4>
+            <p>Translucent steamed crystal dumplings infused with black summer truffle essence.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Azure Lounge &amp; Sunset Terrace</small>
+          </div>
+          <div class="menu-item-price">
+            ₹850          </div>
+        </div>
+              <div class="menu-item-row" data-category="Appetizers">
+          <div class="menu-item-info">
+            <h4>
+              Shahi Paneer Tikka Angaar                            <span class="diet-tag diet-veg">
+                Veg              </span>
+            </h4>
+            <p>Housemade cottage cheese cubes stuffed with saffron mawa and char-grilled in tandoor.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at The Roma Table</small>
+          </div>
+          <div class="menu-item-price">
+            ₹950          </div>
+        </div>
+              <div class="menu-item-row" data-category="Beverages &amp; Wine">
+          <div class="menu-item-info">
+            <h4>
+              Spiced Saffron Bellini                            <span class="diet-tag diet-vegan">
+                Vegan              </span>
+            </h4>
+            <p>Italian Prosecco swirled with peach puree and Kashmiri saffron threads.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Azure Lounge &amp; Sunset Terrace</small>
+          </div>
+          <div class="menu-item-price">
+            ₹950          </div>
+        </div>
+              <div class="menu-item-row" data-category="Main Course">
+          <div class="menu-item-info">
+            <h4>
+              Paneer Nazakat Pasanda                            <span class="diet-tag diet-veg">
+                Veg              </span>
+            </h4>
+            <p>Layered paneer escallops filled with dry fruits in a silky cashew-saffron gravy.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Spice Route — Royal Dastarkhwan</small>
+          </div>
+          <div class="menu-item-price">
+            ₹1,050          </div>
+        </div>
+              <div class="menu-item-row" data-category="Main Course">
+          <div class="menu-item-info">
+            <h4>
+              Woodfired Burrata &amp; Heirloom Pizza                            <span class="diet-tag diet-veg">
+                Veg              </span>
+            </h4>
+            <p>Creamy Italian burrata, San Marzano pomodoro, fresh basil, and extra virgin olive oil.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Palazzo Café &amp; Ocean Grill</small>
+          </div>
+          <div class="menu-item-price">
+            ₹1,150          </div>
+        </div>
+              <div class="menu-item-row" data-category="Appetizers">
+          <div class="menu-item-info">
+            <h4>
+              Melt-in-Mouth Galawati Kebab                              <span style="background: var(--color-gold); color: var(--color-charcoal); font-size: 0.65rem; padding: 0.15rem 0.45rem; border-radius: 2px; font-weight: 700;">CHEF'S SPECIAL</span>
+                            <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </h4>
+            <p>Legendary Awadhi minced lamb patties infused with 160 secret spices and rose petal water.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Spice Route — Royal Dastarkhwan</small>
+          </div>
+          <div class="menu-item-price">
+            ₹1,250          </div>
+        </div>
+              <div class="menu-item-row" data-category="Beverages &amp; Wine">
+          <div class="menu-item-info">
+            <h4>
+              The Royal Maharaja Cocktail                              <span style="background: var(--color-gold); color: var(--color-charcoal); font-size: 0.65rem; padding: 0.15rem 0.45rem; border-radius: 2px; font-weight: 700;">CHEF'S SPECIAL</span>
+                            <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </h4>
+            <p>Single malt scotch, saffron-infused vermouth, orange bitters, smoked with applewood.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Azure Lounge &amp; Sunset Terrace</small>
+          </div>
+          <div class="menu-item-price">
+            ₹1,250          </div>
+        </div>
+              <div class="menu-item-row" data-category="Appetizers">
+          <div class="menu-item-info">
+            <h4>
+              Recheado King Prawns Grill                              <span style="background: var(--color-gold); color: var(--color-charcoal); font-size: 0.65rem; padding: 0.15rem 0.45rem; border-radius: 2px; font-weight: 700;">CHEF'S SPECIAL</span>
+                            <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </h4>
+            <p>Jumbo Arabian Sea prawns stuffed with spicy-tangy homemade Goan red masala.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Palazzo Café &amp; Ocean Grill</small>
+          </div>
+          <div class="menu-item-price">
+            ₹1,350          </div>
+        </div>
+              <div class="menu-item-row" data-category="Appetizers">
+          <div class="menu-item-info">
+            <h4>
+              Kakori Kebab Nawabi                              <span style="background: var(--color-gold); color: var(--color-charcoal); font-size: 0.65rem; padding: 0.15rem 0.45rem; border-radius: 2px; font-weight: 700;">CHEF'S SPECIAL</span>
+                            <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </h4>
+            <p>Ultra-refined skewered mutton kebab prepared with saffron, raw papaya, and khoya.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Spice Route — Royal Dastarkhwan</small>
+          </div>
+          <div class="menu-item-price">
+            ₹1,350          </div>
+        </div>
+              <div class="menu-item-row" data-category="Main Course">
+          <div class="menu-item-info">
+            <h4>
+              Royal Rajputana Laal Maas                              <span style="background: var(--color-gold); color: var(--color-charcoal); font-size: 0.65rem; padding: 0.15rem 0.45rem; border-radius: 2px; font-weight: 700;">CHEF'S SPECIAL</span>
+                            <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </h4>
+            <p>Tender Mathania-chilli braised lamb slow-cooked in copper vessels with smoked cloves.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at The Roma Table</small>
+          </div>
+          <div class="menu-item-price">
+            ₹1,450          </div>
+        </div>
+              <div class="menu-item-row" data-category="Main Course">
+          <div class="menu-item-info">
+            <h4>
+              Awadhi Dum Murgh Biryani                              <span style="background: var(--color-gold); color: var(--color-charcoal); font-size: 0.65rem; padding: 0.15rem 0.45rem; border-radius: 2px; font-weight: 700;">CHEF'S SPECIAL</span>
+                            <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </h4>
+            <p>Long-grain Basmati and spring chicken sealed with purdah dough in clay handis.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Spice Route — Royal Dastarkhwan</small>
+          </div>
+          <div class="menu-item-price">
+            ₹1,450          </div>
+        </div>
+              <div class="menu-item-row" data-category="Royal Thali">
+          <div class="menu-item-info">
+            <h4>
+              Dal Baati Churma Rajwadi                              <span style="background: var(--color-gold); color: var(--color-charcoal); font-size: 0.65rem; padding: 0.15rem 0.45rem; border-radius: 2px; font-weight: 700;">CHEF'S SPECIAL</span>
+                            <span class="diet-tag diet-veg">
+                Veg              </span>
+            </h4>
+            <p>The quintessential Rajasthani feast: five-lentil Panchmel dal, ghee-soaked baatis, and almond churma.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at The Roma Table</small>
+          </div>
+          <div class="menu-item-price">
+            ₹1,650          </div>
+        </div>
+              <div class="menu-item-row" data-category="Main Course">
+          <div class="menu-item-info">
+            <h4>
+              Nalli Nihari Gosht with Sheermal                              <span style="background: var(--color-gold); color: var(--color-charcoal); font-size: 0.65rem; padding: 0.15rem 0.45rem; border-radius: 2px; font-weight: 700;">CHEF'S SPECIAL</span>
+                            <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </h4>
+            <p>Slow-cooked lamb shanks braised overnight, served alongside saffron-scented Sheermal.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Spice Route — Royal Dastarkhwan</small>
+          </div>
+          <div class="menu-item-price">
+            ₹1,650          </div>
+        </div>
+              <div class="menu-item-row" data-category="Main Course">
+          <div class="menu-item-info">
+            <h4>
+              Goan Crab Xec Xec                              <span style="background: var(--color-gold); color: var(--color-charcoal); font-size: 0.65rem; padding: 0.15rem 0.45rem; border-radius: 2px; font-weight: 700;">CHEF'S SPECIAL</span>
+                            <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </h4>
+            <p>Mud crab simmered in a roasted coconut, coriander seed, and Kashmiri spice gravy.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Palazzo Café &amp; Ocean Grill</small>
+          </div>
+          <div class="menu-item-price">
+            ₹1,750          </div>
+        </div>
+              <div class="menu-item-row" data-category="Appetizers">
+          <div class="menu-item-info">
+            <h4>
+              Charcuterie &amp; Artisanal Cheese Board                            <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </h4>
+            <p>Aged Manchego, Truffle Gouda, Parma Ham, fig preserve, and lavash crisps.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Azure Lounge &amp; Sunset Terrace</small>
+          </div>
+          <div class="menu-item-price">
+            ₹1,850          </div>
+        </div>
+              <div class="menu-item-row" data-category="Breakfast">
+          <div class="menu-item-info">
+            <h4>
+              Lakeview High Tea Tower                            <span class="diet-tag diet-veg">
+                Veg              </span>
+            </h4>
+            <p>Three-tier stand with smoked salmon blinis, cucumber finger sandwiches, scones, and macarons.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Azure Lounge &amp; Sunset Terrace</small>
+          </div>
+          <div class="menu-item-price">
+            ₹2,200          </div>
+        </div>
+              <div class="menu-item-row" data-category="Main Course">
+          <div class="menu-item-info">
+            <h4>
+              Pan-Seared Chilean Sea Bass                              <span style="background: var(--color-gold); color: var(--color-charcoal); font-size: 0.65rem; padding: 0.15rem 0.45rem; border-radius: 2px; font-weight: 700;">CHEF'S SPECIAL</span>
+                            <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </h4>
+            <p>Served over saffron risotto with lemon butter emulsion and asparagus.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at The Roma Table</small>
+          </div>
+          <div class="menu-item-price">
+            ₹2,250          </div>
+        </div>
+              <div class="menu-item-row" data-category="Beverages &amp; Wine">
+          <div class="menu-item-info">
+            <h4>
+              Moët &amp; Chandon Brut Impérial (Glass)                            <span class="diet-tag diet-vegan">
+                Vegan              </span>
+            </h4>
+            <p>Crisp French champagne with notes of green apple, citrus, and toasted brioche.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Azure Lounge &amp; Sunset Terrace</small>
+          </div>
+          <div class="menu-item-price">
+            ₹2,400          </div>
+        </div>
+              <div class="menu-item-row" data-category="Royal Thali">
+          <div class="menu-item-info">
+            <h4>
+              The Roma Imperial Thali (Gold Edition)                              <span style="background: var(--color-gold); color: var(--color-charcoal); font-size: 0.65rem; padding: 0.15rem 0.45rem; border-radius: 2px; font-weight: 700;">CHEF'S SPECIAL</span>
+                            <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </h4>
+            <p>A 14-course royal banquet served on handcrafted silver tableware.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at The Roma Table</small>
+          </div>
+          <div class="menu-item-price">
+            ₹2,850          </div>
+        </div>
+              <div class="menu-item-row" data-category="Main Course">
+          <div class="menu-item-info">
+            <h4>
+              Lobster Thermidor on the Grill                              <span style="background: var(--color-gold); color: var(--color-charcoal); font-size: 0.65rem; padding: 0.15rem 0.45rem; border-radius: 2px; font-weight: 700;">CHEF'S SPECIAL</span>
+                            <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </h4>
+            <p>Whole butterflied butter lobster gratinated with Dijon mustard, gruyere, and cognac cream.</p>
+            <small style="color: var(--text-muted); font-size: 0.75rem;"><i class="fa-solid fa-utensils"></i> Served at Palazzo Café &amp; Ocean Grill</small>
+          </div>
+          <div class="menu-item-price">
+            ₹3,200          </div>
+        </div>
+          </div>
+
+  </div>
+</section>
+
+<!-- Table Reservation Modal / Form -->
+<section class="section-spacing bg-ivory" id="reserve">
+  <div class="container">
+    <div style="max-width: 800px; margin: 0 auto; background: var(--color-white); padding: 3.5rem; border-radius: 4px; border: 1px solid var(--border-gold); box-shadow: var(--shadow-luxury);">
+      
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <span class="section-tag">TABLE RESERVATION</span>
+        <h2>EXPERIENCE REGAL DINING</h2>
+        <p>Book your table in advance for an exquisite fine dining experience.</p>
+      </div>
+
+      
+      <form method="POST" action="dining.php#reserve" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+        <input type="hidden" name="action" value="reserve_table">
+
+        <div class="form-group">
+          <label for="rest_select">Select Restaurant</label>
+          <select name="restaurant_id" id="rest_select" class="form-control" required>
+                          <option value="1">
+                The Roma Table (Jaipur)              </option>
+                          <option value="2">
+                Palazzo Café &amp; Ocean Grill (Goa)              </option>
+                          <option value="3">
+                Spice Route — Royal Dastarkhwan (Lucknow)              </option>
+                          <option value="4">
+                Azure Lounge &amp; Sunset Terrace (Udaipur)              </option>
+                      </select>
+        </div>
+
+        <div class="form-group">
+          <label for="res_date">Date of Reservation</label>
+          <input type="date" name="reservation_date" id="res_date" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label for="res_time">Seating Time</label>
+          <select name="reservation_time" id="res_time" class="form-control" required>
+            <option value="12:30 PM">12:30 PM (Lunch)</option>
+            <option value="01:30 PM">01:30 PM (Lunch)</option>
+            <option value="07:30 PM" selected>07:30 PM (Dinner)</option>
+            <option value="08:30 PM">08:30 PM (Dinner)</option>
+            <option value="09:30 PM">09:30 PM (Late Dinner)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="res_guests">Number of Guests</label>
+          <select name="guests_count" id="res_guests" class="form-control" required>
+            <option value="2">2 Guests (Couple)</option>
+            <option value="4" selected>4 Guests</option>
+            <option value="6">6 Guests</option>
+            <option value="8">8+ Guests (Private Dining)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="guest_name">Full Name</label>
+          <input type="text" name="guest_name" id="guest_name" class="form-control" placeholder="Your name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="guest_phone">Phone Number</label>
+          <input type="tel" name="guest_phone" id="guest_phone" class="form-control" placeholder="+91 98765 43210" required>
+        </div>
+
+        <div class="form-group" style="grid-column: span 2;">
+          <label for="special_pref">Dietary Preferences / Special Celebration</label>
+          <textarea name="preferences" id="special_pref" class="form-control" rows="3" placeholder="Anniversary table setting, Jain food request, allergies..."></textarea>
+        </div>
+
+        <div style="grid-column: span 2; text-align: center; margin-top: 1rem;">
+          <button type="submit" class="btn-primary" style="padding: 1rem 3rem;">
+            <i class="fa-solid fa-champagne-glasses"></i>
+            <span>CONFIRM TABLE RESERVATION</span>
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Global Editorial Footer (Dark Background for Strict Contrast) -->
+  <footer class="site-footer" id="about">
+    <div class="container">
+      <div class="footer-top-grid">
+        
+        <!-- Brand Summary -->
+        <div class="footer-brand-col">
+          <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem;">
+            <div class="rp-monogram" style="background: rgba(255,255,255,0.05); border-color: var(--color-gold);">
+              <span>RP</span>
+            </div>
+            <div>
+              <h3>THE ROMA PALACE</h3>
+              <p class="footer-tagline">“A Legacy of Luxury, A Stay to Remember.”</p>
+            </div>
+          </div>
+          <p class="footer-about-text">
+            For over two decades, The Roma Palace has preserved the soul of Indian regal hospitality, blending timeless palatial architecture with intuitive contemporary luxury.
+          </p>
+          <div class="footer-social-links">
+            <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Palaces -->
+        <div class="footer-col">
+          <h4>OUR PALACES</h4>
+          <ul class="footer-links">
+            <li><a href="hotels.php#jaipur">Roma Palace Jaipur</a></li>
+            <li><a href="hotels.php#goa">Roma Palace Goa</a></li>
+            <li><a href="hotels.php#udaipur">Roma Palace Udaipur</a></li>
+            <li><a href="hotels.php#lucknow">Roma Palace Lucknow</a></li>
+            <li><a href="hotels.html">Kerala & Varanasi</a></li>
+          </ul>
+        </div>
+
+        <!-- Stays & Suites -->
+        <div class="footer-col">
+          <h4>EXPLORE</h4>
+          <ul class="footer-links">
+            <li><a href="rooms.php?type=Deluxe+Room">Deluxe Rooms</a></li>
+            <li><a href="rooms.php?type=Premium+Room">Premium Rooms</a></li>
+            <li><a href="rooms.php?type=Executive+Room">Executive Suites</a></li>
+            <li><a href="rooms.php?type=Luxury+Suite">Luxury Suites</a></li>
+            <li><a href="rooms.php?type=Royal+Suite">The Royal Suite</a></li>
+            <li><a href="offers.html">Signature Offers</a></li>
+          </ul>
+        </div>
+
+        <!-- Experiences & Dining -->
+        <div class="footer-col">
+          <h4>LIFESTYLE</h4>
+          <ul class="footer-links">
+            <li><a href="dining.html">The Roma Table</a></li>
+            <li><a href="dining.html">Palazzo Café Goa</a></li>
+            <li><a href="dining.html">Spice Route Awadh</a></li>
+            <li><a href="dining.html">Azure Lake Lounge</a></li>
+            <li><a href="wellness.html">Ayurvedic Spa & Gym</a></li>
+            <li><a href="experiences.html">Curated Tours</a></li>
+          </ul>
+        </div>
+
+        <!-- Newsletter & Concierge -->
+        <div class="footer-col">
+          <h4>CONCIERGE DESK</h4>
+          <p style="font-size: 0.85rem; color: var(--text-light-secondary); margin-bottom: 0.8rem;">
+            Subscribe to receive private invitations to royal events and seasonal privilege packages.
+          </p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to The Roma Palace private dispatch.');">
+            <input type="email" class="newsletter-input" placeholder="Your email address" required>
+            <button type="submit" class="newsletter-btn"><i class="fa-solid fa-arrow-right"></i></button>
+          </form>
+          <div style="margin-top: 1.5rem; font-size: 0.82rem; color: var(--color-gold-light);">
+            <div><i class="fa-solid fa-phone" style="margin-right: 6px;"></i> +91 (0) 141 278 9000</div>
+            <div style="margin-top: 4px;"><i class="fa-solid fa-envelope" style="margin-right: 6px;"></i> concierge@romapalace.com</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>Copyright &copy; 2026 The Roma Palace Hotels & Resorts Ltd. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Stay</a>
+          <a href="#">Cancellation Policy</a>
+          <a href="admin/admin-login.html">Staff & Admin Login</a>
+          <a href="admin/demo-presentation.html" style="color: var(--color-gold); font-weight: 600;">DBMS Project Demo</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

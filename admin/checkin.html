@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Control Center | The Roma Palace</title>
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Admin Design System -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- Left Executive Sidebar -->
+  <aside class="admin-sidebar">
+    
+    <!-- Brand -->
+    <a href="dashboard.html" class="admin-brand" style="text-decoration: none;">
+      <div class="rp-monogram">
+        <span>RP</span>
+      </div>
+      <div class="admin-brand-text">
+        <h2>THE ROMA PALACE</h2>
+        <span>ADMINISTRATION</span>
+      </div>
+    </a>
+
+    <!-- Nav List -->
+    <div class="admin-nav-section">
+      
+      <div class="admin-nav-title">CORE OPERATIONS</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="dashboard.html"><i class="fa-solid fa-gauge-high"></i> <span>Dashboard</span></a>
+        </li>
+        <li class="admin-nav-item active">
+          <a href="checkin.html"><i class="fa-solid fa-bell-concierge"></i> <span>Front Desk Check-In</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="checkout.html"><i class="fa-solid fa-receipt"></i> <span>Check-Out & Folio</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="bookings.html"><i class="fa-solid fa-calendar-check"></i> <span>Bookings Master</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">PROPERTY & INVENTORY</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="hotels.html"><i class="fa-solid fa-hotel"></i> <span>Hotels & Palaces</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="rooms.html"><i class="fa-solid fa-door-open"></i> <span>Rooms Management</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="services.html"><i class="fa-solid fa-spa"></i> <span>Services & Orders</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="restaurants.html"><i class="fa-solid fa-utensils"></i> <span>Restaurants</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="menu.html"><i class="fa-solid fa-book-open"></i> <span>Menu Items</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">ACCOUNTS & GUESTS</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="customers.html"><i class="fa-solid fa-users"></i> <span>Customer CRM</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="payments.html"><i class="fa-solid fa-credit-card"></i> <span>Payments Ledger</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="staff.html"><i class="fa-solid fa-user-tie"></i> <span>Staff Directory</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="offers.html"><i class="fa-solid fa-tags"></i> <span>Offers & Packages</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="reviews.html"><i class="fa-solid fa-star"></i> <span>Guest Reviews</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="reports.html"><i class="fa-solid fa-chart-line"></i> <span>Reports & Exports</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">COLLEGE VIVA & SYSTEM</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="demo-presentation.html">
+            <i class="fa-solid fa-graduation-cap text-gold"></i> 
+            <span>Demo Dashboard</span>
+            <span class="admin-badge-viva">Viva</span>
+          </a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="settings.html"><i class="fa-solid fa-sliders"></i> <span>Settings & Reset</span></a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> <span>Sign Out</span></a>
+        </li>
+      </ul>
+
+    </div>
+
+  </aside>
+
+  <!-- Main Administrative Container -->
+  <div class="admin-main-wrapper">
+    
+    <!-- Top Administrative Header -->
+    <header class="admin-top-header">
+      <div class="admin-header-left">
+        <h1 class="admin-page-title">Administration Control Center</h1>
+        <span class="badge badge-info" style="font-size: 0.7rem;">
+          <i class="fa-solid fa-database"></i> DB: SQLITE        </span>
+      </div>
+
+      <div class="admin-header-right">
+        <div class="admin-time-badge">
+          <i class="fa-regular fa-clock text-gold"></i>
+          <span id="adminLiveClock">--:--:--</span>
+        </div>
+
+        <a href="../index.html" target="_blank" class="btn-action-icon" title="Preview Public Luxury Website">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+        <div class="admin-user-menu">
+          <div class="admin-avatar">
+            R          </div>
+          <div class="admin-user-info">
+            <span class="admin-user-name">Ranvijay Singh Rathore</span>
+            <span class="admin-user-role">General Manager &amp; Director</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Flash Alerts -->
+    
+    
+    <!-- Body Container -->
+    <main class="admin-content-body">
+
+<!-- Reception Welcome Bar -->
+<div class="viva-banner" style="margin-bottom: 2rem;">
+  <h2><i class="fa-solid fa-bell-concierge"></i> Reception Check-In Terminal</h2>
+  <p style="margin: 0.3rem 0 0 0; color: #DFCAAB; font-size: 0.9rem;">
+    Search arriving guests by Booking ID, verify government identification credentials, issue physical keycards, and execute immediate room status transition (<code>Available &rarr; Occupied</code>).
+  </p>
+</div>
+
+<!-- Search & Fast Reception Bar -->
+<div class="admin-card">
+  <div class="admin-card-header">
+    <h3 class="admin-card-title"><i class="fa-solid fa-user-check text-gold"></i> Arriving Guests Awaiting Check-In</h3>
+    <form method="GET" action="checkin.php" class="search-input-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" name="search" value="" placeholder="Search Booking ID, Guest Name, Room..." style="width: 320px;">
+    </form>
+  </div>
+
+  <div class="admin-table-responsive">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Booking Ref</th>
+          <th>Guest Name</th>
+          <th>Govt ID Proof</th>
+          <th>Room & Property</th>
+          <th>Check-in Date</th>
+          <th>Total Bill</th>
+          <th>Payment</th>
+          <th>Front Desk Action</th>
+        </tr>
+      </thead>
+      <tbody>
+                              <tr style="">
+              <td><strong style="font-size: 1rem; color: var(--admin-primary);">RP-2026-76962</strong></td>
+              <td>
+                <strong>priyanshu jaiswal</strong><br>
+                <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> 8979677687</small>
+              </td>
+              <td>
+                <span class="badge badge-info">Passport</span><br>
+                <code style="font-size: 0.78rem; font-weight: 700;">214567839281</code>
+              </td>
+              <td>
+                <strong>Room JP-302</strong> (Royal Suite)<br>
+                <small style="color: var(--admin-text-muted);">The Roma Palace Jaipur</small>
+              </td>
+              <td>
+                <strong>19 Aug 2026</strong><br>
+                <small style="color: var(--admin-text-muted);">till 20 Aug 2026</small>
+              </td>
+              <td><strong>₹106,613</strong></td>
+              <td>
+                <span class="badge badge-success">
+                  Paid                </span>
+              </td>
+              <td>
+                <button type="button" class="admin-btn-primary" onclick='openCheckinModal({"booking_id":16,"booking_ref":"RP-2026-76962","customer_id":16,"hotel_id":1,"room_id":6,"check_in_date":"2026-08-19","check_out_date":"2026-08-20","total_guests":2,"num_rooms":1,"promo_code":null,"discount_amount":0,"room_charges":85000,"service_charges":5350,"tax_amount":16263,"total_amount":106613,"payment_status":"Paid","booking_status":"Confirmed","special_requests":"","created_at":"2026-08-18 17:21:14","updated_at":"2026-08-18 17:21:14","full_name":"priyanshu jaiswal","phone":"8979677687","id_type":"Passport","id_number":"214567839281","address":"lucknow","city":null,"hotel_name":"The Roma Palace Jaipur","room_number":"JP-302","room_type":"Royal Suite","price_per_night":85000,"payment_method":"Net Banking","transaction_id":"TXN_N_1787073674_741","pay_status":"Paid"})'>
+                  <i class="fa-solid fa-key"></i> Confirm Check-In
+                </button>
+              </td>
+            </tr>
+                      <tr style="">
+              <td><strong style="font-size: 1rem; color: var(--admin-primary);">RP-2026-0801</strong></td>
+              <td>
+                <strong>Rohan Malhotra</strong><br>
+                <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 98110 54321</small>
+              </td>
+              <td>
+                <span class="badge badge-info">Aadhaar Card</span><br>
+                <code style="font-size: 0.78rem; font-weight: 700;">4589 1234 9876</code>
+              </td>
+              <td>
+                <strong>Room JP-101</strong> (Deluxe Room)<br>
+                <small style="color: var(--admin-text-muted);">The Roma Palace Jaipur</small>
+              </td>
+              <td>
+                <strong>20 Aug 2026</strong><br>
+                <small style="color: var(--admin-text-muted);">till 23 Aug 2026</small>
+              </td>
+              <td><strong>₹65,254</strong></td>
+              <td>
+                <span class="badge badge-success">
+                  Paid                </span>
+              </td>
+              <td>
+                <button type="button" class="admin-btn-primary" onclick='openCheckinModal({"booking_id":1,"booking_ref":"RP-2026-0801","customer_id":1,"hotel_id":1,"room_id":1,"check_in_date":"2026-08-20","check_out_date":"2026-08-23","total_guests":2,"num_rooms":1,"promo_code":"WELCOME10","discount_amount":5550,"room_charges":55500,"service_charges":5350,"tax_amount":9954,"total_amount":65254,"payment_status":"Paid","booking_status":"Confirmed","special_requests":"High floor preferred. Honeymoon anniversary setup requested.","created_at":"2026-08-10 10:30:00","updated_at":"2026-08-18 10:22:39","full_name":"Rohan Malhotra","phone":"+91 98110 54321","id_type":"Aadhaar Card","id_number":"4589 1234 9876","address":"A-42, Vasant Vihar","city":"New Delhi","hotel_name":"The Roma Palace Jaipur","room_number":"JP-101","room_type":"Deluxe Room","price_per_night":18500,"payment_method":"UPI","transaction_id":"UPI\/20260810\/8932478190","pay_status":"Paid"})'>
+                  <i class="fa-solid fa-key"></i> Confirm Check-In
+                </button>
+              </td>
+            </tr>
+                      <tr style="">
+              <td><strong style="font-size: 1rem; color: var(--admin-primary);">RP-2026-0802</strong></td>
+              <td>
+                <strong>Rajesh Sharma</strong><br>
+                <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 98201 23456</small>
+              </td>
+              <td>
+                <span class="badge badge-info">Passport</span><br>
+                <code style="font-size: 0.78rem; font-weight: 700;">Z9876543</code>
+              </td>
+              <td>
+                <strong>Room GA-101</strong> (Deluxe Room)<br>
+                <small style="color: var(--admin-text-muted);">The Roma Palace Goa</small>
+              </td>
+              <td>
+                <strong>22 Aug 2026</strong><br>
+                <small style="color: var(--admin-text-muted);">till 26 Aug 2026</small>
+              </td>
+              <td><strong>₹112,100</strong></td>
+              <td>
+                <span class="badge badge-success">
+                  Paid                </span>
+              </td>
+              <td>
+                <button type="button" class="admin-btn-primary" onclick='openCheckinModal({"booking_id":2,"booking_ref":"RP-2026-0802","customer_id":2,"hotel_id":2,"room_id":7,"check_in_date":"2026-08-22","check_out_date":"2026-08-26","total_guests":2,"num_rooms":1,"promo_code":null,"discount_amount":0,"room_charges":88000,"service_charges":7000,"tax_amount":17100,"total_amount":112100,"payment_status":"Paid","booking_status":"Confirmed","special_requests":"Late check-in at 8:00 PM. Airport transfer required.","created_at":"2026-08-11 14:15:00","updated_at":"2026-08-18 10:22:39","full_name":"Rajesh Sharma","phone":"+91 98201 23456","id_type":"Passport","id_number":"Z9876543","address":"Flat 12B, Sea Green Towers, Worli","city":"Mumbai","hotel_name":"The Roma Palace Goa","room_number":"GA-101","room_type":"Deluxe Room","price_per_night":22000,"payment_method":"Credit Card","transaction_id":"CC_HDFC_89437291823","pay_status":"Paid"})'>
+                  <i class="fa-solid fa-key"></i> Confirm Check-In
+                </button>
+              </td>
+            </tr>
+                      <tr style="">
+              <td><strong style="font-size: 1rem; color: var(--admin-primary);">RP-2026-0811</strong></td>
+              <td>
+                <strong>Devendra Rathore</strong><br>
+                <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 97110 00112</small>
+              </td>
+              <td>
+                <span class="badge badge-info">Passport</span><br>
+                <code style="font-size: 0.78rem; font-weight: 700;">R1029384</code>
+              </td>
+              <td>
+                <strong>Room UD-202</strong> (Executive Room)<br>
+                <small style="color: var(--admin-text-muted);">The Roma Palace Udaipur</small>
+              </td>
+              <td>
+                <strong>24 Aug 2026</strong><br>
+                <small style="color: var(--admin-text-muted);">till 27 Aug 2026</small>
+              </td>
+              <td><strong>₹182,900</strong></td>
+              <td>
+                <span class="badge badge-success">
+                  Paid                </span>
+              </td>
+              <td>
+                <button type="button" class="admin-btn-primary" onclick='openCheckinModal({"booking_id":15,"booking_ref":"RP-2026-0811","customer_id":15,"hotel_id":3,"room_id":16,"check_in_date":"2026-08-24","check_out_date":"2026-08-27","total_guests":3,"num_rooms":1,"promo_code":null,"discount_amount":0,"room_charges":144000,"service_charges":11000,"tax_amount":27900,"total_amount":182900,"payment_status":"Paid","booking_status":"Confirmed","special_requests":"Business executive stay. High-speed LAN and printing.","created_at":"2026-08-15 18:45:00","updated_at":"2026-08-18 10:22:39","full_name":"Devendra Rathore","phone":"+91 97110 00112","id_type":"Passport","id_number":"R1029384","address":"Palace Enclave, Fort Road","city":"Jodhpur","hotel_name":"The Roma Palace Udaipur","room_number":"UD-202","room_type":"Executive Room","price_per_night":48000,"payment_method":"Credit Card","transaction_id":"CC_HDFC_9911223344","pay_status":"Paid"})'>
+                  <i class="fa-solid fa-key"></i> Confirm Check-In
+                </button>
+              </td>
+            </tr>
+                      <tr style="">
+              <td><strong style="font-size: 1rem; color: var(--admin-primary);">RP-2026-0805</strong></td>
+              <td>
+                <strong>Ananya Deshmukh</strong><br>
+                <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 97654 33221</small>
+              </td>
+              <td>
+                <span class="badge badge-info">Passport</span><br>
+                <code style="font-size: 0.78rem; font-weight: 700;">P5432189</code>
+              </td>
+              <td>
+                <strong>Room LK-101</strong> (Deluxe Room)<br>
+                <small style="color: var(--admin-text-muted);">The Roma Palace Lucknow</small>
+              </td>
+              <td>
+                <strong>25 Aug 2026</strong><br>
+                <small style="color: var(--admin-text-muted);">till 28 Aug 2026</small>
+              </td>
+              <td><strong>₹48,380</strong></td>
+              <td>
+                <span class="badge badge-warning">
+                  Pending                </span>
+              </td>
+              <td>
+                <button type="button" class="admin-btn-primary" onclick='openCheckinModal({"booking_id":5,"booking_ref":"RP-2026-0805","customer_id":5,"hotel_id":4,"room_id":19,"check_in_date":"2026-08-25","check_out_date":"2026-08-28","total_guests":2,"num_rooms":1,"promo_code":"WEEKENDROYAL","discount_amount":4350,"room_charges":43500,"service_charges":1850,"tax_amount":7380,"total_amount":48380,"payment_status":"Pending","booking_status":"Confirmed","special_requests":"Early check-in request if room is available.","created_at":"2026-08-14 16:00:00","updated_at":"2026-08-18 10:22:39","full_name":"Ananya Deshmukh","phone":"+91 97654 33221","id_type":"Passport","id_number":"P5432189","address":"Senapati Bapat Road, Shivaji Nagar","city":"Pune","hotel_name":"The Roma Palace Lucknow","room_number":"LK-101","room_type":"Deluxe Room","price_per_night":14500,"payment_method":"Cash at Hotel","transaction_id":"CASH_DESK_LK00582","pay_status":"Pending"})'>
+                  <i class="fa-solid fa-key"></i> Confirm Check-In
+                </button>
+              </td>
+            </tr>
+                      <tr style="">
+              <td><strong style="font-size: 1rem; color: var(--admin-primary);">RP-2026-0808</strong></td>
+              <td>
+                <strong>Rohit Verma</strong><br>
+                <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 99350 44556</small>
+              </td>
+              <td>
+                <span class="badge badge-info">Voter ID</span><br>
+                <code style="font-size: 0.78rem; font-weight: 700;">UP/45/213/9876</code>
+              </td>
+              <td>
+                <strong>Room LK-201</strong> (Premium Room)<br>
+                <small style="color: var(--admin-text-muted);">The Roma Palace Lucknow</small>
+              </td>
+              <td>
+                <strong>28 Aug 2026</strong><br>
+                <small style="color: var(--admin-text-muted);">till 30 Aug 2026</small>
+              </td>
+              <td><strong>₹48,852</strong></td>
+              <td>
+                <span class="badge badge-success">
+                  Paid                </span>
+              </td>
+              <td>
+                <button type="button" class="admin-btn-primary" onclick='openCheckinModal({"booking_id":8,"booking_ref":"RP-2026-0808","customer_id":8,"hotel_id":4,"room_id":21,"check_in_date":"2026-08-28","check_out_date":"2026-08-30","total_guests":2,"num_rooms":1,"promo_code":null,"discount_amount":0,"room_charges":39000,"service_charges":2400,"tax_amount":7452,"total_amount":48852,"payment_status":"Paid","booking_status":"Confirmed","special_requests":"Twin bed setup requested.","created_at":"2026-08-15 10:05:00","updated_at":"2026-08-18 10:22:39","full_name":"Rohit Verma","phone":"+91 99350 44556","id_type":"Voter ID","id_number":"UP\/45\/213\/9876","address":"Hazratganj Main Road","city":"Lucknow","hotel_name":"The Roma Palace Lucknow","room_number":"LK-201","room_type":"Premium Room","price_per_night":19500,"payment_method":"Debit Card","transaction_id":"DC_AXIS_1122334455","pay_status":"Paid"})'>
+                  <i class="fa-solid fa-key"></i> Confirm Check-In
+                </button>
+              </td>
+            </tr>
+                      <tr style="">
+              <td><strong style="font-size: 1rem; color: var(--admin-primary);">RP-2026-0809</strong></td>
+              <td>
+                <strong>Tanya Bhatia</strong><br>
+                <small style="color: var(--admin-text-muted);"><i class="fa-solid fa-phone" style="font-size: 0.7rem;"></i> +91 98140 66778</small>
+              </td>
+              <td>
+                <span class="badge badge-info">Aadhaar Card</span><br>
+                <code style="font-size: 0.78rem; font-weight: 700;">5678 9012 3456</code>
+              </td>
+              <td>
+                <strong>Room JP-302</strong> (Royal Suite)<br>
+                <small style="color: var(--admin-text-muted);">The Roma Palace Jaipur</small>
+              </td>
+              <td>
+                <strong>30 Aug 2026</strong><br>
+                <small style="color: var(--admin-text-muted);">till 02 Sep 2026</small>
+              </td>
+              <td><strong>₹270,220</strong></td>
+              <td>
+                <span class="badge badge-success">
+                  Paid                </span>
+              </td>
+              <td>
+                <button type="button" class="admin-btn-primary" onclick='openCheckinModal({"booking_id":13,"booking_ref":"RP-2026-0809","customer_id":13,"hotel_id":1,"room_id":6,"check_in_date":"2026-08-30","check_out_date":"2026-09-02","total_guests":4,"num_rooms":1,"promo_code":"ROYALTY20","discount_amount":51000,"room_charges":255000,"service_charges":25000,"tax_amount":41220,"total_amount":270220,"payment_status":"Paid","booking_status":"Confirmed","special_requests":"Family holiday with two children. Extra child bed and stroller.","created_at":"2026-08-16 13:00:00","updated_at":"2026-08-18 10:22:39","full_name":"Tanya Bhatia","phone":"+91 98140 66778","id_type":"Aadhaar Card","id_number":"5678 9012 3456","address":"Sector 9-D, Inner Ring","city":"Chandigarh","hotel_name":"The Roma Palace Jaipur","room_number":"JP-302","room_type":"Royal Suite","price_per_night":85000,"payment_method":"Credit Card","transaction_id":"CC_AMEX_1234509876","pay_status":"Paid"})'>
+                  <i class="fa-solid fa-key"></i> Confirm Check-In
+                </button>
+              </td>
+            </tr>
+                        </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal: Reception Check-In Confirmation -->
+<div id="checkinModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.65); z-index: 1000; align-items: center; justify-content: center;">
+  <div style="background: #FFFFFF; max-width: 620px; width: 90%; border-radius: 6px; padding: 2.5rem; border: 2px solid var(--admin-gold); box-shadow: 0 25px 60px rgba(0,0,0,0.3); position: relative;">
+    <button onclick="closeCheckinModal()" style="position: absolute; top: 1.2rem; right: 1.2rem; background: none; border: none; font-size: 1.4rem; cursor: pointer;">&times;</button>
+    
+    <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.2rem;">
+      <div class="kpi-icon-box icon-green" style="width: 40px; height: 40px; font-size: 1.1rem;">
+        <i class="fa-solid fa-bell-concierge"></i>
+      </div>
+      <div>
+        <h3 style="font-size: 1.3rem; margin: 0;">Confirm Guest Check-In</h3>
+        <span style="font-size: 0.8rem; color: var(--color-gold-dark);" id="modal_checkin_ref">RP-2026-XXXX</span>
+      </div>
+    </div>
+
+    <div style="background: #F9FAFB; border: 1px solid var(--admin-border); border-radius: 4px; padding: 1.2rem; margin-bottom: 1.5rem; font-size: 0.88rem; line-height: 1.6;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;">
+        <div>Guest Name: <strong id="modal_checkin_name">—</strong></div>
+        <div>Room Assigned: <strong id="modal_checkin_room">—</strong></div>
+        <div>Govt ID Verified: <strong id="modal_checkin_id">—</strong></div>
+        <div>Total Stay Cost: <strong id="modal_checkin_amount">—</strong></div>
+      </div>
+    </div>
+
+    <form method="POST" action="checkin.php">
+      <input type="hidden" name="action" value="confirm_checkin">
+      <input type="hidden" name="booking_id" id="modal_checkin_id_field" value="">
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+        <div class="form-group">
+          <label>Issue Electronic Keycard ID</label>
+          <input type="text" name="keycard_number" id="modal_keycard" class="form-control" value="KEY-PALACE-467" required>
+        </div>
+
+        <div class="form-group" style="display: flex; flex-direction: column; justify-content: center;">
+          <label style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem; margin-top: 1rem;">
+            <input type="checkbox" name="settle_payment" value="1" checked style="width: 18px; height: 18px; accent-color: #03543F;">
+            <span style="font-size: 0.82rem; font-weight: 700; color: #03543F;">Mark Balance Paid at Desk</span>
+          </label>
+        </div>
+      </div>
+
+      <div style="background: #DEF7EC; color: #03543F; padding: 0.8rem 1rem; border-radius: 4px; font-size: 0.82rem; margin-bottom: 1.5rem;">
+        <i class="fa-solid fa-circle-info"></i> Clicking confirm will update the booking to <strong>Checked-In</strong> and set the room inventory status to <strong>Occupied</strong> in the database.
+      </div>
+
+      <div style="text-align: right;">
+        <button type="button" class="btn-outline-dark" onclick="closeCheckinModal()" style="padding: 0.6rem 1.2rem; margin-right: 0.5rem;">Cancel</button>
+        <button type="submit" class="admin-btn-primary" style="padding: 0.7rem 1.8rem; background: #03543F; border-color: #03543F; color: #FFFFFF;">
+          <i class="fa-solid fa-check"></i> Complete Check-In
+        </button>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<script>
+function openCheckinModal(b) {
+  document.getElementById('modal_checkin_id_field').value = b.booking_id;
+  document.getElementById('modal_checkin_ref').textContent = 'Booking Ref: ' + b.booking_ref;
+  document.getElementById('modal_checkin_name').textContent = b.full_name;
+  document.getElementById('modal_checkin_room').textContent = 'Room ' + b.room_number + ' (' + b.room_type + ')';
+  document.getElementById('modal_checkin_id').textContent = b.id_type + ' (' + b.id_number + ')';
+  document.getElementById('modal_checkin_amount').textContent = '₹' + parseFloat(b.total_amount).toLocaleString('en-IN');
+  document.getElementById('checkinModal').style.display = 'flex';
+}
+function closeCheckinModal() {
+  document.getElementById('checkinModal').style.display = 'none';
+}
+</script>
+
+    </main>
+
+    <!-- Admin Bottom Bar -->
+    <footer style="padding: 1.5rem 2rem; background: #FFFFFF; border-top: 1px solid var(--admin-border); font-size: 0.8rem; color: var(--admin-text-muted); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+      <div>
+        <strong>The Roma Palace Hotel Management System</strong> &bull; BTech CSE DBMS Mini Project
+      </div>
+      <div>
+        <a href="demo-presentation.html" style="color: var(--admin-gold-dark); font-weight: 700; text-decoration: underline; margin-right: 15px;">
+          <i class="fa-solid fa-graduation-cap"></i> Project Demo & Viva Mode
+        </a>
+        <span>System Version 2.4 (Enterprise Edition)</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Admin Scripts -->
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

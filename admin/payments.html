@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Control Center | The Roma Palace</title>
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Admin Design System -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- Left Executive Sidebar -->
+  <aside class="admin-sidebar">
+    
+    <!-- Brand -->
+    <a href="dashboard.html" class="admin-brand" style="text-decoration: none;">
+      <div class="rp-monogram">
+        <span>RP</span>
+      </div>
+      <div class="admin-brand-text">
+        <h2>THE ROMA PALACE</h2>
+        <span>ADMINISTRATION</span>
+      </div>
+    </a>
+
+    <!-- Nav List -->
+    <div class="admin-nav-section">
+      
+      <div class="admin-nav-title">CORE OPERATIONS</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="dashboard.html"><i class="fa-solid fa-gauge-high"></i> <span>Dashboard</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="checkin.html"><i class="fa-solid fa-bell-concierge"></i> <span>Front Desk Check-In</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="checkout.html"><i class="fa-solid fa-receipt"></i> <span>Check-Out & Folio</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="bookings.html"><i class="fa-solid fa-calendar-check"></i> <span>Bookings Master</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">PROPERTY & INVENTORY</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="hotels.html"><i class="fa-solid fa-hotel"></i> <span>Hotels & Palaces</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="rooms.html"><i class="fa-solid fa-door-open"></i> <span>Rooms Management</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="services.html"><i class="fa-solid fa-spa"></i> <span>Services & Orders</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="restaurants.html"><i class="fa-solid fa-utensils"></i> <span>Restaurants</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="menu.html"><i class="fa-solid fa-book-open"></i> <span>Menu Items</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">ACCOUNTS & GUESTS</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="customers.html"><i class="fa-solid fa-users"></i> <span>Customer CRM</span></a>
+        </li>
+        <li class="admin-nav-item active">
+          <a href="payments.html"><i class="fa-solid fa-credit-card"></i> <span>Payments Ledger</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="staff.html"><i class="fa-solid fa-user-tie"></i> <span>Staff Directory</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="offers.html"><i class="fa-solid fa-tags"></i> <span>Offers & Packages</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="reviews.html"><i class="fa-solid fa-star"></i> <span>Guest Reviews</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="reports.html"><i class="fa-solid fa-chart-line"></i> <span>Reports & Exports</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">COLLEGE VIVA & SYSTEM</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="demo-presentation.html">
+            <i class="fa-solid fa-graduation-cap text-gold"></i> 
+            <span>Demo Dashboard</span>
+            <span class="admin-badge-viva">Viva</span>
+          </a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="settings.html"><i class="fa-solid fa-sliders"></i> <span>Settings & Reset</span></a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> <span>Sign Out</span></a>
+        </li>
+      </ul>
+
+    </div>
+
+  </aside>
+
+  <!-- Main Administrative Container -->
+  <div class="admin-main-wrapper">
+    
+    <!-- Top Administrative Header -->
+    <header class="admin-top-header">
+      <div class="admin-header-left">
+        <h1 class="admin-page-title">Administration Control Center</h1>
+        <span class="badge badge-info" style="font-size: 0.7rem;">
+          <i class="fa-solid fa-database"></i> DB: SQLITE        </span>
+      </div>
+
+      <div class="admin-header-right">
+        <div class="admin-time-badge">
+          <i class="fa-regular fa-clock text-gold"></i>
+          <span id="adminLiveClock">--:--:--</span>
+        </div>
+
+        <a href="../index.html" target="_blank" class="btn-action-icon" title="Preview Public Luxury Website">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+        <div class="admin-user-menu">
+          <div class="admin-avatar">
+            R          </div>
+          <div class="admin-user-info">
+            <span class="admin-user-name">Ranvijay Singh Rathore</span>
+            <span class="admin-user-role">General Manager &amp; Director</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Flash Alerts -->
+    
+    
+    <!-- Body Container -->
+    <main class="admin-content-body">
+
+<div class="kpi-grid" style="grid-template-columns: repeat(3, 1fr); margin-bottom: 2rem;">
+  <div class="kpi-card">
+    <div class="kpi-info-block">
+      <span class="kpi-title">TOTAL REVENUE COLLECTED</span>
+      <span class="kpi-value" style="color: #03543F;">₹1,911,623</span>
+      <span class="kpi-subtitle">Verified & Settled</span>
+    </div>
+    <div class="kpi-icon-box icon-green"><i class="fa-solid fa-circle-check"></i></div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-info-block">
+      <span class="kpi-title">TOTAL TRANSACTIONS</span>
+      <span class="kpi-value">16</span>
+      <span class="kpi-subtitle">Ledger Audit Entries</span>
+    </div>
+    <div class="kpi-icon-box icon-blue"><i class="fa-solid fa-receipt"></i></div>
+  </div>
+
+  <div class="kpi-card">
+    <div class="kpi-info-block">
+      <span class="kpi-title">REFUNDS PROCESSED</span>
+      <span class="kpi-value" style="color: #9B1C1C;">₹56,050</span>
+      <span class="kpi-subtitle">Cancelled Reservations</span>
+    </div>
+    <div class="kpi-icon-box icon-red"><i class="fa-solid fa-rotate-left"></i></div>
+  </div>
+</div>
+
+<div class="admin-card">
+  <div class="admin-card-header">
+    <h3 class="admin-card-title"><i class="fa-solid fa-credit-card text-gold"></i> Payment Transactions Ledger</h3>
+    <div class="admin-actions-bar">
+      <div class="search-input-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search TXN ID, guest, ref..." data-table-search="paymentsTable">
+      </div>
+    </div>
+  </div>
+
+  <div class="admin-table-responsive">
+    <table class="admin-table" id="paymentsTable">
+      <thead>
+        <tr>
+          <th>Transaction ID</th>
+          <th>Booking Ref</th>
+          <th>Guest Details</th>
+          <th>Palace Property</th>
+          <th>Amount (INR)</th>
+          <th>Payment Mode</th>
+          <th>Date & Time</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+                  <tr>
+            <td><code style="font-size: 0.82rem; font-weight: 700; background: #F3F4F6; padding: 0.2rem 0.5rem; border-radius: 2px;">TXN_N_1787073674_741</code></td>
+            <td><strong>RP-2026-76962</strong></td>
+            <td>
+              <strong>priyanshu jaiswal</strong><br>
+              <small style="color: var(--admin-text-muted);">8979677687</small>
+            </td>
+            <td>The Roma Palace Jaipur</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-primary);">₹106,613</strong></td>
+            <td><span class="badge badge-secondary">Net Banking</span></td>
+            <td>18 Aug 2026, 05:21 PM</td>
+            <td>
+              <span class="badge badge-success">
+                PAID              </span>
+            </td>
+            <td>
+                              <form method="POST" action="payments.php" onsubmit="return confirm('Process refund for transaction TXN_N_1787073674_741?');" style="display: inline;">
+                  <input type="hidden" name="action" value="refund_payment">
+                  <input type="hidden" name="payment_id" value="16">
+                  <button type="submit" class="btn-action-icon" style="color: #9B1C1C;" title="Process Refund">
+                    <i class="fa-solid fa-rotate-left"></i>
+                  </button>
+                </form>
+                          </td>
+          </tr>
+                  <tr>
+            <td><code style="font-size: 0.82rem; font-weight: 700; background: #F3F4F6; padding: 0.2rem 0.5rem; border-radius: 2px;">CC_HDFC_9911223344</code></td>
+            <td><strong>RP-2026-0811</strong></td>
+            <td>
+              <strong>Devendra Rathore</strong><br>
+              <small style="color: var(--admin-text-muted);">+91 97110 00112</small>
+            </td>
+            <td>The Roma Palace Udaipur</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-primary);">₹182,900</strong></td>
+            <td><span class="badge badge-secondary">Credit Card</span></td>
+            <td>15 Aug 2026, 06:49 PM</td>
+            <td>
+              <span class="badge badge-success">
+                PAID              </span>
+            </td>
+            <td>
+                              <form method="POST" action="payments.php" onsubmit="return confirm('Process refund for transaction CC_HDFC_9911223344?');" style="display: inline;">
+                  <input type="hidden" name="action" value="refund_payment">
+                  <input type="hidden" name="payment_id" value="15">
+                  <button type="submit" class="btn-action-icon" style="color: #9B1C1C;" title="Process Refund">
+                    <i class="fa-solid fa-rotate-left"></i>
+                  </button>
+                </form>
+                          </td>
+          </tr>
+                  <tr>
+            <td><code style="font-size: 0.82rem; font-weight: 700; background: #F3F4F6; padding: 0.2rem 0.5rem; border-radius: 2px;">UPI/20260728/6677889900</code></td>
+            <td><strong>RP-2026-0810</strong></td>
+            <td>
+              <strong>Deepak Gupta</strong><br>
+              <small style="color: var(--admin-text-muted);">+91 94250 33445</small>
+            </td>
+            <td>The Roma Palace Goa</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-primary);">₹56,050</strong></td>
+            <td><span class="badge badge-secondary">UPI</span></td>
+            <td>28 Jul 2026, 10:04 AM</td>
+            <td>
+              <span class="badge badge-danger">
+                REFUNDED              </span>
+            </td>
+            <td>
+                              <span style="color: var(--admin-text-muted); font-size: 0.75rem;">—</span>
+                          </td>
+          </tr>
+                  <tr>
+            <td><code style="font-size: 0.82rem; font-weight: 700; background: #F3F4F6; padding: 0.2rem 0.5rem; border-radius: 2px;">CC_AMEX_1234509876</code></td>
+            <td><strong>RP-2026-0809</strong></td>
+            <td>
+              <strong>Tanya Bhatia</strong><br>
+              <small style="color: var(--admin-text-muted);">+91 98140 66778</small>
+            </td>
+            <td>The Roma Palace Jaipur</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-primary);">₹270,220</strong></td>
+            <td><span class="badge badge-secondary">Credit Card</span></td>
+            <td>16 Aug 2026, 01:05 PM</td>
+            <td>
+              <span class="badge badge-success">
+                PAID              </span>
+            </td>
+            <td>
+                              <form method="POST" action="payments.php" onsubmit="return confirm('Process refund for transaction CC_AMEX_1234509876?');" style="display: inline;">
+                  <input type="hidden" name="action" value="refund_payment">
+                  <input type="hidden" name="payment_id" value="13">
+                  <button type="submit" class="btn-action-icon" style="color: #9B1C1C;" title="Process Refund">
+                    <i class="fa-solid fa-rotate-left"></i>
+                  </button>
+                </form>
+                          </td>
+          </tr>
+                  <tr>
+            <td><code style="font-size: 0.82rem; font-weight: 700; background: #F3F4F6; padding: 0.2rem 0.5rem; border-radius: 2px;">NET_KOTAK_8899001122</code></td>
+            <td><strong>RP-2026-0704</strong></td>
+            <td>
+              <strong>Aditya Kapoor</strong><br>
+              <small style="color: var(--admin-text-muted);">+91 98100 99887</small>
+            </td>
+            <td>The Roma Palace Lucknow</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-primary);">₹110,330</strong></td>
+            <td><span class="badge badge-secondary">Net Banking</span></td>
+            <td>18 Jul 2026, 07:24 PM</td>
+            <td>
+              <span class="badge badge-success">
+                PAID              </span>
+            </td>
+            <td>
+                              <form method="POST" action="payments.php" onsubmit="return confirm('Process refund for transaction NET_KOTAK_8899001122?');" style="display: inline;">
+                  <input type="hidden" name="action" value="refund_payment">
+                  <input type="hidden" name="payment_id" value="12">
+                  <button type="submit" class="btn-action-icon" style="color: #9B1C1C;" title="Process Refund">
+                    <i class="fa-solid fa-rotate-left"></i>
+                  </button>
+                </form>
+                          </td>
+          </tr>
+                  <tr>
+            <td><code style="font-size: 0.82rem; font-weight: 700; background: #F3F4F6; padding: 0.2rem 0.5rem; border-radius: 2px;">UPI/20260712/9900112233</code></td>
+            <td><strong>RP-2026-0703</strong></td>
+            <td>
+              <strong>Meera Iyer</strong><br>
+              <small style="color: var(--admin-text-muted);">+91 98400 11224</small>
+            </td>
+            <td>The Roma Palace Udaipur</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-primary);">₹72,570</strong></td>
+            <td><span class="badge badge-secondary">UPI</span></td>
+            <td>12 Jul 2026, 11:18 AM</td>
+            <td>
+              <span class="badge badge-success">
+                PAID              </span>
+            </td>
+            <td>
+                              <form method="POST" action="payments.php" onsubmit="return confirm('Process refund for transaction UPI/20260712/9900112233?');" style="display: inline;">
+                  <input type="hidden" name="action" value="refund_payment">
+                  <input type="hidden" name="payment_id" value="11">
+                  <button type="submit" class="btn-action-icon" style="color: #9B1C1C;" title="Process Refund">
+                    <i class="fa-solid fa-rotate-left"></i>
+                  </button>
+                </form>
+                          </td>
+          </tr>
+                  <tr>
+            <td><code style="font-size: 0.82rem; font-weight: 700; background: #F3F4F6; padding: 0.2rem 0.5rem; border-radius: 2px;">CC_CITI_5566778899</code></td>
+            <td><strong>RP-2026-0702</strong></td>
+            <td>
+              <strong>Siddharth Roy</strong><br>
+              <small style="color: var(--admin-text-muted);">+91 98300 88990</small>
+            </td>
+            <td>The Roma Palace Goa</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-primary);">₹220,660</strong></td>
+            <td><span class="badge badge-secondary">Credit Card</span></td>
+            <td>05 Jul 2026, 03:45 PM</td>
+            <td>
+              <span class="badge badge-success">
+                PAID              </span>
+            </td>
+            <td>
+                              <form method="POST" action="payments.php" onsubmit="return confirm('Process refund for transaction CC_CITI_5566778899?');" style="display: inline;">
+                  <input type="hidden" name="action" value="refund_payment">
+                  <input type="hidden" name="payment_id" value="10">
+                  <button type="submit" class="btn-action-icon" style="color: #9B1C1C;" title="Process Refund">
+                    <i class="fa-solid fa-rotate-left"></i>
+                  </button>
+                </form>
+                          </td>
+          </tr>
+                  <tr>
+            <td><code style="font-size: 0.82rem; font-weight: 700; background: #F3F4F6; padding: 0.2rem 0.5rem; border-radius: 2px;">CC_HDFC_3344556677</code></td>
+            <td><strong>RP-2026-0701</strong></td>
+            <td>
+              <strong>Kavita Patel</strong><br>
+              <small style="color: var(--admin-text-muted);">+91 98250 77889</small>
+            </td>
+            <td>The Roma Palace Jaipur</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-primary);">₹106,318</strong></td>
+            <td><span class="badge badge-secondary">Credit Card</span></td>
+            <td>01 Jul 2026, 08:35 AM</td>
+            <td>
+              <span class="badge badge-success">
+                PAID              </span>
+            </td>
+            <td>
+                              <form method="POST" action="payments.php" onsubmit="return confirm('Process refund for transaction CC_HDFC_3344556677?');" style="display: inline;">
+                  <input type="hidden" name="action" value="refund_payment">
+                  <input type="hidden" name="payment_id" value="9">
+                  <button type="submit" class="btn-action-icon" style="color: #9B1C1C;" title="Process Refund">
+                    <i class="fa-solid fa-rotate-left"></i>
+                  </button>
+                </form>
+                          </td>
+          </tr>
+                  <tr>
+            <td><code style="font-size: 0.82rem; font-weight: 700; background: #F3F4F6; padding: 0.2rem 0.5rem; border-radius: 2px;">DC_AXIS_1122334455</code></td>
+            <td><strong>RP-2026-0808</strong></td>
+            <td>
+              <strong>Rohit Verma</strong><br>
+              <small style="color: var(--admin-text-muted);">+91 99350 44556</small>
+            </td>
+            <td>The Roma Palace Lucknow</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-primary);">₹48,852</strong></td>
+            <td><span class="badge badge-secondary">Debit Card</span></td>
+            <td>15 Aug 2026, 10:08 AM</td>
+            <td>
+              <span class="badge badge-success">
+                PAID              </span>
+            </td>
+            <td>
+                              <form method="POST" action="payments.php" onsubmit="return confirm('Process refund for transaction DC_AXIS_1122334455?');" style="display: inline;">
+                  <input type="hidden" name="action" value="refund_payment">
+                  <input type="hidden" name="payment_id" value="8">
+                  <button type="submit" class="btn-action-icon" style="color: #9B1C1C;" title="Process Refund">
+                    <i class="fa-solid fa-rotate-left"></i>
+                  </button>
+                </form>
+                          </td>
+          </tr>
+                  <tr>
+            <td><code style="font-size: 0.82rem; font-weight: 700; background: #F3F4F6; padding: 0.2rem 0.5rem; border-radius: 2px;">NET_SBIN_4455667788</code></td>
+            <td><strong>RP-2026-0807</strong></td>
+            <td>
+              <strong>Sneha Reddy</strong><br>
+              <small style="color: var(--admin-text-muted);">+91 98480 55667</small>
+            </td>
+            <td>The Roma Palace Udaipur</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-primary);">₹272,580</strong></td>
+            <td><span class="badge badge-secondary">Net Banking</span></td>
+            <td>02 Aug 2026, 12:15 PM</td>
+            <td>
+              <span class="badge badge-success">
+                PAID              </span>
+            </td>
+            <td>
+                              <form method="POST" action="payments.php" onsubmit="return confirm('Process refund for transaction NET_SBIN_4455667788?');" style="display: inline;">
+                  <input type="hidden" name="action" value="refund_payment">
+                  <input type="hidden" name="payment_id" value="7">
+                  <button type="submit" class="btn-action-icon" style="color: #9B1C1C;" title="Process Refund">
+                    <i class="fa-solid fa-rotate-left"></i>
+                  </button>
+                </form>
+                          </td>
+          </tr>
+                  <tr>
+            <td><code style="font-size: 0.82rem; font-weight: 700; background: #F3F4F6; padding: 0.2rem 0.5rem; border-radius: 2px;">CC_AMEX_99887766554</code></td>
+            <td><strong>RP-2026-0806</strong></td>
+            <td>
+              <strong>Vikram Mehta</strong><br>
+              <small style="color: var(--admin-text-muted);">+91 98791 22334</small>
+            </td>
+            <td>The Roma Palace Goa</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-primary);">₹151,040</strong></td>
+            <td><span class="badge badge-secondary">Credit Card</span></td>
+            <td>08 Aug 2026, 05:34 PM</td>
+            <td>
+              <span class="badge badge-success">
+                PAID              </span>
+            </td>
+            <td>
+                              <form method="POST" action="payments.php" onsubmit="return confirm('Process refund for transaction CC_AMEX_99887766554?');" style="display: inline;">
+                  <input type="hidden" name="action" value="refund_payment">
+                  <input type="hidden" name="payment_id" value="6">
+                  <button type="submit" class="btn-action-icon" style="color: #9B1C1C;" title="Process Refund">
+                    <i class="fa-solid fa-rotate-left"></i>
+                  </button>
+                </form>
+                          </td>
+          </tr>
+                  <tr>
+            <td><code style="font-size: 0.82rem; font-weight: 700; background: #F3F4F6; padding: 0.2rem 0.5rem; border-radius: 2px;">CASH_DESK_LK00582</code></td>
+            <td><strong>RP-2026-0805</strong></td>
+            <td>
+              <strong>Ananya Deshmukh</strong><br>
+              <small style="color: var(--admin-text-muted);">+91 97654 33221</small>
+            </td>
+            <td>The Roma Palace Lucknow</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-primary);">₹48,380</strong></td>
+            <td><span class="badge badge-secondary">Cash at Hotel</span></td>
+            <td>14 Aug 2026, 04:00 PM</td>
+            <td>
+              <span class="badge badge-warning">
+                PENDING              </span>
+            </td>
+            <td>
+                              <span style="color: var(--admin-text-muted); font-size: 0.75rem;">—</span>
+                          </td>
+          </tr>
+                  <tr>
+            <td><code style="font-size: 0.82rem; font-weight: 700; background: #F3F4F6; padding: 0.2rem 0.5rem; border-radius: 2px;">UPI/20260812/1029384756</code></td>
+            <td><strong>RP-2026-0804</strong></td>
+            <td>
+              <strong>Arjun Singh Shekhawat</strong><br>
+              <small style="color: var(--admin-text-muted);">+91 94140 11223</small>
+            </td>
+            <td>The Roma Palace Jaipur</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-primary);">₹61,006</strong></td>
+            <td><span class="badge badge-secondary">UPI</span></td>
+            <td>12 Aug 2026, 09:48 AM</td>
+            <td>
+              <span class="badge badge-success">
+                PAID              </span>
+            </td>
+            <td>
+                              <form method="POST" action="payments.php" onsubmit="return confirm('Process refund for transaction UPI/20260812/1029384756?');" style="display: inline;">
+                  <input type="hidden" name="action" value="refund_payment">
+                  <input type="hidden" name="payment_id" value="4">
+                  <button type="submit" class="btn-action-icon" style="color: #9B1C1C;" title="Process Refund">
+                    <i class="fa-solid fa-rotate-left"></i>
+                  </button>
+                </form>
+                          </td>
+          </tr>
+                  <tr>
+            <td><code style="font-size: 0.82rem; font-weight: 700; background: #F3F4F6; padding: 0.2rem 0.5rem; border-radius: 2px;">NET_ICICI_7483920192</code></td>
+            <td><strong>RP-2026-0803</strong></td>
+            <td>
+              <strong>Priya Nair</strong><br>
+              <small style="color: var(--admin-text-muted);">+91 94470 98765</small>
+            </td>
+            <td>The Roma Palace Udaipur</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-primary);">₹131,180</strong></td>
+            <td><span class="badge badge-secondary">Net Banking</span></td>
+            <td>05 Aug 2026, 11:24 AM</td>
+            <td>
+              <span class="badge badge-success">
+                PAID              </span>
+            </td>
+            <td>
+                              <form method="POST" action="payments.php" onsubmit="return confirm('Process refund for transaction NET_ICICI_7483920192?');" style="display: inline;">
+                  <input type="hidden" name="action" value="refund_payment">
+                  <input type="hidden" name="payment_id" value="3">
+                  <button type="submit" class="btn-action-icon" style="color: #9B1C1C;" title="Process Refund">
+                    <i class="fa-solid fa-rotate-left"></i>
+                  </button>
+                </form>
+                          </td>
+          </tr>
+                  <tr>
+            <td><code style="font-size: 0.82rem; font-weight: 700; background: #F3F4F6; padding: 0.2rem 0.5rem; border-radius: 2px;">CC_HDFC_89437291823</code></td>
+            <td><strong>RP-2026-0802</strong></td>
+            <td>
+              <strong>Rajesh Sharma</strong><br>
+              <small style="color: var(--admin-text-muted);">+91 98201 23456</small>
+            </td>
+            <td>The Roma Palace Goa</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-primary);">₹112,100</strong></td>
+            <td><span class="badge badge-secondary">Credit Card</span></td>
+            <td>11 Aug 2026, 02:18 PM</td>
+            <td>
+              <span class="badge badge-success">
+                PAID              </span>
+            </td>
+            <td>
+                              <form method="POST" action="payments.php" onsubmit="return confirm('Process refund for transaction CC_HDFC_89437291823?');" style="display: inline;">
+                  <input type="hidden" name="action" value="refund_payment">
+                  <input type="hidden" name="payment_id" value="2">
+                  <button type="submit" class="btn-action-icon" style="color: #9B1C1C;" title="Process Refund">
+                    <i class="fa-solid fa-rotate-left"></i>
+                  </button>
+                </form>
+                          </td>
+          </tr>
+                  <tr>
+            <td><code style="font-size: 0.82rem; font-weight: 700; background: #F3F4F6; padding: 0.2rem 0.5rem; border-radius: 2px;">UPI/20260810/8932478190</code></td>
+            <td><strong>RP-2026-0801</strong></td>
+            <td>
+              <strong>Rohan Malhotra</strong><br>
+              <small style="color: var(--admin-text-muted);">+91 98110 54321</small>
+            </td>
+            <td>The Roma Palace Jaipur</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-primary);">₹65,254</strong></td>
+            <td><span class="badge badge-secondary">UPI</span></td>
+            <td>10 Aug 2026, 10:32 AM</td>
+            <td>
+              <span class="badge badge-success">
+                PAID              </span>
+            </td>
+            <td>
+                              <form method="POST" action="payments.php" onsubmit="return confirm('Process refund for transaction UPI/20260810/8932478190?');" style="display: inline;">
+                  <input type="hidden" name="action" value="refund_payment">
+                  <input type="hidden" name="payment_id" value="1">
+                  <button type="submit" class="btn-action-icon" style="color: #9B1C1C;" title="Process Refund">
+                    <i class="fa-solid fa-rotate-left"></i>
+                  </button>
+                </form>
+                          </td>
+          </tr>
+              </tbody>
+    </table>
+  </div>
+</div>
+
+    </main>
+
+    <!-- Admin Bottom Bar -->
+    <footer style="padding: 1.5rem 2rem; background: #FFFFFF; border-top: 1px solid var(--admin-border); font-size: 0.8rem; color: var(--admin-text-muted); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+      <div>
+        <strong>The Roma Palace Hotel Management System</strong> &bull; BTech CSE DBMS Mini Project
+      </div>
+      <div>
+        <a href="demo-presentation.html" style="color: var(--admin-gold-dark); font-weight: 700; text-decoration: underline; margin-right: 15px;">
+          <i class="fa-solid fa-graduation-cap"></i> Project Demo & Viva Mode
+        </a>
+        <span>System Version 2.4 (Enterprise Edition)</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Admin Scripts -->
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Control Center | The Roma Palace</title>
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Admin Design System -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- Left Executive Sidebar -->
+  <aside class="admin-sidebar">
+    
+    <!-- Brand -->
+    <a href="dashboard.html" class="admin-brand" style="text-decoration: none;">
+      <div class="rp-monogram">
+        <span>RP</span>
+      </div>
+      <div class="admin-brand-text">
+        <h2>THE ROMA PALACE</h2>
+        <span>ADMINISTRATION</span>
+      </div>
+    </a>
+
+    <!-- Nav List -->
+    <div class="admin-nav-section">
+      
+      <div class="admin-nav-title">CORE OPERATIONS</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="dashboard.html"><i class="fa-solid fa-gauge-high"></i> <span>Dashboard</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="checkin.html"><i class="fa-solid fa-bell-concierge"></i> <span>Front Desk Check-In</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="checkout.html"><i class="fa-solid fa-receipt"></i> <span>Check-Out & Folio</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="bookings.html"><i class="fa-solid fa-calendar-check"></i> <span>Bookings Master</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">PROPERTY & INVENTORY</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item active">
+          <a href="hotels.html"><i class="fa-solid fa-hotel"></i> <span>Hotels & Palaces</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="rooms.html"><i class="fa-solid fa-door-open"></i> <span>Rooms Management</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="services.html"><i class="fa-solid fa-spa"></i> <span>Services & Orders</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="restaurants.html"><i class="fa-solid fa-utensils"></i> <span>Restaurants</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="menu.html"><i class="fa-solid fa-book-open"></i> <span>Menu Items</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">ACCOUNTS & GUESTS</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="customers.html"><i class="fa-solid fa-users"></i> <span>Customer CRM</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="payments.html"><i class="fa-solid fa-credit-card"></i> <span>Payments Ledger</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="staff.html"><i class="fa-solid fa-user-tie"></i> <span>Staff Directory</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="offers.html"><i class="fa-solid fa-tags"></i> <span>Offers & Packages</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="reviews.html"><i class="fa-solid fa-star"></i> <span>Guest Reviews</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="reports.html"><i class="fa-solid fa-chart-line"></i> <span>Reports & Exports</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">COLLEGE VIVA & SYSTEM</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="demo-presentation.html">
+            <i class="fa-solid fa-graduation-cap text-gold"></i> 
+            <span>Demo Dashboard</span>
+            <span class="admin-badge-viva">Viva</span>
+          </a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="settings.html"><i class="fa-solid fa-sliders"></i> <span>Settings & Reset</span></a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> <span>Sign Out</span></a>
+        </li>
+      </ul>
+
+    </div>
+
+  </aside>
+
+  <!-- Main Administrative Container -->
+  <div class="admin-main-wrapper">
+    
+    <!-- Top Administrative Header -->
+    <header class="admin-top-header">
+      <div class="admin-header-left">
+        <h1 class="admin-page-title">Administration Control Center</h1>
+        <span class="badge badge-info" style="font-size: 0.7rem;">
+          <i class="fa-solid fa-database"></i> DB: SQLITE        </span>
+      </div>
+
+      <div class="admin-header-right">
+        <div class="admin-time-badge">
+          <i class="fa-regular fa-clock text-gold"></i>
+          <span id="adminLiveClock">--:--:--</span>
+        </div>
+
+        <a href="../index.html" target="_blank" class="btn-action-icon" title="Preview Public Luxury Website">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+        <div class="admin-user-menu">
+          <div class="admin-avatar">
+            R          </div>
+          <div class="admin-user-info">
+            <span class="admin-user-name">Ranvijay Singh Rathore</span>
+            <span class="admin-user-role">General Manager &amp; Director</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Flash Alerts -->
+    
+    
+    <!-- Body Container -->
+    <main class="admin-content-body">
+
+<div class="admin-card">
+  <div class="admin-card-header">
+    <h3 class="admin-card-title"><i class="fa-solid fa-hotel text-gold"></i> Registered Palace Properties</h3>
+    <div class="admin-actions-bar">
+      <button type="button" class="admin-btn-primary" onclick="openHotelModal()">
+        <i class="fa-solid fa-plus"></i> Add New Palace
+      </button>
+    </div>
+  </div>
+
+  <div class="admin-table-responsive">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Palace Name</th>
+          <th>Destination</th>
+          <th>Contact Info</th>
+          <th>Star Rating</th>
+          <th>Starting Rate</th>
+          <th>Rooms Count</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+                  <tr>
+            <td>
+              <strong>The Roma Palace Jaipur</strong><br>
+              <small style="color: var(--color-gold-dark); font-style: italic;">A Royal Heritage Sanctuary of Kings</small>
+            </td>
+            <td>Jaipur, Rajasthan</td>
+            <td>
+              +91 141 278 9000<br>
+              <small style="color: var(--admin-text-muted);">jaipur@romapalace.com</small>
+            </td>
+            <td><span class="badge badge-warning"><i class="fa-solid fa-star"></i> 5.0</span></td>
+            <td><strong>₹18,500</strong></td>
+            <td>7 Registered Rooms</td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Property" onclick='editHotelModal({"hotel_id":1,"name":"The Roma Palace Jaipur","slug":"roma-palace-jaipur","city":"Jaipur","state":"Rajasthan","tagline":"A Royal Heritage Sanctuary of Kings","address":"Bhawani Singh Road, Rambagh Enclave, Jaipur, Rajasthan 302005","phone":"+91 141 278 9000","email":"jaipur@romapalace.com","star_rating":5,"starting_price":18500,"total_rooms":32,"image_url":"https:\/\/images.unsplash.com\/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1600&q=85","description":"Set amidst 24 acres of manicured Mughal gardens, The Roma Palace Jaipur stands as an epitome of Rajputana grandeur and timeless royal architecture.","highlights":"Heritage Architecture, Mughal Gardens, Royal Courtyard, Temperature-controlled Pool, 24\/7 Butler Service","status":"active","created_at":"2026-08-18 10:22:39","actual_rooms_count":7})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="hotels.php" onsubmit="return confirm('Delete hotel property?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_hotel">
+                  <input type="hidden" name="hotel_id" value="1">
+                  <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Property">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>The Roma Palace Goa</strong><br>
+              <small style="color: var(--color-gold-dark); font-style: italic;">Contemporary Coastal Escape &amp; Oceanfront Bliss</small>
+            </td>
+            <td>Goa, Goa</td>
+            <td>
+              +91 832 671 2000<br>
+              <small style="color: var(--admin-text-muted);">goa@romapalace.com</small>
+            </td>
+            <td><span class="badge badge-warning"><i class="fa-solid fa-star"></i> 5.0</span></td>
+            <td><strong>₹22,000</strong></td>
+            <td>6 Registered Rooms</td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Property" onclick='editHotelModal({"hotel_id":2,"name":"The Roma Palace Goa","slug":"roma-palace-goa","city":"Goa","state":"Goa","tagline":"Contemporary Coastal Escape & Oceanfront Bliss","address":"Sinquerim Beachfront, Candolim, North Goa 403515","phone":"+91 832 671 2000","email":"goa@romapalace.com","star_rating":5,"starting_price":22000,"total_rooms":28,"image_url":"https:\/\/images.unsplash.com\/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=85","description":"Perched gently along the golden sands of the Arabian Sea, The Roma Palace Goa blends Portuguese architectural refinement with serene coastal luxury.","highlights":"Private Beach Access, Infinity Ocean Pool, Ayurvedic Spa Pavilion, Sunset Deck Lounge, Water Sports","status":"active","created_at":"2026-08-18 10:22:39","actual_rooms_count":6})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="hotels.php" onsubmit="return confirm('Delete hotel property?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_hotel">
+                  <input type="hidden" name="hotel_id" value="2">
+                  <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Property">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>The Roma Palace Udaipur</strong><br>
+              <small style="color: var(--color-gold-dark); font-style: italic;">Lakefront Opulence &amp; Timeless Romance</small>
+            </td>
+            <td>Udaipur, Rajasthan</td>
+            <td>
+              +91 294 243 5000<br>
+              <small style="color: var(--admin-text-muted);">udaipur@romapalace.com</small>
+            </td>
+            <td><span class="badge badge-warning"><i class="fa-solid fa-star"></i> 5.0</span></td>
+            <td><strong>₹28,000</strong></td>
+            <td>6 Registered Rooms</td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Property" onclick='editHotelModal({"hotel_id":3,"name":"The Roma Palace Udaipur","slug":"roma-palace-udaipur","city":"Udaipur","state":"Rajasthan","tagline":"Lakefront Opulence & Timeless Romance","address":"Haridas Ji Ki Magri, Lake Pichola Waterfront, Udaipur, Rajasthan 313001","phone":"+91 294 243 5000","email":"udaipur@romapalace.com","star_rating":5,"starting_price":28000,"total_rooms":30,"image_url":"https:\/\/images.unsplash.com\/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=85","description":"Rising serenely upon the tranquil waters of Lake Pichola with panoramic views of the Aravalli Hills, offering an unforgettable fairy-tale palace escape.","highlights":"Private Boat Jetty, Lakefront Fine Dining, Royal Spa Suites, Heritage Peepal Courtyard, Sunset Flute Recitals","status":"active","created_at":"2026-08-18 10:22:39","actual_rooms_count":6})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="hotels.php" onsubmit="return confirm('Delete hotel property?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_hotel">
+                  <input type="hidden" name="hotel_id" value="3">
+                  <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Property">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>The Roma Palace Lucknow</strong><br>
+              <small style="color: var(--color-gold-dark); font-style: italic;">Nawabi Hospitality &amp; Refined Aristocratic Elegance</small>
+            </td>
+            <td>Lucknow, Uttar Pradesh</td>
+            <td>
+              +91 522 409 8000<br>
+              <small style="color: var(--admin-text-muted);">lucknow@romapalace.com</small>
+            </td>
+            <td><span class="badge badge-warning"><i class="fa-solid fa-star"></i> 5.0</span></td>
+            <td><strong>₹14,500</strong></td>
+            <td>6 Registered Rooms</td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Property" onclick='editHotelModal({"hotel_id":4,"name":"The Roma Palace Lucknow","slug":"roma-palace-lucknow","city":"Lucknow","state":"Uttar Pradesh","tagline":"Nawabi Hospitality & Refined Aristocratic Elegance","address":"Vipin Khand, Gomti Nagar Riverfront, Lucknow, Uttar Pradesh 226010","phone":"+91 522 409 8000","email":"lucknow@romapalace.com","star_rating":5,"starting_price":14500,"total_rooms":30,"image_url":"https:\/\/images.unsplash.com\/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1600&q=85","description":"Echoing the golden era of Awadhi Nawabs with grand chandeliers, arched corridors, and legendary culinary art along the serene Gomti River.","highlights":"Awadhi Culinary Masterclasses, Grand Ballroom, Imperial Spa, Executive Business Lounge, Royal Chariot Welcome","status":"active","created_at":"2026-08-18 10:22:39","actual_rooms_count":6})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="hotels.php" onsubmit="return confirm('Delete hotel property?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_hotel">
+                  <input type="hidden" name="hotel_id" value="4">
+                  <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Property">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+              </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal: Hotel Form -->
+<div id="hotelModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.65); z-index: 1000; align-items: center; justify-content: center; overflow-y: auto;">
+  <div style="background: #FFFFFF; max-width: 650px; width: 90%; border-radius: 6px; padding: 2.5rem; border: 1px solid var(--admin-border); margin: 2rem auto; box-shadow: 0 20px 50px rgba(0,0,0,0.25); position: relative;">
+    <button onclick="closeHotelModal()" style="position: absolute; top: 1.2rem; right: 1.2rem; background: none; border: none; font-size: 1.4rem; cursor: pointer;">&times;</button>
+    
+    <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;" id="modalHotelHeading">Add New Palace Property</h3>
+
+    <form method="POST" action="hotels.php" id="hotelForm">
+      <input type="hidden" name="action" id="hotelFormAction" value="create_hotel">
+      <input type="hidden" name="hotel_id" id="modal_hotel_id" value="">
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div class="form-group" style="grid-column: span 2;">
+          <label>Palace Name</label>
+          <input type="text" name="name" id="modal_ht_name" class="form-control" placeholder="e.g. The Roma Palace Varanasi" required>
+        </div>
+
+        <div class="form-group">
+          <label>City</label>
+          <input type="text" name="city" id="modal_ht_city" class="form-control" placeholder="Varanasi" required>
+        </div>
+
+        <div class="form-group">
+          <label>State</label>
+          <input type="text" name="state" id="modal_ht_state" class="form-control" placeholder="Uttar Pradesh" required>
+        </div>
+
+        <div class="form-group" style="grid-column: span 2;">
+          <label>Tagline</label>
+          <input type="text" name="tagline" id="modal_ht_tagline" class="form-control" placeholder="Sacred Ghats & Timeless Spiritual Grandeur" required>
+        </div>
+
+        <div class="form-group">
+          <label>Contact Phone</label>
+          <input type="text" name="phone" id="modal_ht_phone" class="form-control" placeholder="+91 542 278 9000" required>
+        </div>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" id="modal_ht_email" class="form-control" placeholder="varanasi@romapalace.com" required>
+        </div>
+
+        <div class="form-group">
+          <label>Star Rating</label>
+          <input type="number" step="0.1" min="1" max="5" name="star_rating" id="modal_ht_rating" value="5.0" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label>Starting Price (INR)</label>
+          <input type="number" name="starting_price" id="modal_ht_price" value="16500" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label>Total Rooms Capacity</label>
+          <input type="number" name="total_rooms" id="modal_ht_rooms" value="30" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label>Highlights (comma separated)</label>
+          <input type="text" name="highlights" id="modal_ht_highlights" class="form-control" placeholder="Ghat View, Sunrise Aarti, Spa, Butler">
+        </div>
+
+        <div class="form-group" style="grid-column: span 2;">
+          <label>Hero Image URL</label>
+          <input type="url" name="image_url" id="modal_ht_image" class="form-control" value="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=85" required>
+        </div>
+
+        <div class="form-group" style="grid-column: span 2;">
+          <label>Full Address</label>
+          <textarea name="address" id="modal_ht_address" class="form-control" rows="2" placeholder="Ghat Road, Varanasi, UP 221001" required></textarea>
+        </div>
+
+        <div class="form-group" style="grid-column: span 2;">
+          <label>Editorial Description</label>
+          <textarea name="description" id="modal_ht_desc" class="form-control" rows="3" placeholder="Description of the royal palace..." required></textarea>
+        </div>
+      </div>
+
+      <div style="margin-top: 1.5rem; text-align: right;">
+        <button type="button" class="btn-outline-dark" onclick="closeHotelModal()" style="padding: 0.6rem 1.2rem; margin-right: 0.5rem;">Cancel</button>
+        <button type="submit" class="admin-btn-primary" style="padding: 0.6rem 1.5rem;">Save Property</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+function openHotelModal() {
+  document.getElementById('modalHotelHeading').textContent = 'Add New Palace Property';
+  document.getElementById('hotelFormAction').value = 'create_hotel';
+  document.getElementById('modal_hotel_id').value = '';
+  document.getElementById('modal_ht_name').value = '';
+  document.getElementById('hotelModal').style.display = 'flex';
+}
+function editHotelModal(h) {
+  document.getElementById('modalHotelHeading').textContent = 'Edit ' + h.name;
+  document.getElementById('hotelFormAction').value = 'update_hotel';
+  document.getElementById('modal_hotel_id').value = h.hotel_id;
+  document.getElementById('modal_ht_name').value = h.name;
+  document.getElementById('modal_ht_city').value = h.city;
+  document.getElementById('modal_ht_state').value = h.state;
+  document.getElementById('modal_ht_tagline').value = h.tagline;
+  document.getElementById('modal_ht_phone').value = h.phone;
+  document.getElementById('modal_ht_email').value = h.email;
+  document.getElementById('modal_ht_rating').value = h.star_rating;
+  document.getElementById('modal_ht_price').value = h.starting_price;
+  document.getElementById('modal_ht_rooms').value = h.total_rooms;
+  document.getElementById('modal_ht_highlights').value = h.highlights || '';
+  document.getElementById('modal_ht_image').value = h.image_url;
+  document.getElementById('modal_ht_address').value = h.address;
+  document.getElementById('modal_ht_desc').value = h.description;
+  document.getElementById('hotelModal').style.display = 'flex';
+}
+function closeHotelModal() {
+  document.getElementById('hotelModal').style.display = 'none';
+}
+</script>
+
+    </main>
+
+    <!-- Admin Bottom Bar -->
+    <footer style="padding: 1.5rem 2rem; background: #FFFFFF; border-top: 1px solid var(--admin-border); font-size: 0.8rem; color: var(--admin-text-muted); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+      <div>
+        <strong>The Roma Palace Hotel Management System</strong> &bull; BTech CSE DBMS Mini Project
+      </div>
+      <div>
+        <a href="demo-presentation.html" style="color: var(--admin-gold-dark); font-weight: 700; text-decoration: underline; margin-right: 15px;">
+          <i class="fa-solid fa-graduation-cap"></i> Project Demo & Viva Mode
+        </a>
+        <span>System Version 2.4 (Enterprise Edition)</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Admin Scripts -->
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

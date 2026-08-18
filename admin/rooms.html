@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Control Center | The Roma Palace</title>
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Admin Design System -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- Left Executive Sidebar -->
+  <aside class="admin-sidebar">
+    
+    <!-- Brand -->
+    <a href="dashboard.html" class="admin-brand" style="text-decoration: none;">
+      <div class="rp-monogram">
+        <span>RP</span>
+      </div>
+      <div class="admin-brand-text">
+        <h2>THE ROMA PALACE</h2>
+        <span>ADMINISTRATION</span>
+      </div>
+    </a>
+
+    <!-- Nav List -->
+    <div class="admin-nav-section">
+      
+      <div class="admin-nav-title">CORE OPERATIONS</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="dashboard.html"><i class="fa-solid fa-gauge-high"></i> <span>Dashboard</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="checkin.html"><i class="fa-solid fa-bell-concierge"></i> <span>Front Desk Check-In</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="checkout.html"><i class="fa-solid fa-receipt"></i> <span>Check-Out & Folio</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="bookings.html"><i class="fa-solid fa-calendar-check"></i> <span>Bookings Master</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">PROPERTY & INVENTORY</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="hotels.html"><i class="fa-solid fa-hotel"></i> <span>Hotels & Palaces</span></a>
+        </li>
+        <li class="admin-nav-item active">
+          <a href="rooms.html"><i class="fa-solid fa-door-open"></i> <span>Rooms Management</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="services.html"><i class="fa-solid fa-spa"></i> <span>Services & Orders</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="restaurants.html"><i class="fa-solid fa-utensils"></i> <span>Restaurants</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="menu.html"><i class="fa-solid fa-book-open"></i> <span>Menu Items</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">ACCOUNTS & GUESTS</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="customers.html"><i class="fa-solid fa-users"></i> <span>Customer CRM</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="payments.html"><i class="fa-solid fa-credit-card"></i> <span>Payments Ledger</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="staff.html"><i class="fa-solid fa-user-tie"></i> <span>Staff Directory</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="offers.html"><i class="fa-solid fa-tags"></i> <span>Offers & Packages</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="reviews.html"><i class="fa-solid fa-star"></i> <span>Guest Reviews</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="reports.html"><i class="fa-solid fa-chart-line"></i> <span>Reports & Exports</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">COLLEGE VIVA & SYSTEM</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="demo-presentation.html">
+            <i class="fa-solid fa-graduation-cap text-gold"></i> 
+            <span>Demo Dashboard</span>
+            <span class="admin-badge-viva">Viva</span>
+          </a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="settings.html"><i class="fa-solid fa-sliders"></i> <span>Settings & Reset</span></a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> <span>Sign Out</span></a>
+        </li>
+      </ul>
+
+    </div>
+
+  </aside>
+
+  <!-- Main Administrative Container -->
+  <div class="admin-main-wrapper">
+    
+    <!-- Top Administrative Header -->
+    <header class="admin-top-header">
+      <div class="admin-header-left">
+        <h1 class="admin-page-title">Administration Control Center</h1>
+        <span class="badge badge-info" style="font-size: 0.7rem;">
+          <i class="fa-solid fa-database"></i> DB: SQLITE        </span>
+      </div>
+
+      <div class="admin-header-right">
+        <div class="admin-time-badge">
+          <i class="fa-regular fa-clock text-gold"></i>
+          <span id="adminLiveClock">--:--:--</span>
+        </div>
+
+        <a href="../index.html" target="_blank" class="btn-action-icon" title="Preview Public Luxury Website">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+        <div class="admin-user-menu">
+          <div class="admin-avatar">
+            R          </div>
+          <div class="admin-user-info">
+            <span class="admin-user-name">Ranvijay Singh Rathore</span>
+            <span class="admin-user-role">General Manager &amp; Director</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Flash Alerts -->
+    
+    
+    <!-- Body Container -->
+    <main class="admin-content-body">
+
+<!-- Action Bar & Filters -->
+<div class="admin-card">
+  <div class="admin-card-header">
+    <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+      <h3 class="admin-card-title"><i class="fa-solid fa-door-open text-gold"></i> Rooms Inventory (25 Rooms)</h3>
+      
+      <!-- Filters -->
+      <form method="GET" action="rooms.php" style="display: flex; gap: 0.6rem; align-items: center;">
+        <select name="hotel_id" onchange="this.form.submit()" style="padding: 0.45rem 0.8rem; border-radius: 4px; border: 1px solid var(--admin-border); font-size: 0.82rem;">
+          <option value="">All Palaces</option>
+                      <option value="2" >
+              The Roma Palace Goa            </option>
+                      <option value="1" >
+              The Roma Palace Jaipur            </option>
+                      <option value="4" >
+              The Roma Palace Lucknow            </option>
+                      <option value="3" >
+              The Roma Palace Udaipur            </option>
+                  </select>
+
+        <select name="status" onchange="this.form.submit()" style="padding: 0.45rem 0.8rem; border-radius: 4px; border: 1px solid var(--admin-border); font-size: 0.82rem;">
+          <option value="">All Statuses</option>
+          <option value="Available" >Available</option>
+          <option value="Occupied" >Occupied</option>
+          <option value="Reserved" >Reserved</option>
+          <option value="Maintenance" >Maintenance</option>
+        </select>
+              </form>
+    </div>
+
+    <div class="admin-actions-bar">
+      <div class="search-input-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search room no, type..." data-table-search="roomsMasterTable">
+      </div>
+      <button type="button" class="admin-btn-primary" onclick="openRoomModal()">
+        <i class="fa-solid fa-plus"></i> Add New Room
+      </button>
+    </div>
+  </div>
+
+  <div class="admin-table-responsive">
+    <table class="admin-table" id="roomsMasterTable">
+      <thead>
+        <tr>
+          <th>Room No</th>
+          <th>Palace Location</th>
+          <th>Category</th>
+          <th>Floor / Area</th>
+          <th>Capacity & Bed</th>
+          <th>Rate / Night</th>
+          <th>Live Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+                  <tr>
+            <td><strong style="font-size: 1rem;">JP-101</strong></td>
+            <td>The Roma Palace Jaipur</td>
+            <td><strong style="color: var(--admin-primary);">Deluxe Room</strong></td>
+            <td>Floor 1 &bull; 480 sq.ft</td>
+            <td>2 Guests (King Bed)</td>
+            <td><strong>₹18,500</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="1">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-success" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" selected>Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":1,"hotel_id":1,"room_number":"JP-101","room_type":"Deluxe Room","floor":1,"capacity":2,"bed_type":"King Bed","size_sqft":480,"price_per_night":18500,"status":"Available","image_url":"https:\/\/images.unsplash.com\/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=85","description":"Elegantly appointed room featuring authentic Rajasthani jharokhas, handcrafted wooden furnishings, and garden views.","view_type":"Mughal Garden View","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Jaipur","city":"Jaipur"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room JP-101?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="1">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">JP-102</strong></td>
+            <td>The Roma Palace Jaipur</td>
+            <td><strong style="color: var(--admin-primary);">Deluxe Room</strong></td>
+            <td>Floor 1 &bull; 480 sq.ft</td>
+            <td>2 Guests (Twin Beds)</td>
+            <td><strong>₹18,500</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="2">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-success" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" selected>Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":2,"hotel_id":1,"room_number":"JP-102","room_type":"Deluxe Room","floor":1,"capacity":2,"bed_type":"Twin Beds","size_sqft":480,"price_per_night":18500,"status":"Available","image_url":"https:\/\/images.unsplash.com\/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=85","description":"Warm tones with twin beds, Italian marble bath with soaking tub, and high-speed Wi-Fi.","view_type":"Palace Courtyard View","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Jaipur","city":"Jaipur"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room JP-102?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="2">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">JP-103</strong></td>
+            <td>The Roma Palace Jaipur</td>
+            <td><strong style="color: var(--admin-primary);">Deluxe Room</strong></td>
+            <td>Floor 1 &bull; 480 sq.ft</td>
+            <td>2 Guests (King Bed)</td>
+            <td><strong>₹18,500</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="25">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-secondary" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" >Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" selected>Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":25,"hotel_id":1,"room_number":"JP-103","room_type":"Deluxe Room","floor":1,"capacity":2,"bed_type":"King Bed","size_sqft":480,"price_per_night":18500,"status":"Maintenance","image_url":"https:\/\/images.unsplash.com\/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=85","description":"Undergoing annual bespoke polishing of heritage teak woodwork and silk tapestries.","view_type":"Courtyard Garden View","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Jaipur","city":"Jaipur"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room JP-103?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="25">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">JP-201</strong></td>
+            <td>The Roma Palace Jaipur</td>
+            <td><strong style="color: var(--admin-primary);">Premium Room</strong></td>
+            <td>Floor 2 &bull; 560 sq.ft</td>
+            <td>2 Guests (King Bed)</td>
+            <td><strong>₹24,000</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="3">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-danger" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" >Available</option>
+                  <option value="Occupied" selected>Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":3,"hotel_id":1,"room_number":"JP-201","room_type":"Premium Room","floor":2,"capacity":2,"bed_type":"King Bed","size_sqft":560,"price_per_night":24000,"status":"Occupied","image_url":"https:\/\/images.unsplash.com\/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=1200&q=85","description":"Expanded luxury with a private sit-out balcony overlooking the illuminated fountain courtyards.","view_type":"Fountain & Pool View","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Jaipur","city":"Jaipur"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room JP-201?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="3">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">JP-202</strong></td>
+            <td>The Roma Palace Jaipur</td>
+            <td><strong style="color: var(--admin-primary);">Executive Room</strong></td>
+            <td>Floor 2 &bull; 650 sq.ft</td>
+            <td>3 Guests (King Bed + Daybed)</td>
+            <td><strong>₹32,000</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="4">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-success" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" selected>Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":4,"hotel_id":1,"room_number":"JP-202","room_type":"Executive Room","floor":2,"capacity":3,"bed_type":"King Bed + Daybed","size_sqft":650,"price_per_night":32000,"status":"Available","image_url":"https:\/\/images.unsplash.com\/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=85","description":"Spacious executive sanctuary with dedicated work bureau, lounge seating, and complimentary evening canapes.","view_type":"Heritage Garden View","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Jaipur","city":"Jaipur"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room JP-202?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="4">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">JP-301</strong></td>
+            <td>The Roma Palace Jaipur</td>
+            <td><strong style="color: var(--admin-primary);">Luxury Suite</strong></td>
+            <td>Floor 3 &bull; 950 sq.ft</td>
+            <td>3 Guests (King Bed)</td>
+            <td><strong>₹48,000</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="5">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-warning" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" >Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" selected>Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":5,"hotel_id":1,"room_number":"JP-301","room_type":"Luxury Suite","floor":3,"capacity":3,"bed_type":"King Bed","size_sqft":950,"price_per_night":48000,"status":"Reserved","image_url":"https:\/\/images.unsplash.com\/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=85","description":"Opulent master bedroom, separate dining salon, Jacuzzi bath, and dedicated 24-hour butler service.","view_type":"Panoramic Palace Skyline","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Jaipur","city":"Jaipur"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room JP-301?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="5">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">JP-302</strong></td>
+            <td>The Roma Palace Jaipur</td>
+            <td><strong style="color: var(--admin-primary);">Royal Suite</strong></td>
+            <td>Floor 3 &bull; 1600 sq.ft</td>
+            <td>4 Guests (Emperor Bed)</td>
+            <td><strong>₹85,000</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="6">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-success" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" selected>Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":6,"hotel_id":1,"room_number":"JP-302","room_type":"Royal Suite","floor":3,"capacity":4,"bed_type":"Emperor Bed","size_sqft":1600,"price_per_night":85000,"status":"Available","image_url":"https:\/\/images.unsplash.com\/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=85","description":"The pinnacle of Jaipur aristocracy: gold-leaf ceilings, private terrace plunge pool, dining room for six, and private lift access.","view_type":"360-Degree Royal Estate View","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Jaipur","city":"Jaipur"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room JP-302?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="6">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">GA-101</strong></td>
+            <td>The Roma Palace Goa</td>
+            <td><strong style="color: var(--admin-primary);">Deluxe Room</strong></td>
+            <td>Floor 1 &bull; 520 sq.ft</td>
+            <td>2 Guests (King Bed)</td>
+            <td><strong>₹22,000</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="7">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-success" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" selected>Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":7,"hotel_id":2,"room_number":"GA-101","room_type":"Deluxe Room","floor":1,"capacity":2,"bed_type":"King Bed","size_sqft":520,"price_per_night":22000,"status":"Available","image_url":"https:\/\/images.unsplash.com\/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1200&q=85","description":"Airy coastal decor with teakwood finishes, open-plan marble bath, and private garden patio.","view_type":"Tropical Garden View","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Goa","city":"Goa"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room GA-101?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="7">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">GA-102</strong></td>
+            <td>The Roma Palace Goa</td>
+            <td><strong style="color: var(--admin-primary);">Deluxe Room</strong></td>
+            <td>Floor 1 &bull; 520 sq.ft</td>
+            <td>2 Guests (Twin Beds)</td>
+            <td><strong>₹22,000</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="8">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-success" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" selected>Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":8,"hotel_id":2,"room_number":"GA-102","room_type":"Deluxe Room","floor":1,"capacity":2,"bed_type":"Twin Beds","size_sqft":520,"price_per_night":22000,"status":"Available","image_url":"https:\/\/images.unsplash.com\/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=85","description":"Contemporary coastal living with soft linen tones, espresso machine, and rain shower.","view_type":"Lush Lawn View","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Goa","city":"Goa"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room GA-102?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="8">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">GA-201</strong></td>
+            <td>The Roma Palace Goa</td>
+            <td><strong style="color: var(--admin-primary);">Premium Room</strong></td>
+            <td>Floor 2 &bull; 600 sq.ft</td>
+            <td>2 Guests (King Bed)</td>
+            <td><strong>₹29,000</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="9">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-danger" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" >Available</option>
+                  <option value="Occupied" selected>Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":9,"hotel_id":2,"room_number":"GA-201","room_type":"Premium Room","floor":2,"capacity":2,"bed_type":"King Bed","size_sqft":600,"price_per_night":29000,"status":"Occupied","image_url":"https:\/\/images.unsplash.com\/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=85","description":"Direct ocean breeze, expansive glass doors opening to private sea-view deck.","view_type":"Arabian Sea Front View","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Goa","city":"Goa"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room GA-201?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="9">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">GA-202</strong></td>
+            <td>The Roma Palace Goa</td>
+            <td><strong style="color: var(--admin-primary);">Executive Room</strong></td>
+            <td>Floor 2 &bull; 700 sq.ft</td>
+            <td>3 Guests (King Bed)</td>
+            <td><strong>₹38,000</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="10">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-success" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" selected>Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":10,"hotel_id":2,"room_number":"GA-202","room_type":"Executive Room","floor":2,"capacity":3,"bed_type":"King Bed","size_sqft":700,"price_per_night":38000,"status":"Available","image_url":"https:\/\/images.unsplash.com\/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=85","description":"Designed for coastal indulgence with private sun lounger balcony and bespoke bar cabinet.","view_type":"Oceanfront & Sunset Deck","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Goa","city":"Goa"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room GA-202?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="10">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">GA-301</strong></td>
+            <td>The Roma Palace Goa</td>
+            <td><strong style="color: var(--admin-primary);">Luxury Suite</strong></td>
+            <td>Floor 3 &bull; 1100 sq.ft</td>
+            <td>3 Guests (King Bed)</td>
+            <td><strong>₹56,000</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="11">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-success" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" selected>Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":11,"hotel_id":2,"room_number":"GA-301","room_type":"Luxury Suite","floor":3,"capacity":3,"bed_type":"King Bed","size_sqft":1100,"price_per_night":56000,"status":"Available","image_url":"https:\/\/images.unsplash.com\/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=85","description":"Stunning corner suite with 180-degree ocean views, freestanding bathtub overlooking the sea, and champagne bar.","view_type":"Full Ocean Sunset View","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Goa","city":"Goa"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room GA-301?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="11">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">GA-302</strong></td>
+            <td>The Roma Palace Goa</td>
+            <td><strong style="color: var(--admin-primary);">Royal Suite</strong></td>
+            <td>Floor 3 &bull; 1850 sq.ft</td>
+            <td>4 Guests (Emperor Bed)</td>
+            <td><strong>₹95,000</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="12">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-success" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" selected>Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":12,"hotel_id":2,"room_number":"GA-302","room_type":"Royal Suite","floor":3,"capacity":4,"bed_type":"Emperor Bed","size_sqft":1850,"price_per_night":95000,"status":"Available","image_url":"https:\/\/images.unsplash.com\/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=85","description":"Private beach bungalow with infinity plunge pool, personal chef on request, and private cabana.","view_type":"Direct Beachfront & Private Deck","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Goa","city":"Goa"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room GA-302?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="12">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">UD-101</strong></td>
+            <td>The Roma Palace Udaipur</td>
+            <td><strong style="color: var(--admin-primary);">Deluxe Room</strong></td>
+            <td>Floor 1 &bull; 500 sq.ft</td>
+            <td>2 Guests (King Bed)</td>
+            <td><strong>₹28,000</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="13">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-success" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" selected>Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":13,"hotel_id":3,"room_number":"UD-101","room_type":"Deluxe Room","floor":1,"capacity":2,"bed_type":"King Bed","size_sqft":500,"price_per_night":28000,"status":"Available","image_url":"https:\/\/images.unsplash.com\/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=85","description":"Traditional Mewari inlays with mother-of-pearl decor and window seats overlooking Lake Pichola.","view_type":"Lake Pichola Water View","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Udaipur","city":"Udaipur"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room UD-101?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="13">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">UD-102</strong></td>
+            <td>The Roma Palace Udaipur</td>
+            <td><strong style="color: var(--admin-primary);">Premium Room</strong></td>
+            <td>Floor 1 &bull; 620 sq.ft</td>
+            <td>2 Guests (King Bed)</td>
+            <td><strong>₹36,000</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="14">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-warning" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" >Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" selected>Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":14,"hotel_id":3,"room_number":"UD-102","room_type":"Premium Room","floor":1,"capacity":2,"bed_type":"King Bed","size_sqft":620,"price_per_night":36000,"status":"Reserved","image_url":"https:\/\/images.unsplash.com\/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=1200&q=85","description":"Archways carved from Rajasthani marble, private balcony hovering directly above the gentle lake ripples.","view_type":"Lake Pichola & Jag Mandir View","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Udaipur","city":"Udaipur"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room UD-102?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="14">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">UD-201</strong></td>
+            <td>The Roma Palace Udaipur</td>
+            <td><strong style="color: var(--admin-primary);">Premium Room</strong></td>
+            <td>Floor 2 &bull; 620 sq.ft</td>
+            <td>2 Guests (Twin Beds)</td>
+            <td><strong>₹36,000</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="15">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-success" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" selected>Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":15,"hotel_id":3,"room_number":"UD-201","room_type":"Premium Room","floor":2,"capacity":2,"bed_type":"Twin Beds","size_sqft":620,"price_per_night":36000,"status":"Available","image_url":"https:\/\/images.unsplash.com\/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1200&q=85","description":"Twin bedroom with heritage tapestries, marble ensuite with deep soaking tub, and lake vistas.","view_type":"Lake & City Palace View","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Udaipur","city":"Udaipur"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room UD-201?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="15">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">UD-202</strong></td>
+            <td>The Roma Palace Udaipur</td>
+            <td><strong style="color: var(--admin-primary);">Executive Room</strong></td>
+            <td>Floor 2 &bull; 750 sq.ft</td>
+            <td>3 Guests (King Bed)</td>
+            <td><strong>₹48,000</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="16">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-success" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" selected>Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":16,"hotel_id":3,"room_number":"UD-202","room_type":"Executive Room","floor":2,"capacity":3,"bed_type":"King Bed","size_sqft":750,"price_per_night":48000,"status":"Available","image_url":"https:\/\/images.unsplash.com\/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=1200&q=85","description":"Lavish executive room with separate drawing alcove, silver-embossed mirrors, and afternoon high tea service.","view_type":"Aravalli Hills & Lake View","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Udaipur","city":"Udaipur"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room UD-202?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="16">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">UD-301</strong></td>
+            <td>The Roma Palace Udaipur</td>
+            <td><strong style="color: var(--admin-primary);">Luxury Suite</strong></td>
+            <td>Floor 3 &bull; 1200 sq.ft</td>
+            <td>3 Guests (King Bed)</td>
+            <td><strong>₹72,000</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="17">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-danger" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" >Available</option>
+                  <option value="Occupied" selected>Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":17,"hotel_id":3,"room_number":"UD-301","room_type":"Luxury Suite","floor":3,"capacity":3,"bed_type":"King Bed","size_sqft":1200,"price_per_night":72000,"status":"Occupied","image_url":"https:\/\/images.unsplash.com\/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=85","description":"Heritage living salon, brass telescope for starry nights over the lake, and round-the-clock royal butler.","view_type":"Lake Pichola Master View","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Udaipur","city":"Udaipur"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room UD-301?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="17">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">UD-302</strong></td>
+            <td>The Roma Palace Udaipur</td>
+            <td><strong style="color: var(--admin-primary);">Royal Suite</strong></td>
+            <td>Floor 3 &bull; 2100 sq.ft</td>
+            <td>4 Guests (Emperor Bed)</td>
+            <td><strong>₹125,000</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="18">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-success" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" selected>Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":18,"hotel_id":3,"room_number":"UD-302","room_type":"Royal Suite","floor":3,"capacity":4,"bed_type":"Emperor Bed","size_sqft":2100,"price_per_night":125000,"status":"Available","image_url":"https:\/\/images.unsplash.com\/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=85","description":"The Maharana Presidential Suite: hand-painted frescoes, private heated terrace pool, private dining pavilion, and royal yacht transfers.","view_type":"Panoramic Pichola & Palace Fortress","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Udaipur","city":"Udaipur"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room UD-302?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="18">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">LK-101</strong></td>
+            <td>The Roma Palace Lucknow</td>
+            <td><strong style="color: var(--admin-primary);">Deluxe Room</strong></td>
+            <td>Floor 1 &bull; 460 sq.ft</td>
+            <td>2 Guests (King Bed)</td>
+            <td><strong>₹14,500</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="19">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-success" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" selected>Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":19,"hotel_id":4,"room_number":"LK-101","room_type":"Deluxe Room","floor":1,"capacity":2,"bed_type":"King Bed","size_sqft":460,"price_per_night":14500,"status":"Available","image_url":"https:\/\/images.unsplash.com\/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=85","description":"Chikankari-inspired wall motifs, plush velvet headboards, and serene courtyard perspectives.","view_type":"Gomti River Garden View","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Lucknow","city":"Lucknow"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room LK-101?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="19">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">LK-102</strong></td>
+            <td>The Roma Palace Lucknow</td>
+            <td><strong style="color: var(--admin-primary);">Deluxe Room</strong></td>
+            <td>Floor 1 &bull; 460 sq.ft</td>
+            <td>2 Guests (Twin Beds)</td>
+            <td><strong>₹14,500</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="20">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-success" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" selected>Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":20,"hotel_id":4,"room_number":"LK-102","room_type":"Deluxe Room","floor":1,"capacity":2,"bed_type":"Twin Beds","size_sqft":460,"price_per_night":14500,"status":"Available","image_url":"https:\/\/images.unsplash.com\/photo-1595576508898-0ad5c879a061?auto=format&fit=crop&w=1200&q=85","description":"Refined city retreat with dual workstation, smart control panel, and premium sound insulation.","view_type":"City Skyline View","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Lucknow","city":"Lucknow"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room LK-102?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="20">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">LK-201</strong></td>
+            <td>The Roma Palace Lucknow</td>
+            <td><strong style="color: var(--admin-primary);">Premium Room</strong></td>
+            <td>Floor 2 &bull; 540 sq.ft</td>
+            <td>2 Guests (King Bed)</td>
+            <td><strong>₹19,500</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="21">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-success" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" selected>Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":21,"hotel_id":4,"room_number":"LK-201","room_type":"Premium Room","floor":2,"capacity":2,"bed_type":"King Bed","size_sqft":540,"price_per_night":19500,"status":"Available","image_url":"https:\/\/images.unsplash.com\/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=1200&q=85","description":"High ceilings, crystal chandelier accents, and expansive glass bay windows looking across the riverfront.","view_type":"Gomti Riverfront View","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Lucknow","city":"Lucknow"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room LK-201?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="21">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">LK-202</strong></td>
+            <td>The Roma Palace Lucknow</td>
+            <td><strong style="color: var(--admin-primary);">Executive Room</strong></td>
+            <td>Floor 2 &bull; 680 sq.ft</td>
+            <td>3 Guests (King Bed)</td>
+            <td><strong>₹26,000</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="22">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-success" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" selected>Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":22,"hotel_id":4,"room_number":"LK-202","room_type":"Executive Room","floor":2,"capacity":3,"bed_type":"King Bed","size_sqft":680,"price_per_night":26000,"status":"Available","image_url":"https:\/\/images.unsplash.com\/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=85","description":"Executive privilege suite with meeting table for four, espresso bar, and airport chauffeur service.","view_type":"Riverfront & Executive Park","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Lucknow","city":"Lucknow"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room LK-202?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="22">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">LK-301</strong></td>
+            <td>The Roma Palace Lucknow</td>
+            <td><strong style="color: var(--admin-primary);">Luxury Suite</strong></td>
+            <td>Floor 3 &bull; 980 sq.ft</td>
+            <td>3 Guests (King Bed)</td>
+            <td><strong>₹42,000</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="23">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-success" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" selected>Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":23,"hotel_id":4,"room_number":"LK-301","room_type":"Luxury Suite","floor":3,"capacity":3,"bed_type":"King Bed","size_sqft":980,"price_per_night":42000,"status":"Available","image_url":"https:\/\/images.unsplash.com\/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=85","description":"Awadhi elegance with separate living lounge, walk-in dressing wardrobe, and marble bathroom with Jacuzzi.","view_type":"Panoramic River Promenade","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Lucknow","city":"Lucknow"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room LK-301?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="23">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong style="font-size: 1rem;">LK-302</strong></td>
+            <td>The Roma Palace Lucknow</td>
+            <td><strong style="color: var(--admin-primary);">Royal Suite</strong></td>
+            <td>Floor 3 &bull; 1500 sq.ft</td>
+            <td>4 Guests (Emperor Bed)</td>
+            <td><strong>₹75,000</strong></td>
+            <td>
+              <!-- Quick Status Switcher Form -->
+              <form method="POST" action="rooms.php" style="display: inline;">
+                <input type="hidden" name="action" value="toggle_status">
+                <input type="hidden" name="room_id" value="24">
+                <select name="new_status" onchange="this.form.submit()" class="badge badge-success" style="border: none; cursor: pointer; font-weight: 700;">
+                  <option value="Available" selected>Available</option>
+                  <option value="Occupied" >Occupied</option>
+                  <option value="Reserved" >Reserved</option>
+                  <option value="Maintenance" >Maintenance</option>
+                </select>
+              </form>
+            </td>
+            <td>
+              <div class="action-btn-group">
+                <button type="button" class="btn-action-icon" title="Edit Room" onclick='editRoomModal({"room_id":24,"hotel_id":4,"room_number":"LK-302","room_type":"Royal Suite","floor":3,"capacity":4,"bed_type":"Emperor Bed","size_sqft":1500,"price_per_night":75000,"status":"Available","image_url":"https:\/\/images.unsplash.com\/photo-1578683010236-d716f9a3f461?auto=format&fit=crop&w=1200&q=85","description":"The Nawab Wajid Ali Shah Suite: antique silver tea sets, royal diwan seating, private library, and personal majordomo.","view_type":"Grand 360 Riverfront View","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Lucknow","city":"Lucknow"})'>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </button>
+                <form method="POST" action="rooms.php" onsubmit="return confirm('Delete room LK-302?');" style="display: inline;">
+                  <input type="hidden" name="action" value="delete_room">
+                  <input type="hidden" name="room_id" value="24">
+                  <button type="submit" class="btn-action-icon" title="Delete Room" style="color: #EF4444;">
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </form>
+              </div>
+            </td>
+          </tr>
+              </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal: Add / Edit Room -->
+<div id="roomModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.65); z-index: 1000; align-items: center; justify-content: center; overflow-y: auto;">
+  <div style="background: #FFFFFF; max-width: 650px; width: 90%; border-radius: 6px; padding: 2.5rem; border: 1px solid var(--admin-border); margin: 2rem auto; box-shadow: 0 20px 50px rgba(0,0,0,0.25); position: relative;">
+    <button onclick="closeRoomModal()" style="position: absolute; top: 1.2rem; right: 1.2rem; background: none; border: none; font-size: 1.4rem; cursor: pointer;">&times;</button>
+    
+    <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;" id="modalRoomHeading">Add New Luxury Room</h3>
+
+    <form method="POST" action="rooms.php" id="roomForm">
+      <input type="hidden" name="action" id="roomFormAction" value="create_room">
+      <input type="hidden" name="room_id" id="modal_room_id" value="">
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        
+        <div class="form-group">
+          <label>Palace Property</label>
+          <select name="hotel_id" id="modal_hotel_id" class="form-control" required>
+                          <option value="2">The Roma Palace Goa</option>
+                          <option value="1">The Roma Palace Jaipur</option>
+                          <option value="4">The Roma Palace Lucknow</option>
+                          <option value="3">The Roma Palace Udaipur</option>
+                      </select>
+        </div>
+
+        <div class="form-group">
+          <label>Room Number</label>
+          <input type="text" name="room_number" id="modal_room_number" class="form-control" placeholder="e.g. JP-401" required>
+        </div>
+
+        <div class="form-group">
+          <label>Category</label>
+          <select name="room_type" id="modal_room_type" class="form-control" required>
+            <option value="Deluxe Room">Deluxe Room</option>
+            <option value="Premium Room">Premium Room</option>
+            <option value="Executive Room">Executive Room</option>
+            <option value="Luxury Suite">Luxury Suite</option>
+            <option value="Royal Suite">Royal Suite</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Price Per Night (INR)</label>
+          <input type="number" step="100" name="price_per_night" id="modal_price" class="form-control" placeholder="24000" required>
+        </div>
+
+        <div class="form-group">
+          <label>Floor</label>
+          <input type="number" name="floor" id="modal_floor" value="1" min="1" max="10" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label>Guest Capacity</label>
+          <input type="number" name="capacity" id="modal_capacity" value="2" min="1" max="8" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label>Bed Configuration</label>
+          <input type="text" name="bed_type" id="modal_bed_type" class="form-control" value="King Bed" required>
+        </div>
+
+        <div class="form-group">
+          <label>Area (Sq. Ft)</label>
+          <input type="number" name="size_sqft" id="modal_size_sqft" value="500" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <label>Initial Status</label>
+          <select name="status" id="modal_status" class="form-control">
+            <option value="Available">Available</option>
+            <option value="Reserved">Reserved</option>
+            <option value="Occupied">Occupied</option>
+            <option value="Maintenance">Maintenance</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>View Perspective</label>
+          <input type="text" name="view_type" id="modal_view_type" class="form-control" placeholder="Mughal Courtyard / Lake View">
+        </div>
+
+        <div class="form-group" style="grid-column: span 2;">
+          <label>Image URL</label>
+          <input type="url" name="image_url" id="modal_image_url" class="form-control" value="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=85" required>
+        </div>
+
+        <div class="form-group" style="grid-column: span 2;">
+          <label>Editorial Description</label>
+          <textarea name="description" id="modal_description" class="form-control" rows="3" placeholder="Handcrafted furnishings, marble bathtub..."></textarea>
+        </div>
+
+      </div>
+
+      <div style="margin-top: 1.5rem; text-align: right;">
+        <button type="button" class="btn-outline-dark" onclick="closeRoomModal()" style="padding: 0.6rem 1.2rem; margin-right: 0.5rem;">Cancel</button>
+        <button type="submit" class="admin-btn-primary" style="padding: 0.6rem 1.5rem;">Save Room Details</button>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+<script>
+function openRoomModal() {
+  document.getElementById('modalRoomHeading').textContent = 'Add New Luxury Room';
+  document.getElementById('roomFormAction').value = 'create_room';
+  document.getElementById('modal_room_id').value = '';
+  document.getElementById('modal_room_number').value = '';
+  document.getElementById('modal_price').value = '24000';
+  document.getElementById('modal_description').value = 'Elegantly appointed royal suite with handcrafted furnishings and palace courtyard perspectives.';
+  document.getElementById('roomModal').style.display = 'flex';
+}
+
+function editRoomModal(room) {
+  document.getElementById('modalRoomHeading').textContent = 'Edit Room ' + room.room_number;
+  document.getElementById('roomFormAction').value = 'update_room';
+  document.getElementById('modal_room_id').value = room.room_id;
+  document.getElementById('modal_hotel_id').value = room.hotel_id;
+  document.getElementById('modal_room_number').value = room.room_number;
+  document.getElementById('modal_room_type').value = room.room_type;
+  document.getElementById('modal_price').value = room.price_per_night;
+  document.getElementById('modal_floor').value = room.floor;
+  document.getElementById('modal_capacity').value = room.capacity;
+  document.getElementById('modal_bed_type').value = room.bed_type;
+  document.getElementById('modal_size_sqft').value = room.size_sqft;
+  document.getElementById('modal_status').value = room.status;
+  document.getElementById('modal_view_type').value = room.view_type || '';
+  document.getElementById('modal_image_url').value = room.image_url;
+  document.getElementById('modal_description').value = room.description;
+  document.getElementById('roomModal').style.display = 'flex';
+}
+
+function closeRoomModal() {
+  document.getElementById('roomModal').style.display = 'none';
+}
+</script>
+
+    </main>
+
+    <!-- Admin Bottom Bar -->
+    <footer style="padding: 1.5rem 2rem; background: #FFFFFF; border-top: 1px solid var(--admin-border); font-size: 0.8rem; color: var(--admin-text-muted); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+      <div>
+        <strong>The Roma Palace Hotel Management System</strong> &bull; BTech CSE DBMS Mini Project
+      </div>
+      <div>
+        <a href="demo-presentation.html" style="color: var(--admin-gold-dark); font-weight: 700; text-decoration: underline; margin-right: 15px;">
+          <i class="fa-solid fa-graduation-cap"></i> Project Demo & Viva Mode
+        </a>
+        <span>System Version 2.4 (Enterprise Edition)</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Admin Scripts -->
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

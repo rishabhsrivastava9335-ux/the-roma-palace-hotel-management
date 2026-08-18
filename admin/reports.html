@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Control Center | The Roma Palace</title>
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Admin Design System -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- Left Executive Sidebar -->
+  <aside class="admin-sidebar">
+    
+    <!-- Brand -->
+    <a href="dashboard.html" class="admin-brand" style="text-decoration: none;">
+      <div class="rp-monogram">
+        <span>RP</span>
+      </div>
+      <div class="admin-brand-text">
+        <h2>THE ROMA PALACE</h2>
+        <span>ADMINISTRATION</span>
+      </div>
+    </a>
+
+    <!-- Nav List -->
+    <div class="admin-nav-section">
+      
+      <div class="admin-nav-title">CORE OPERATIONS</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="dashboard.html"><i class="fa-solid fa-gauge-high"></i> <span>Dashboard</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="checkin.html"><i class="fa-solid fa-bell-concierge"></i> <span>Front Desk Check-In</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="checkout.html"><i class="fa-solid fa-receipt"></i> <span>Check-Out & Folio</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="bookings.html"><i class="fa-solid fa-calendar-check"></i> <span>Bookings Master</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">PROPERTY & INVENTORY</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="hotels.html"><i class="fa-solid fa-hotel"></i> <span>Hotels & Palaces</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="rooms.html"><i class="fa-solid fa-door-open"></i> <span>Rooms Management</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="services.html"><i class="fa-solid fa-spa"></i> <span>Services & Orders</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="restaurants.html"><i class="fa-solid fa-utensils"></i> <span>Restaurants</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="menu.html"><i class="fa-solid fa-book-open"></i> <span>Menu Items</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">ACCOUNTS & GUESTS</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="customers.html"><i class="fa-solid fa-users"></i> <span>Customer CRM</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="payments.html"><i class="fa-solid fa-credit-card"></i> <span>Payments Ledger</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="staff.html"><i class="fa-solid fa-user-tie"></i> <span>Staff Directory</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="offers.html"><i class="fa-solid fa-tags"></i> <span>Offers & Packages</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="reviews.html"><i class="fa-solid fa-star"></i> <span>Guest Reviews</span></a>
+        </li>
+        <li class="admin-nav-item active">
+          <a href="reports.html"><i class="fa-solid fa-chart-line"></i> <span>Reports & Exports</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">COLLEGE VIVA & SYSTEM</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="demo-presentation.html">
+            <i class="fa-solid fa-graduation-cap text-gold"></i> 
+            <span>Demo Dashboard</span>
+            <span class="admin-badge-viva">Viva</span>
+          </a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="settings.html"><i class="fa-solid fa-sliders"></i> <span>Settings & Reset</span></a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> <span>Sign Out</span></a>
+        </li>
+      </ul>
+
+    </div>
+
+  </aside>
+
+  <!-- Main Administrative Container -->
+  <div class="admin-main-wrapper">
+    
+    <!-- Top Administrative Header -->
+    <header class="admin-top-header">
+      <div class="admin-header-left">
+        <h1 class="admin-page-title">Administration Control Center</h1>
+        <span class="badge badge-info" style="font-size: 0.7rem;">
+          <i class="fa-solid fa-database"></i> DB: SQLITE        </span>
+      </div>
+
+      <div class="admin-header-right">
+        <div class="admin-time-badge">
+          <i class="fa-regular fa-clock text-gold"></i>
+          <span id="adminLiveClock">--:--:--</span>
+        </div>
+
+        <a href="../index.html" target="_blank" class="btn-action-icon" title="Preview Public Luxury Website">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+        <div class="admin-user-menu">
+          <div class="admin-avatar">
+            R          </div>
+          <div class="admin-user-info">
+            <span class="admin-user-name">Ranvijay Singh Rathore</span>
+            <span class="admin-user-role">General Manager &amp; Director</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Flash Alerts -->
+    
+    
+    <!-- Body Container -->
+    <main class="admin-content-body">
+
+<!-- Action Bar for Printing & CSV Export -->
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;" class="no-print">
+  <div>
+    <h2 style="font-size: 1.4rem; color: var(--admin-primary); margin: 0;">Management Audit & DBMS Reports</h2>
+    <span style="font-size: 0.85rem; color: var(--admin-text-muted);">Real-time aggregated relational queries across 18 tables</span>
+  </div>
+  
+  <div style="display: flex; gap: 0.8rem;">
+    <a href="reports.php?export=csv&type=revenue" class="admin-btn-primary" style="background: #03543F; border-color: #03543F; color: #FFFFFF;">
+      <i class="fa-solid fa-file-csv"></i> Export Revenue CSV
+    </a>
+    <a href="reports.php?export=csv&type=guests" class="admin-btn-primary" style="background: #1E40AF; border-color: #1E40AF; color: #FFFFFF;">
+      <i class="fa-solid fa-file-csv"></i> Export Guest LTV CSV
+    </a>
+    <button onclick="window.print()" class="btn-outline-dark" style="padding: 0.6rem 1.2rem; font-weight: 600;">
+      <i class="fa-solid fa-print"></i> Print Official Report
+    </button>
+  </div>
+</div>
+
+<!-- Report 1: Property Financial Performance -->
+<div class="admin-card">
+  <div class="admin-card-header">
+    <h3 class="admin-card-title"><i class="fa-solid fa-indian-rupee-sign text-gold"></i> Property-Wise Financial Breakdown</h3>
+    <span style="font-size: 0.8rem; color: var(--admin-text-muted);">SQL Aggregate Query (SUM, COUNT, GROUP BY)</span>
+  </div>
+
+  <div class="admin-table-responsive">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Palace Destination</th>
+          <th>Total Bookings</th>
+          <th>Room Revenue</th>
+          <th>Service Revenue</th>
+          <th>GST Collected (18%)</th>
+          <th>Gross Revenue (INR)</th>
+        </tr>
+      </thead>
+      <tbody>
+                  <tr>
+            <td>
+              <strong>The Roma Palace Udaipur</strong><br>
+              <small style="color: var(--admin-text-muted);">Udaipur</small>
+            </td>
+            <td>4 Confirmed</td>
+            <td>₹524,000</td>
+            <td>₹45,500</td>
+            <td>₹100,530</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-gold-dark);">₹659,230</strong></td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>The Roma Palace Jaipur</strong><br>
+              <small style="color: var(--admin-text-muted);">Jaipur</small>
+            </td>
+            <td>5 Confirmed</td>
+            <td>₹539,500</td>
+            <td>₹47,900</td>
+            <td>₹92,961</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-gold-dark);">₹609,411</strong></td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>The Roma Palace Goa</strong><br>
+              <small style="color: var(--admin-text-muted);">Goa</small>
+            </td>
+            <td>3 Confirmed</td>
+            <td>₹372,000</td>
+            <td>₹38,000</td>
+            <td>₹73,800</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-gold-dark);">₹483,800</strong></td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>The Roma Palace Lucknow</strong><br>
+              <small style="color: var(--admin-text-muted);">Lucknow</small>
+            </td>
+            <td>2 Confirmed</td>
+            <td>₹123,000</td>
+            <td>₹11,900</td>
+            <td>₹24,282</td>
+            <td><strong style="font-size: 1rem; color: var(--admin-gold-dark);">₹159,182</strong></td>
+          </tr>
+                <tr style="background: #F9FAFB; font-weight: 700; border-top: 2px solid var(--admin-border);">
+          <td>TOTAL FINANCIAL SUMMARY</td>
+          <td>—</td>
+          <td>—</td>
+          <td>—</td>
+          <td>₹291,573</td>
+          <td style="color: #03543F; font-size: 1.15rem;">₹1,911,623</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Report 2: Occupancy Rate Utilization -->
+<div class="admin-card">
+  <div class="admin-card-header">
+    <h3 class="admin-card-title"><i class="fa-solid fa-chart-pie text-gold"></i> Occupancy & Inventory Utilization</h3>
+    <span style="font-size: 0.8rem; color: var(--admin-text-muted);">Live Room Status Aggregation</span>
+  </div>
+
+  <div class="admin-table-responsive">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Palace Property</th>
+          <th>Total Rooms</th>
+          <th>Occupied</th>
+          <th>Available</th>
+          <th>Maintenance</th>
+          <th>Occupancy Rate</th>
+        </tr>
+      </thead>
+      <tbody>
+                  <tr>
+            <td><strong>The Roma Palace Jaipur</strong></td>
+            <td>7 Rooms</td>
+            <td><strong style="color: #9B1C1C;">1</strong></td>
+            <td><strong style="color: #03543F;">4</strong></td>
+            <td>1</td>
+            <td>
+              <div style="display: flex; align-items: center; gap: 0.8rem;">
+                <div style="flex: 1; height: 8px; background: #E5E7EB; border-radius: 4px; overflow: hidden;">
+                  <div style="width: 14.3%; height: 100%; background: var(--admin-gold-dark);"></div>
+                </div>
+                <strong>14.3%</strong>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong>The Roma Palace Goa</strong></td>
+            <td>6 Rooms</td>
+            <td><strong style="color: #9B1C1C;">1</strong></td>
+            <td><strong style="color: #03543F;">5</strong></td>
+            <td>0</td>
+            <td>
+              <div style="display: flex; align-items: center; gap: 0.8rem;">
+                <div style="flex: 1; height: 8px; background: #E5E7EB; border-radius: 4px; overflow: hidden;">
+                  <div style="width: 16.7%; height: 100%; background: var(--admin-gold-dark);"></div>
+                </div>
+                <strong>16.7%</strong>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong>The Roma Palace Udaipur</strong></td>
+            <td>6 Rooms</td>
+            <td><strong style="color: #9B1C1C;">1</strong></td>
+            <td><strong style="color: #03543F;">4</strong></td>
+            <td>0</td>
+            <td>
+              <div style="display: flex; align-items: center; gap: 0.8rem;">
+                <div style="flex: 1; height: 8px; background: #E5E7EB; border-radius: 4px; overflow: hidden;">
+                  <div style="width: 16.7%; height: 100%; background: var(--admin-gold-dark);"></div>
+                </div>
+                <strong>16.7%</strong>
+              </div>
+            </td>
+          </tr>
+                  <tr>
+            <td><strong>The Roma Palace Lucknow</strong></td>
+            <td>6 Rooms</td>
+            <td><strong style="color: #9B1C1C;">0</strong></td>
+            <td><strong style="color: #03543F;">6</strong></td>
+            <td>0</td>
+            <td>
+              <div style="display: flex; align-items: center; gap: 0.8rem;">
+                <div style="flex: 1; height: 8px; background: #E5E7EB; border-radius: 4px; overflow: hidden;">
+                  <div style="width: 0%; height: 100%; background: var(--admin-gold-dark);"></div>
+                </div>
+                <strong>0%</strong>
+              </div>
+            </td>
+          </tr>
+              </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Report 3: High-Value Customer LTV -->
+<div class="admin-card">
+  <div class="admin-card-header">
+    <h3 class="admin-card-title"><i class="fa-solid fa-crown text-gold"></i> High-Value Guest Patronage (Top LTV)</h3>
+    <span style="font-size: 0.8rem; color: var(--admin-text-muted);">Customer Lifetime Value Ranking</span>
+  </div>
+
+  <div class="admin-table-responsive">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Patron Name</th>
+          <th>Contact & ID</th>
+          <th>City</th>
+          <th>Completed Stays</th>
+          <th>Lifetime Spend (INR)</th>
+          <th>Patron Tier</th>
+        </tr>
+      </thead>
+      <tbody>
+                  <tr>
+            <td><strong>Sneha Reddy</strong></td>
+            <td>
+              <small><i class="fa-solid fa-phone"></i> +91 98480 55667</small><br>
+              <span class="badge badge-info" style="font-size: 0.68rem;">PAN Card</span>
+            </td>
+            <td>Hyderabad</td>
+            <td><strong>1 Stays</strong></td>
+            <td><strong style="font-size: 1.05rem; color: var(--admin-gold-dark);">₹272,580</strong></td>
+            <td><span class="badge badge-warning"><i class="fa-solid fa-gem"></i> Imperial Patron</span></td>
+          </tr>
+                  <tr>
+            <td><strong>Tanya Bhatia</strong></td>
+            <td>
+              <small><i class="fa-solid fa-phone"></i> +91 98140 66778</small><br>
+              <span class="badge badge-info" style="font-size: 0.68rem;">Aadhaar Card</span>
+            </td>
+            <td>Chandigarh</td>
+            <td><strong>1 Stays</strong></td>
+            <td><strong style="font-size: 1.05rem; color: var(--admin-gold-dark);">₹270,220</strong></td>
+            <td><span class="badge badge-warning"><i class="fa-solid fa-gem"></i> Imperial Patron</span></td>
+          </tr>
+                  <tr>
+            <td><strong>Siddharth Roy</strong></td>
+            <td>
+              <small><i class="fa-solid fa-phone"></i> +91 98300 88990</small><br>
+              <span class="badge badge-info" style="font-size: 0.68rem;">Passport</span>
+            </td>
+            <td>Kolkata</td>
+            <td><strong>1 Stays</strong></td>
+            <td><strong style="font-size: 1.05rem; color: var(--admin-gold-dark);">₹220,660</strong></td>
+            <td><span class="badge badge-warning"><i class="fa-solid fa-gem"></i> Imperial Patron</span></td>
+          </tr>
+                  <tr>
+            <td><strong>Devendra Rathore</strong></td>
+            <td>
+              <small><i class="fa-solid fa-phone"></i> +91 97110 00112</small><br>
+              <span class="badge badge-info" style="font-size: 0.68rem;">Passport</span>
+            </td>
+            <td>Jodhpur</td>
+            <td><strong>1 Stays</strong></td>
+            <td><strong style="font-size: 1.05rem; color: var(--admin-gold-dark);">₹182,900</strong></td>
+            <td><span class="badge badge-warning"><i class="fa-solid fa-gem"></i> Imperial Patron</span></td>
+          </tr>
+                  <tr>
+            <td><strong>Vikram Mehta</strong></td>
+            <td>
+              <small><i class="fa-solid fa-phone"></i> +91 98791 22334</small><br>
+              <span class="badge badge-info" style="font-size: 0.68rem;">Aadhaar Card</span>
+            </td>
+            <td>Ahmedabad</td>
+            <td><strong>1 Stays</strong></td>
+            <td><strong style="font-size: 1.05rem; color: var(--admin-gold-dark);">₹151,040</strong></td>
+            <td><span class="badge badge-warning"><i class="fa-solid fa-gem"></i> Imperial Patron</span></td>
+          </tr>
+              </tbody>
+    </table>
+  </div>
+</div>
+
+    </main>
+
+    <!-- Admin Bottom Bar -->
+    <footer style="padding: 1.5rem 2rem; background: #FFFFFF; border-top: 1px solid var(--admin-border); font-size: 0.8rem; color: var(--admin-text-muted); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+      <div>
+        <strong>The Roma Palace Hotel Management System</strong> &bull; BTech CSE DBMS Mini Project
+      </div>
+      <div>
+        <a href="demo-presentation.html" style="color: var(--admin-gold-dark); font-weight: 700; text-decoration: underline; margin-right: 15px;">
+          <i class="fa-solid fa-graduation-cap"></i> Project Demo & Viva Mode
+        </a>
+        <span>System Version 2.4 (Enterprise Edition)</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Admin Scripts -->
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>

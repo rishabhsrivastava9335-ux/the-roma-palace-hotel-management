@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Control Center | The Roma Palace</title>
+  
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Admin Design System -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- Left Executive Sidebar -->
+  <aside class="admin-sidebar">
+    
+    <!-- Brand -->
+    <a href="dashboard.html" class="admin-brand" style="text-decoration: none;">
+      <div class="rp-monogram">
+        <span>RP</span>
+      </div>
+      <div class="admin-brand-text">
+        <h2>THE ROMA PALACE</h2>
+        <span>ADMINISTRATION</span>
+      </div>
+    </a>
+
+    <!-- Nav List -->
+    <div class="admin-nav-section">
+      
+      <div class="admin-nav-title">CORE OPERATIONS</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="dashboard.html"><i class="fa-solid fa-gauge-high"></i> <span>Dashboard</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="checkin.html"><i class="fa-solid fa-bell-concierge"></i> <span>Front Desk Check-In</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="checkout.html"><i class="fa-solid fa-receipt"></i> <span>Check-Out & Folio</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="bookings.html"><i class="fa-solid fa-calendar-check"></i> <span>Bookings Master</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">PROPERTY & INVENTORY</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="hotels.html"><i class="fa-solid fa-hotel"></i> <span>Hotels & Palaces</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="rooms.html"><i class="fa-solid fa-door-open"></i> <span>Rooms Management</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="services.html"><i class="fa-solid fa-spa"></i> <span>Services & Orders</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="restaurants.html"><i class="fa-solid fa-utensils"></i> <span>Restaurants</span></a>
+        </li>
+        <li class="admin-nav-item active">
+          <a href="menu.html"><i class="fa-solid fa-book-open"></i> <span>Menu Items</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">ACCOUNTS & GUESTS</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="customers.html"><i class="fa-solid fa-users"></i> <span>Customer CRM</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="payments.html"><i class="fa-solid fa-credit-card"></i> <span>Payments Ledger</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="staff.html"><i class="fa-solid fa-user-tie"></i> <span>Staff Directory</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="offers.html"><i class="fa-solid fa-tags"></i> <span>Offers & Packages</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="reviews.html"><i class="fa-solid fa-star"></i> <span>Guest Reviews</span></a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="reports.html"><i class="fa-solid fa-chart-line"></i> <span>Reports & Exports</span></a>
+        </li>
+      </ul>
+
+      <div class="admin-nav-title" style="margin-top: 1rem;">COLLEGE VIVA & SYSTEM</div>
+      <ul class="admin-nav-list">
+        <li class="admin-nav-item ">
+          <a href="demo-presentation.html">
+            <i class="fa-solid fa-graduation-cap text-gold"></i> 
+            <span>Demo Dashboard</span>
+            <span class="admin-badge-viva">Viva</span>
+          </a>
+        </li>
+        <li class="admin-nav-item ">
+          <a href="settings.html"><i class="fa-solid fa-sliders"></i> <span>Settings & Reset</span></a>
+        </li>
+        <li class="admin-nav-item">
+          <a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> <span>Sign Out</span></a>
+        </li>
+      </ul>
+
+    </div>
+
+  </aside>
+
+  <!-- Main Administrative Container -->
+  <div class="admin-main-wrapper">
+    
+    <!-- Top Administrative Header -->
+    <header class="admin-top-header">
+      <div class="admin-header-left">
+        <h1 class="admin-page-title">Administration Control Center</h1>
+        <span class="badge badge-info" style="font-size: 0.7rem;">
+          <i class="fa-solid fa-database"></i> DB: SQLITE        </span>
+      </div>
+
+      <div class="admin-header-right">
+        <div class="admin-time-badge">
+          <i class="fa-regular fa-clock text-gold"></i>
+          <span id="adminLiveClock">--:--:--</span>
+        </div>
+
+        <a href="../index.html" target="_blank" class="btn-action-icon" title="Preview Public Luxury Website">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
+
+        <div class="admin-user-menu">
+          <div class="admin-avatar">
+            R          </div>
+          <div class="admin-user-info">
+            <span class="admin-user-name">Ranvijay Singh Rathore</span>
+            <span class="admin-user-role">General Manager &amp; Director</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Flash Alerts -->
+    
+    
+    <!-- Body Container -->
+    <main class="admin-content-body">
+
+<div class="admin-card">
+  <div class="admin-card-header">
+    <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+      <h3 class="admin-card-title"><i class="fa-solid fa-book-open text-gold"></i> Menu Catalog (30 Dishes)</h3>
+      <form method="GET" action="menu.php" style="display: flex; gap: 0.5rem;">
+        <select name="rest_id" onchange="this.form.submit()" style="padding: 0.45rem 0.8rem; border-radius: 4px; border: 1px solid var(--admin-border); font-size: 0.82rem;">
+          <option value="">All Restaurants</option>
+                      <option value="4" >
+              Azure Lounge &amp; Sunset Terrace            </option>
+                      <option value="2" >
+              Palazzo Café &amp; Ocean Grill            </option>
+                      <option value="3" >
+              Spice Route — Royal Dastarkhwan            </option>
+                      <option value="1" >
+              The Roma Table            </option>
+                  </select>
+              </form>
+    </div>
+
+    <div class="admin-actions-bar">
+      <div class="search-input-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search dish, category..." data-table-search="menuTable">
+      </div>
+      <button type="button" class="admin-btn-primary" onclick="openMenuModal()">
+        <i class="fa-solid fa-plus"></i> Add Menu Item
+      </button>
+    </div>
+  </div>
+
+  <div class="admin-table-responsive">
+    <table class="admin-table" id="menuTable">
+      <thead>
+        <tr>
+          <th>Dish Name</th>
+          <th>Restaurant Outlet</th>
+          <th>Category</th>
+          <th>Price (INR)</th>
+          <th>Dietary</th>
+          <th>Chef Special</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+                  <tr>
+            <td>
+              <strong>Smoked Truffle Wild Mushroom Soup</strong><br>
+              <small style="color: var(--admin-text-muted);">Forest mushrooms with aged Parmesan foam and roasted hazelnut crunch.</small>
+            </td>
+            <td>The Roma Table</td>
+            <td><span class="badge badge-secondary">Appetizers</span></td>
+            <td><strong>₹650</strong></td>
+            <td>
+              <span class="diet-tag diet-veg">
+                Veg              </span>
+            </td>
+            <td>
+                              <span style="color: var(--admin-text-muted); font-size: 0.8rem;">Standard</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="5">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Shahi Paneer Tikka Angaar</strong><br>
+              <small style="color: var(--admin-text-muted);">Housemade cottage cheese cubes stuffed with saffron mawa and char-grilled in tandoor.</small>
+            </td>
+            <td>The Roma Table</td>
+            <td><span class="badge badge-secondary">Appetizers</span></td>
+            <td><strong>₹950</strong></td>
+            <td>
+              <span class="diet-tag diet-veg">
+                Veg              </span>
+            </td>
+            <td>
+                              <span style="color: var(--admin-text-muted); font-size: 0.8rem;">Standard</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="2">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Darjeeling First Flush Royal Tea</strong><br>
+              <small style="color: var(--admin-text-muted);">Handpicked organic single-estate tea brewed at table with wild mountain honey.</small>
+            </td>
+            <td>The Roma Table</td>
+            <td><span class="badge badge-secondary">Beverages &amp; Wine</span></td>
+            <td><strong>₹450</strong></td>
+            <td>
+              <span class="diet-tag diet-vegan">
+                Vegan              </span>
+            </td>
+            <td>
+                              <span style="color: var(--admin-text-muted); font-size: 0.8rem;">Standard</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="8">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Kesar Pistachio Kulfi Falooda</strong><br>
+              <small style="color: var(--admin-text-muted);">Traditional dense saffron ice cream served with rose syrup, basil seeds, and hand-spun falooda.</small>
+            </td>
+            <td>The Roma Table</td>
+            <td><span class="badge badge-secondary">Desserts</span></td>
+            <td><strong>₹550</strong></td>
+            <td>
+              <span class="diet-tag diet-veg">
+                Veg              </span>
+            </td>
+            <td>
+                              <span style="color: var(--admin-text-muted); font-size: 0.8rem;">Standard</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="4">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Royal Rajputana Laal Maas</strong><br>
+              <small style="color: var(--admin-text-muted);">Tender Mathania-chilli braised lamb slow-cooked in copper vessels with smoked cloves.</small>
+            </td>
+            <td>The Roma Table</td>
+            <td><span class="badge badge-secondary">Main Course</span></td>
+            <td><strong>₹1,450</strong></td>
+            <td>
+              <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </td>
+            <td>
+                              <span class="badge badge-warning"><i class="fa-solid fa-crown"></i> Chef Special</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="1">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Pan-Seared Chilean Sea Bass</strong><br>
+              <small style="color: var(--admin-text-muted);">Served over saffron risotto with lemon butter emulsion and asparagus.</small>
+            </td>
+            <td>The Roma Table</td>
+            <td><span class="badge badge-secondary">Main Course</span></td>
+            <td><strong>₹2,250</strong></td>
+            <td>
+              <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </td>
+            <td>
+                              <span class="badge badge-warning"><i class="fa-solid fa-crown"></i> Chef Special</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="6">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Dal Baati Churma Rajwadi</strong><br>
+              <small style="color: var(--admin-text-muted);">The quintessential Rajasthani feast: five-lentil Panchmel dal, ghee-soaked baatis, and almond churma.</small>
+            </td>
+            <td>The Roma Table</td>
+            <td><span class="badge badge-secondary">Royal Thali</span></td>
+            <td><strong>₹1,650</strong></td>
+            <td>
+              <span class="diet-tag diet-veg">
+                Veg              </span>
+            </td>
+            <td>
+                              <span class="badge badge-warning"><i class="fa-solid fa-crown"></i> Chef Special</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="3">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>The Roma Imperial Thali (Gold Edition)</strong><br>
+              <small style="color: var(--admin-text-muted);">A 14-course royal banquet served on handcrafted silver tableware.</small>
+            </td>
+            <td>The Roma Table</td>
+            <td><span class="badge badge-secondary">Royal Thali</span></td>
+            <td><strong>₹2,850</strong></td>
+            <td>
+              <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </td>
+            <td>
+                              <span class="badge badge-warning"><i class="fa-solid fa-crown"></i> Chef Special</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="7">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Avocado &amp; Quinoa Citrus Salad</strong><br>
+              <small style="color: var(--admin-text-muted);">Hass avocado, organic Peruvian quinoa, pomegranate pearls, and yuzu vinaigrette.</small>
+            </td>
+            <td>Palazzo Café &amp; Ocean Grill</td>
+            <td><span class="badge badge-secondary">Appetizers</span></td>
+            <td><strong>₹750</strong></td>
+            <td>
+              <span class="diet-tag diet-vegan">
+                Vegan              </span>
+            </td>
+            <td>
+                              <span style="color: var(--admin-text-muted); font-size: 0.8rem;">Standard</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="13">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Recheado King Prawns Grill</strong><br>
+              <small style="color: var(--admin-text-muted);">Jumbo Arabian Sea prawns stuffed with spicy-tangy homemade Goan red masala.</small>
+            </td>
+            <td>Palazzo Café &amp; Ocean Grill</td>
+            <td><span class="badge badge-secondary">Appetizers</span></td>
+            <td><strong>₹1,350</strong></td>
+            <td>
+              <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </td>
+            <td>
+                              <span class="badge badge-warning"><i class="fa-solid fa-crown"></i> Chef Special</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="9">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Goan Kokum Passionfruit Cooler</strong><br>
+              <small style="color: var(--admin-text-muted);">Indigenous kokum extract infused with fresh passionfruit, mint, and sea salt.</small>
+            </td>
+            <td>Palazzo Café &amp; Ocean Grill</td>
+            <td><span class="badge badge-secondary">Beverages &amp; Wine</span></td>
+            <td><strong>₹420</strong></td>
+            <td>
+              <span class="diet-tag diet-vegan">
+                Vegan              </span>
+            </td>
+            <td>
+                              <span style="color: var(--admin-text-muted); font-size: 0.8rem;">Standard</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="15">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Traditional Goan Bebinca</strong><br>
+              <small style="color: var(--admin-text-muted);">Seven-layered coconut milk pudding baked slowly with ghee and nutmeg.</small>
+            </td>
+            <td>Palazzo Café &amp; Ocean Grill</td>
+            <td><span class="badge badge-secondary">Desserts</span></td>
+            <td><strong>₹500</strong></td>
+            <td>
+              <span class="diet-tag diet-veg">
+                Veg              </span>
+            </td>
+            <td>
+                              <span style="color: var(--admin-text-muted); font-size: 0.8rem;">Standard</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="12">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Woodfired Burrata &amp; Heirloom Pizza</strong><br>
+              <small style="color: var(--admin-text-muted);">Creamy Italian burrata, San Marzano pomodoro, fresh basil, and extra virgin olive oil.</small>
+            </td>
+            <td>Palazzo Café &amp; Ocean Grill</td>
+            <td><span class="badge badge-secondary">Main Course</span></td>
+            <td><strong>₹1,150</strong></td>
+            <td>
+              <span class="diet-tag diet-veg">
+                Veg              </span>
+            </td>
+            <td>
+                              <span style="color: var(--admin-text-muted); font-size: 0.8rem;">Standard</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="11">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Goan Crab Xec Xec</strong><br>
+              <small style="color: var(--admin-text-muted);">Mud crab simmered in a roasted coconut, coriander seed, and Kashmiri spice gravy.</small>
+            </td>
+            <td>Palazzo Café &amp; Ocean Grill</td>
+            <td><span class="badge badge-secondary">Main Course</span></td>
+            <td><strong>₹1,750</strong></td>
+            <td>
+              <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </td>
+            <td>
+                              <span class="badge badge-warning"><i class="fa-solid fa-crown"></i> Chef Special</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="10">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Lobster Thermidor on the Grill</strong><br>
+              <small style="color: var(--admin-text-muted);">Whole butterflied butter lobster gratinated with Dijon mustard, gruyere, and cognac cream.</small>
+            </td>
+            <td>Palazzo Café &amp; Ocean Grill</td>
+            <td><span class="badge badge-secondary">Main Course</span></td>
+            <td><strong>₹3,200</strong></td>
+            <td>
+              <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </td>
+            <td>
+                              <span class="badge badge-warning"><i class="fa-solid fa-crown"></i> Chef Special</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="14">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Melt-in-Mouth Galawati Kebab</strong><br>
+              <small style="color: var(--admin-text-muted);">Legendary Awadhi minced lamb patties infused with 160 secret spices and rose petal water.</small>
+            </td>
+            <td>Spice Route — Royal Dastarkhwan</td>
+            <td><span class="badge badge-secondary">Appetizers</span></td>
+            <td><strong>₹1,250</strong></td>
+            <td>
+              <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </td>
+            <td>
+                              <span class="badge badge-warning"><i class="fa-solid fa-crown"></i> Chef Special</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="16">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Kakori Kebab Nawabi</strong><br>
+              <small style="color: var(--admin-text-muted);">Ultra-refined skewered mutton kebab prepared with saffron, raw papaya, and khoya.</small>
+            </td>
+            <td>Spice Route — Royal Dastarkhwan</td>
+            <td><span class="badge badge-secondary">Appetizers</span></td>
+            <td><strong>₹1,350</strong></td>
+            <td>
+              <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </td>
+            <td>
+                              <span class="badge badge-warning"><i class="fa-solid fa-crown"></i> Chef Special</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="17">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Lucknowi Nimish / Makhan Malai</strong><br>
+              <small style="color: var(--admin-text-muted);">Feather-light whipped milk foam scented with saffron, dew drops, and pistachio slivers.</small>
+            </td>
+            <td>Spice Route — Royal Dastarkhwan</td>
+            <td><span class="badge badge-secondary">Desserts</span></td>
+            <td><strong>₹480</strong></td>
+            <td>
+              <span class="diet-tag diet-veg">
+                Veg              </span>
+            </td>
+            <td>
+                              <span class="badge badge-warning"><i class="fa-solid fa-crown"></i> Chef Special</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="22">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Shahi Tukda with Gold Vark</strong><br>
+              <small style="color: var(--admin-text-muted);">Crisp brioche soaked in cardamom syrup, topped with thick rabri and 24K edible gold.</small>
+            </td>
+            <td>Spice Route — Royal Dastarkhwan</td>
+            <td><span class="badge badge-secondary">Desserts</span></td>
+            <td><strong>₹580</strong></td>
+            <td>
+              <span class="diet-tag diet-veg">
+                Veg              </span>
+            </td>
+            <td>
+                              <span class="badge badge-warning"><i class="fa-solid fa-crown"></i> Chef Special</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="21">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Paneer Nazakat Pasanda</strong><br>
+              <small style="color: var(--admin-text-muted);">Layered paneer escallops filled with dry fruits in a silky cashew-saffron gravy.</small>
+            </td>
+            <td>Spice Route — Royal Dastarkhwan</td>
+            <td><span class="badge badge-secondary">Main Course</span></td>
+            <td><strong>₹1,050</strong></td>
+            <td>
+              <span class="diet-tag diet-veg">
+                Veg              </span>
+            </td>
+            <td>
+                              <span style="color: var(--admin-text-muted); font-size: 0.8rem;">Standard</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="19">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Awadhi Dum Murgh Biryani</strong><br>
+              <small style="color: var(--admin-text-muted);">Long-grain Basmati and spring chicken sealed with purdah dough in clay handis.</small>
+            </td>
+            <td>Spice Route — Royal Dastarkhwan</td>
+            <td><span class="badge badge-secondary">Main Course</span></td>
+            <td><strong>₹1,450</strong></td>
+            <td>
+              <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </td>
+            <td>
+                              <span class="badge badge-warning"><i class="fa-solid fa-crown"></i> Chef Special</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="18">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Nalli Nihari Gosht with Sheermal</strong><br>
+              <small style="color: var(--admin-text-muted);">Slow-cooked lamb shanks braised overnight, served alongside saffron-scented Sheermal.</small>
+            </td>
+            <td>Spice Route — Royal Dastarkhwan</td>
+            <td><span class="badge badge-secondary">Main Course</span></td>
+            <td><strong>₹1,650</strong></td>
+            <td>
+              <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </td>
+            <td>
+                              <span class="badge badge-warning"><i class="fa-solid fa-crown"></i> Chef Special</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="20">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Truffle Edamame Dumplings</strong><br>
+              <small style="color: var(--admin-text-muted);">Translucent steamed crystal dumplings infused with black summer truffle essence.</small>
+            </td>
+            <td>Azure Lounge &amp; Sunset Terrace</td>
+            <td><span class="badge badge-secondary">Appetizers</span></td>
+            <td><strong>₹850</strong></td>
+            <td>
+              <span class="diet-tag diet-vegan">
+                Vegan              </span>
+            </td>
+            <td>
+                              <span style="color: var(--admin-text-muted); font-size: 0.8rem;">Standard</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="23">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Charcuterie &amp; Artisanal Cheese Board</strong><br>
+              <small style="color: var(--admin-text-muted);">Aged Manchego, Truffle Gouda, Parma Ham, fig preserve, and lavash crisps.</small>
+            </td>
+            <td>Azure Lounge &amp; Sunset Terrace</td>
+            <td><span class="badge badge-secondary">Appetizers</span></td>
+            <td><strong>₹1,850</strong></td>
+            <td>
+              <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </td>
+            <td>
+                              <span style="color: var(--admin-text-muted); font-size: 0.8rem;">Standard</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="24">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Spiced Saffron Bellini</strong><br>
+              <small style="color: var(--admin-text-muted);">Italian Prosecco swirled with peach puree and Kashmiri saffron threads.</small>
+            </td>
+            <td>Azure Lounge &amp; Sunset Terrace</td>
+            <td><span class="badge badge-secondary">Beverages &amp; Wine</span></td>
+            <td><strong>₹950</strong></td>
+            <td>
+              <span class="diet-tag diet-vegan">
+                Vegan              </span>
+            </td>
+            <td>
+                              <span style="color: var(--admin-text-muted); font-size: 0.8rem;">Standard</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="29">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>The Royal Maharaja Cocktail</strong><br>
+              <small style="color: var(--admin-text-muted);">Single malt scotch, saffron-infused vermouth, orange bitters, smoked with applewood.</small>
+            </td>
+            <td>Azure Lounge &amp; Sunset Terrace</td>
+            <td><span class="badge badge-secondary">Beverages &amp; Wine</span></td>
+            <td><strong>₹1,250</strong></td>
+            <td>
+              <span class="diet-tag diet-non-veg">
+                Non-Veg              </span>
+            </td>
+            <td>
+                              <span class="badge badge-warning"><i class="fa-solid fa-crown"></i> Chef Special</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="25">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Moët &amp; Chandon Brut Impérial (Glass)</strong><br>
+              <small style="color: var(--admin-text-muted);">Crisp French champagne with notes of green apple, citrus, and toasted brioche.</small>
+            </td>
+            <td>Azure Lounge &amp; Sunset Terrace</td>
+            <td><span class="badge badge-secondary">Beverages &amp; Wine</span></td>
+            <td><strong>₹2,400</strong></td>
+            <td>
+              <span class="diet-tag diet-vegan">
+                Vegan              </span>
+            </td>
+            <td>
+                              <span style="color: var(--admin-text-muted); font-size: 0.8rem;">Standard</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="26">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Lakeview High Tea Tower</strong><br>
+              <small style="color: var(--admin-text-muted);">Three-tier stand with smoked salmon blinis, cucumber finger sandwiches, scones, and macarons.</small>
+            </td>
+            <td>Azure Lounge &amp; Sunset Terrace</td>
+            <td><span class="badge badge-secondary">Breakfast</span></td>
+            <td><strong>₹2,200</strong></td>
+            <td>
+              <span class="diet-tag diet-veg">
+                Veg              </span>
+            </td>
+            <td>
+                              <span style="color: var(--admin-text-muted); font-size: 0.8rem;">Standard</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="28">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Masala Chai Gelato with Almond Tuile</strong><br>
+              <small style="color: var(--admin-text-muted);">Aromatic spiced tea gelato served with crispy honey almond crisp.</small>
+            </td>
+            <td>Azure Lounge &amp; Sunset Terrace</td>
+            <td><span class="badge badge-secondary">Desserts</span></td>
+            <td><strong>₹480</strong></td>
+            <td>
+              <span class="diet-tag diet-veg">
+                Veg              </span>
+            </td>
+            <td>
+                              <span style="color: var(--admin-text-muted); font-size: 0.8rem;">Standard</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="30">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+                  <tr>
+            <td>
+              <strong>Valrhona Dark Chocolate Fondant</strong><br>
+              <small style="color: var(--admin-text-muted);">Warm molten 70% French chocolate cake with housemade Madagascar vanilla bean gelato.</small>
+            </td>
+            <td>Azure Lounge &amp; Sunset Terrace</td>
+            <td><span class="badge badge-secondary">Desserts</span></td>
+            <td><strong>₹680</strong></td>
+            <td>
+              <span class="diet-tag diet-veg">
+                Veg              </span>
+            </td>
+            <td>
+                              <span class="badge badge-warning"><i class="fa-solid fa-crown"></i> Chef Special</span>
+                          </td>
+            <td>
+              <form method="POST" action="menu.php" onsubmit="return confirm('Delete dish?');" style="display: inline;">
+                <input type="hidden" name="action" value="delete_item">
+                <input type="hidden" name="item_id" value="27">
+                <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Item">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+              </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal: Menu Item Form -->
+<div id="menuModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.65); z-index: 1000; align-items: center; justify-content: center;">
+  <div style="background: #FFFFFF; max-width: 550px; width: 90%; border-radius: 6px; padding: 2.5rem; border: 1px solid var(--admin-border); margin: 2rem auto; box-shadow: 0 20px 50px rgba(0,0,0,0.25); position: relative;">
+    <button onclick="closeMenuModal()" style="position: absolute; top: 1.2rem; right: 1.2rem; background: none; border: none; font-size: 1.4rem; cursor: pointer;">&times;</button>
+    <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;">Add Dish to Menu</h3>
+
+    <form method="POST" action="menu.php">
+      <input type="hidden" name="action" value="create_item">
+
+      <div class="form-group">
+        <label>Dish / Beverage Name</label>
+        <input type="text" name="name" class="form-control" placeholder="e.g. Royal Rajputana Laal Maas" required>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div class="form-group">
+          <label>Restaurant</label>
+          <select name="restaurant_id" class="form-control" required>
+                          <option value="4">Azure Lounge &amp; Sunset Terrace</option>
+                          <option value="2">Palazzo Café &amp; Ocean Grill</option>
+                          <option value="3">Spice Route — Royal Dastarkhwan</option>
+                          <option value="1">The Roma Table</option>
+                      </select>
+        </div>
+
+        <div class="form-group">
+          <label>Category</label>
+          <select name="category" class="form-control" required>
+            <option value="Appetizers">Appetizers</option>
+            <option value="Main Course">Main Course</option>
+            <option value="Royal Thali">Royal Thali</option>
+            <option value="Desserts">Desserts</option>
+            <option value="Beverages & Wine">Beverages & Wine</option>
+            <option value="Breakfast">Breakfast</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Price (INR)</label>
+          <input type="number" step="10" name="price" class="form-control" placeholder="1450" required>
+        </div>
+
+        <div class="form-group">
+          <label>Dietary Tag</label>
+          <select name="dietary_flag" class="form-control">
+            <option value="Veg">Veg</option>
+            <option value="Non-Veg">Non-Veg</option>
+            <option value="Vegan">Vegan</option>
+            <option value="Jain Option">Jain Option</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; margin-top: 0.5rem;">
+          <input type="checkbox" name="is_chef_special" value="1" style="width: 16px; height: 16px; accent-color: var(--admin-gold-dark);">
+          <span>Highlight as Chef's Signature Special</span>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label>Culinary Description</label>
+        <textarea name="description" class="form-control" rows="2" placeholder="Ingredients, heritage spices, preparation method..." required></textarea>
+      </div>
+
+      <div style="text-align: right; margin-top: 1.5rem;">
+        <button type="button" class="btn-outline-dark" onclick="closeMenuModal()" style="padding: 0.6rem 1.2rem; margin-right: 0.5rem;">Cancel</button>
+        <button type="submit" class="admin-btn-primary" style="padding: 0.6rem 1.5rem;">Save Menu Item</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+function openMenuModal() { document.getElementById('menuModal').style.display = 'flex'; }
+function closeMenuModal() { document.getElementById('menuModal').style.display = 'none'; }
+</script>
+
+    </main>
+
+    <!-- Admin Bottom Bar -->
+    <footer style="padding: 1.5rem 2rem; background: #FFFFFF; border-top: 1px solid var(--admin-border); font-size: 0.8rem; color: var(--admin-text-muted); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
+      <div>
+        <strong>The Roma Palace Hotel Management System</strong> &bull; BTech CSE DBMS Mini Project
+      </div>
+      <div>
+        <a href="demo-presentation.html" style="color: var(--admin-gold-dark); font-weight: 700; text-decoration: underline; margin-right: 15px;">
+          <i class="fa-solid fa-graduation-cap"></i> Project Demo & Viva Mode
+        </a>
+        <span>System Version 2.4 (Enterprise Edition)</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Admin Scripts -->
+  <script src="../assets/js/admin.js"></script>
+</body>
+</html>
