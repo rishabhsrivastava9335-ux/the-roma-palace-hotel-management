@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Roma Palace — A Legacy of Luxury, A Stay to Remember</title>
+  
+  <!-- Google Fonts & FontAwesome 6 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    /* Standalone GitHub Pages Enhancements */
+    .hero-static {
+      min-height: 85vh;
+      background: linear-gradient(180deg, rgba(18, 19, 22, 0.65) 0%, rgba(18, 19, 22, 0.45) 50%, rgba(18, 19, 22, 0.9) 100%),
+                  url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=2000&q=85') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #FFFFFF;
+      position: relative;
+      padding: 8rem 2rem 6rem 2rem;
+    }
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .modal-box {
+      background: #FFFFFF;
+      max-width: 650px;
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid var(--border-gold);
+      padding: 2.5rem;
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Luxury Navigation Header -->
+  <header class="luxury-header solid" id="siteHeader">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo" style="text-decoration: none;">
+        <div class="rp-monogram">
+          <span>RP</span>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">THE ROMA PALACE</span>
+          <span class="brand-tagline">HOTELS &amp; RESORTS</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#destinations" class="nav-link">Destinations</a>
+        <a href="#suites" class="nav-link">Rooms &amp; Suites</a>
+        <a href="#dining" class="nav-link">Fine Dining</a>
+        <a href="#experiences" class="nav-link">Experiences</a>
+        <a href="#wellness" class="nav-link">Wellness &amp; Spa</a>
+      </nav>
+
+      <div class="header-cta-group">
+        <a href="#book" class="btn-primary" onclick="openBookingModal('The Roma Palace Jaipur', 'Royal Heritage Suite', 35000)">
+          <i class="fa-solid fa-calendar-check"></i>
+          <span>BOOK A STAY</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-static">
+    <div class="container" style="max-width: 900px;">
+      <span class="hero-subheading" style="color: var(--color-gold-light); font-size: 0.85rem; letter-spacing: 4px; text-transform: uppercase; display: block; margin-bottom: 1rem;">
+        “A LEGACY OF LUXURY, A STAY TO REMEMBER”
+      </span>
+      <h1 style="color: #FFFFFF; font-size: clamp(2.5rem, 5.5vw, 4.5rem); margin-bottom: 1.2rem; line-height: 1.15; font-family: var(--font-serif-brand);">
+        EPITOME OF ROYAL HOSPITALITY
+      </h1>
+      <p style="color: var(--text-light-secondary); font-size: 1.1rem; max-width: 700px; margin: 0 auto 2.5rem auto; line-height: 1.8;">
+        Step into an opulent world of architectural majesty, private butler dining, soothing Ayurvedic sanctuaries, and timeless royal retreats across India.
+      </p>
+      
+      <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <button onclick="openBookingModal('The Roma Palace Udaipur', 'Royal Lakeview Suite', 42000)" class="btn-primary" style="padding: 1rem 2.2rem;">
+          <i class="fa-solid fa-crown"></i> EXPLORE &amp; RESERVE
+        </button>
+        <a href="#destinations" class="btn-outline-light" style="padding: 1rem 2.2rem; border-color: #FFFFFF; color: #FFFFFF;">
+          VIEW DESTINATIONS
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Welcome Story Section -->
+  <section class="section-spacing bg-ivory">
+    <div class="container">
+      <div class="welcome-grid">
+        <div class="welcome-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=85" alt="The Roma Palace Architecture" style="height: 480px; object-fit: cover;">
+          <div class="heritage-badge">
+            <span class="year">ESTD</span>
+            <span class="text">1902</span>
+          </div>
+        </div>
+
+        <div class="welcome-text">
+          <span class="section-tag">ROYAL HERITAGE</span>
+          <h2>WHERE TIMELESS HERITAGE MEETS REFINED LUXURY</h2>
+          <p class="lead-quote">
+            “For over a century, The Roma Palace has welcomed monarchs, dignitaries, and discerning travelers seeking the pinnacle of regal Indian grandeur.”
+          </p>
+          <p>
+            From the hand-carved jharokhas of Jaipur to the tranquil backwaters of Goa and the shimmering lakes of Udaipur, every Roma Palace property is a living testament to aristocratic elegance, bespoke guest care, and timeless sophistication.
+          </p>
+          <div class="stats-counter-strip" style="margin-top: 2rem;">
+            <div class="stat-counter-item">
+              <span class="stat-num">4</span>
+              <span class="stat-lbl">Royal Palaces</span>
+            </div>
+            <div class="stat-counter-item">
+              <span class="stat-num">120+</span>
+              <span class="stat-lbl">Luxury Suites</span>
+            </div>
+            <div class="stat-counter-item">
+              <span class="stat-num">18%</span>
+              <span class="stat-lbl">Luxury GST Folio</span>
+            </div>
+            <div class="stat-counter-item">
+              <span class="stat-num">5.0 ★</span>
+              <span class="stat-lbl">Guest Rating</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Palaces Destinations Section -->
+  <section class="section-spacing bg-white" id="destinations">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">SIGNATURE PROPERTIES</span>
+        <h2>OUR PALACE DESTINATIONS</h2>
+        <div class="gold-divider"></div>
+        <p class="section-desc">Discover our iconic palaces located in India's most enchanting cultural destinations.</p>
+      </div>
+
+      <div class="properties-grid">
+        
+        <!-- Jaipur -->
+        <div class="property-card">
+          <div class="property-image-container">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=85" alt="The Roma Palace Jaipur">
+            <span class="property-badge"><i class="fa-solid fa-star"></i> 5.0 Rating</span>
+          </div>
+          <div class="property-content">
+            <span class="property-city">JAIPUR, RAJASTHAN</span>
+            <h3 class="property-title">The Roma Palace Jaipur</h3>
+            <p class="property-desc">A grand sandstone palace featuring Mughal courtyards, peacock gardens, and royal dining.</p>
+            <div class="property-footer">
+              <div>
+                <span class="price-label">Starting From</span>
+                <div class="property-price">₹18,500 <small>/ night</small></div>
+              </div>
+              <button onclick="openBookingModal('The Roma Palace Jaipur', 'Royal Suite', 18500)" class="btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.78rem;">
+                RESERVE STAY
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Goa -->
+        <div class="property-card">
+          <div class="property-image-container">
+            <img src="https://images.unsplash.com/photo-1512353087810-25dfcd100962?auto=format&fit=crop&w=900&q=85" alt="The Roma Palace Goa">
+            <span class="property-badge"><i class="fa-solid fa-star"></i> 4.9 Rating</span>
+          </div>
+          <div class="property-content">
+            <span class="property-city">GOA, COASTAL INDIA</span>
+            <h3 class="property-title">The Roma Palace Goa</h3>
+            <p class="property-desc">Portuguese-colonial beachfront sanctuary with private beach access, infinity pool, and coastal dining.</p>
+            <div class="property-footer">
+              <div>
+                <span class="price-label">Starting From</span>
+                <div class="property-price">₹22,000 <small>/ night</small></div>
+              </div>
+              <button onclick="openBookingModal('The Roma Palace Goa', 'Luxury Beach Suite', 22000)" class="btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.78rem;">
+                RESERVE STAY
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Udaipur -->
+        <div class="property-card">
+          <div class="property-image-container">
+            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=85" alt="The Roma Palace Udaipur">
+            <span class="property-badge"><i class="fa-solid fa-star"></i> 5.0 Rating</span>
+          </div>
+          <div class="property-content">
+            <span class="property-city">UDAIPUR, RAJASTHAN</span>
+            <h3 class="property-title">The Roma Palace Udaipur</h3>
+            <p class="property-desc">An ethereal white marble palace set amidst the serene waters of Lake Pichola with private boat access.</p>
+            <div class="property-footer">
+              <div>
+                <span class="price-label">Starting From</span>
+                <div class="property-price">₹28,000 <small>/ night</small></div>
+              </div>
+              <button onclick="openBookingModal('The Roma Palace Udaipur', 'Royal Lake Suite', 28000)" class="btn-primary" style="padding: 0.6rem 1.2rem; font-size: 0.78rem;">
+                RESERVE STAY
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Luxury Suites Showcase -->
+  <section class="section-spacing bg-ivory" id="suites">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">ACCOMMODATION</span>
+        <h2>ROOMS, SUITES &amp; PALACE RESIDENCES</h2>
+        <div class="gold-divider"></div>
+        <p class="section-desc">Handcrafted interiors, imperial Italian marble bathrooms, and panoramic perspectives.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+        
+        <div class="property-card">
+          <div class="property-image-container">
+            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=85" alt="Deluxe Room">
+          </div>
+          <div class="property-content">
+            <span class="property-city">DELUXE PALACE ROOM</span>
+            <h3 class="property-title" style="font-size: 1.3rem;">Deluxe Courtyard Room</h3>
+            <p class="property-desc">450 sq.ft &bull; King Bed &bull; Marble Bathroom &bull; Garden View</p>
+            <div class="property-footer">
+              <div class="property-price">₹18,500 <small>/ night</small></div>
+              <button onclick="openBookingModal('The Roma Palace Jaipur', 'Deluxe Room', 18500)" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.75rem;">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <div class="property-image-container">
+            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=900&q=85" alt="Luxury Suite">
+          </div>
+          <div class="property-content">
+            <span class="property-city">EXECUTIVE SUITE</span>
+            <h3 class="property-title" style="font-size: 1.3rem;">Executive Palace Suite</h3>
+            <p class="property-desc">750 sq.ft &bull; Separate Living &bull; Jacuzzi &bull; Lake View</p>
+            <div class="property-footer">
+              <div class="property-price">₹28,500 <small>/ night</small></div>
+              <button onclick="openBookingModal('The Roma Palace Udaipur', 'Executive Suite', 28500)" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.75rem;">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <div class="property-image-container">
+            <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=900&q=85" alt="Royal Suite">
+          </div>
+          <div class="property-content">
+            <span class="property-city">ROYAL PRESIDENTIAL SUITE</span>
+            <h3 class="property-title" style="font-size: 1.3rem;">The Maharaja Grand Suite</h3>
+            <p class="property-desc">1,200 sq.ft &bull; 24/7 Butler &bull; Private Terrace &bull; Plunge Pool</p>
+            <div class="property-footer">
+              <div class="property-price">₹45,000 <small>/ night</small></div>
+              <button onclick="openBookingModal('The Roma Palace Jaipur', 'Maharaja Suite', 45000)" class="btn-primary" style="padding: 0.5rem 1rem; font-size: 0.75rem;">BOOK NOW</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Fine Dining Section -->
+  <section class="section-spacing bg-white" id="dining">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-tag">GASTRONOMY</span>
+        <h2>ROYAL FINE DINING &amp; RESTAURANTS</h2>
+        <div class="gold-divider"></div>
+        <p class="section-desc">Authentic royal recipes passed down through generations of imperial palace chefs.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem;">
+        <div style="background: var(--color-ivory); border-radius: 4px; padding: 2rem; border: 1px solid var(--border-light);">
+          <span class="section-tag" style="margin-bottom: 0.3rem;">JAIPUR PROPERTY</span>
+          <h3 style="font-size: 1.4rem; color: var(--color-charcoal); margin-bottom: 0.8rem;">Dastarkhwan-e-Awadh</h3>
+          <p style="font-size: 0.9rem; line-height: 1.7; color: var(--text-dark-secondary); margin-bottom: 1.5rem;">
+            Authentic slow-cooked dum pukht, saffron galouti kebabs, and aromatic royal biryanis served under starlit Mughal courtyards.
+          </p>
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-light); padding-top: 1rem;">
+            <span class="badge badge-success">Veg &bull; Non-Veg &bull; Jain</span>
+            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-gold-dark);">07:00 PM – 11:30 PM</span>
+          </div>
+        </div>
+
+        <div style="background: var(--color-ivory); border-radius: 4px; padding: 2rem; border: 1px solid var(--border-light);">
+          <span class="section-tag" style="margin-bottom: 0.3rem;">UDAIPUR PROPERTY</span>
+          <h3 style="font-size: 1.4rem; color: var(--color-charcoal); margin-bottom: 0.8rem;">The Lake Terrace Lounge</h3>
+          <p style="font-size: 0.9rem; line-height: 1.7; color: var(--text-dark-secondary); margin-bottom: 1.5rem;">
+            Open-air candlelit pavilion overlooking Lake Pichola, serving vintage champagne, Mediterranean grills, and Rajasthani thalis.
+          </p>
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-light); padding-top: 1rem;">
+            <span class="badge badge-warning">Romantic Lakeview</span>
+            <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-gold-dark);">06:30 PM – 12:00 Midnight</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Simulated Booking Modal -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-box">
+      <button onclick="closeBookingModal()" style="position: absolute; top: 1.2rem; right: 1.2rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+      
+      <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem;">
+        <div class="rp-monogram" style="background: var(--color-charcoal); width: 44px; height: 44px;">
+          <span>RP</span>
+        </div>
+        <div>
+          <h3 style="margin: 0; font-size: 1.3rem;">Direct Palace Reservation</h3>
+          <span style="font-size: 0.78rem; color: var(--color-gold-dark); font-weight: 700;">6-STEP ACID BOOKING WIZARD</span>
+        </div>
+      </div>
+
+      <form onsubmit="handleSimulatedBooking(event)">
+        <div class="form-group">
+          <label>Selected Palace Property</label>
+          <input type="text" id="modalHotelName" class="form-control" readonly>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label>Selected Suite / Room</label>
+            <input type="text" id="modalSuiteName" class="form-control" readonly>
+          </div>
+          <div class="form-group">
+            <label>Base Price / Night</label>
+            <input type="text" id="modalBasePrice" class="form-control" readonly>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label>Guest Full Name</label>
+            <input type="text" class="form-control" value="Rohan Malhotra" required>
+          </div>
+          <div class="form-group">
+            <label>Government ID Proof</label>
+            <select class="form-control">
+              <option>Aadhaar Card (Verified)</option>
+              <option>Passport</option>
+              <option>Driving License</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="background: var(--color-ivory); padding: 1.2rem; border-radius: 4px; border: 1px solid var(--border-light); margin: 1.5rem 0; font-size: 0.88rem;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+            <span>Room Charges (2 Nights)</span>
+            <strong id="modalRoomTotal">₹37,000</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+            <span>Luxury Goods &amp; Services Tax (GST 18%)</span>
+            <strong id="modalGstTotal">₹6,660</strong>
+          </div>
+          <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-light); padding-top: 0.5rem; font-size: 1rem; color: var(--color-charcoal);">
+            <strong>Grand Payable Total</strong>
+            <strong style="color: var(--color-gold-dark);" id="modalGrandTotal">₹43,660</strong>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; padding: 0.95rem;">
+          <i class="fa-solid fa-shield-halved"></i> CONFIRM RESERVATION &amp; GENERATE INVOICE
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Confirmation Invoice Modal -->
+  <div class="modal-overlay" id="invoiceModal">
+    <div class="modal-box" style="border: 2px solid var(--color-gold-dark);">
+      <button onclick="closeInvoiceModal()" style="position: absolute; top: 1.2rem; right: 1.2rem; background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+      
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <span class="badge badge-success" style="margin-bottom: 0.5rem;"><i class="fa-solid fa-circle-check"></i> RESERVATION CONFIRMED</span>
+        <h3 style="font-size: 1.4rem; margin: 0;">OFFICIAL TAX INVOICE RECEIPT</h3>
+        <p style="font-size: 0.82rem; color: var(--color-gold-dark); font-weight: 700; margin-top: 0.2rem;">BOOKING REF: RP-2026-X8841</p>
+      </div>
+
+      <div style="font-size: 0.85rem; line-height: 1.8; border-top: 1px dashed var(--border-light); border-bottom: 1px dashed var(--border-light); padding: 1rem 0; margin-bottom: 1.5rem;">
+        <div><strong>Guest Name:</strong> Rohan Malhotra</div>
+        <div><strong>Palace Property:</strong> The Roma Palace Jaipur</div>
+        <div><strong>Suite Reserved:</strong> Royal Heritage Suite (Room JP-401)</div>
+        <div><strong>Stay Window:</strong> 20 Aug 2026 – 22 Aug 2026 (2 Nights)</div>
+        <div><strong>GSTIN:</strong> 08AAAAA0000A1Z5 (GST 18% Surcharged)</div>
+        <div><strong>Settled Amount:</strong> ₹43,660 (Paid via UPI)</div>
+      </div>
+
+      <div style="text-align: center;">
+        <button onclick="window.print()" class="btn-primary" style="padding: 0.75rem 1.8rem;">
+          <i class="fa-solid fa-print"></i> PRINT INVOICE
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Luxury Footer -->
+  <footer class="luxury-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col brand-col">
+          <div class="brand-logo" style="margin-bottom: 1.2rem;">
+            <div class="rp-monogram">
+              <span>RP</span>
+            </div>
+            <div class="brand-text">
+              <span class="brand-name" style="color: #FFFFFF;">THE ROMA PALACE</span>
+              <span class="brand-tagline">LUXURY HOTELS &amp; RESORTS</span>
+            </div>
+          </div>
+          <p class="footer-desc">
+            An iconic collection of authentic Indian heritage palaces and luxury retreats.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Destinations</h4>
+          <ul class="footer-links">
+            <li><a href="#destinations">The Roma Palace Jaipur</a></li>
+            <li><a href="#destinations">The Roma Palace Goa</a></li>
+            <li><a href="#destinations">The Roma Palace Udaipur</a></li>
+            <li><a href="#destinations">The Roma Palace Lucknow</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#suites">Suites &amp; Residences</a></li>
+            <li><a href="#dining">Fine Dining Menus</a></li>
+            <li><a href="#wellness">Spa &amp; Vitality</a></li>
+            <li><a href="https://github.com/rishabhsrivastava9335-ux/the-roma-palace-hotel-management" target="_blank">GitHub Repository</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>DBMS Mini Project</h4>
+          <p style="font-size: 0.85rem; color: var(--text-light-secondary); line-height: 1.6;">
+            B.Tech CSE Database Management Systems Mini Project. Features 18 Normalized Relational Tables in 3NF, Double-Booking Prevention, and ACID Transactions.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 The Roma Palace Hotels &amp; Resorts. All Rights Reserved.</div>
+        <div>Designed for B.Tech CSE DBMS Mini Project Examination.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    function openBookingModal(hotel, suite, price) {
+      document.getElementById('modalHotelName').value = hotel;
+      document.getElementById('modalSuiteName').value = suite;
+      document.getElementById('modalBasePrice').value = '₹' + price.toLocaleString('en-IN') + ' / night';
+      
+      const totalRoom = price * 2;
+      const gst = Math.round(totalRoom * 0.18);
+      const grandTotal = totalRoom + gst;
+      
+      document.getElementById('modalRoomTotal').textContent = '₹' + totalRoom.toLocaleString('en-IN');
+      document.getElementById('modalGstTotal').textContent = '₹' + gst.toLocaleString('en-IN');
+      document.getElementById('modalGrandTotal').textContent = '₹' + grandTotal.toLocaleString('en-IN');
+      
+      document.getElementById('bookingModal').style.display = 'flex';
+    }
+
+    function closeBookingModal() {
+      document.getElementById('bookingModal').style.display = 'none';
+    }
+
+    function handleSimulatedBooking(e) {
+      e.preventDefault();
+      closeBookingModal();
+      document.getElementById('invoiceModal').style.display = 'flex';
+    }
+
+    function closeInvoiceModal() {
+      document.getElementById('invoiceModal').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
