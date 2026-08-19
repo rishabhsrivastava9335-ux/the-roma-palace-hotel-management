@@ -16,7 +16,7 @@
 
   <!-- Top Announcement / Demo Bar (College Viva Helper) -->
   <div style="background: #0C0D0F; color: #DFCAAB; font-size: 0.75rem; padding: 0.35rem 1rem; text-align: center; border-bottom: 1px solid rgba(197,168,128,0.25); letter-spacing: 0.5px; z-index: 1001; position: relative;">
-    <span><i class="fa-solid fa-graduation-cap" style="color: #C5A880; margin-right: 5px;"></i> BTech CSE DBMS Mini Project — <strong>The Roma Palace</strong></span>
+    <span><i class="fa-solid fa-graduation-cap" style="color: #C5A880; margin-right: 5px;"></i> BTech CSE DBMS Mini Project &bull; Founder: Rishabh Srivastava — <strong>The Roma Palace</strong></span>
     <span style="margin: 0 10px; opacity: 0.4;">|</span>
     <a href="admin/admin-login.html" style="color: #FFFFFF; text-decoration: underline; font-weight: 600;"><i class="fa-solid fa-lock" style="font-size: 0.7rem;"></i> Admin Portal</a>
     <span style="margin: 0 10px; opacity: 0.4;">|</span>
@@ -47,7 +47,7 @@
           <li><a href="experiences.html" class="nav-link ">EXPERIENCES</a></li>
           <li><a href="offers.html" class="nav-link ">OFFERS</a></li>
           <li><a href="wellness.html" class="nav-link ">WELLNESS</a></li>
-          <li><a href="index.php#about" class="nav-link">ABOUT</a></li>
+          <li><a href="index.html#about" class="nav-link">ABOUT</a></li>
         </ul>
       </nav>
 
@@ -190,7 +190,7 @@
                           <i class="fa-solid fa-bell-concierge"></i> Request In-Room Service
                         </button>
                       
-                                              <form method="POST" action="customer-dashboard.php" onsubmit="return confirm('Are you sure you want to cancel booking RP-2026-0801?');" style="display: inline;">
+                                              <form method="POST" action="customer-dashboard.html" onsubmit="return confirm('Are you sure you want to cancel booking RP-2026-0801?');" style="display: inline;">
                           <input type="hidden" name="action" value="cancel_booking">
                           <input type="hidden" name="booking_id" value="1">
                           <button type="submit" style="background: #FDE8E8; color: #9B1C1C; border: 1px solid #F8B4B4; padding: 0.45rem 0.9rem; border-radius: 2px; font-size: 0.75rem; font-weight: 600; cursor: pointer;">
@@ -221,7 +221,7 @@
           </h2>
           <p style="font-size: 0.85rem; color: var(--text-dark-secondary); margin-bottom: 1.5rem;">Help future guests discover the grandeur of The Roma Palace.</p>
 
-          <form method="POST" action="customer-dashboard.php">
+          <form method="POST" action="customer-dashboard.html">
             <input type="hidden" name="action" value="submit_review">
 
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
@@ -278,7 +278,7 @@
     <h3 style="font-size: 1.3rem; color: var(--color-charcoal); margin-bottom: 0.3rem;">Request In-Room Service</h3>
     <p style="font-size: 0.82rem; color: var(--color-gold-dark); margin-bottom: 1.5rem;" id="modalBookingRef">Booking: RP-2026-XXXX</p>
 
-    <form method="POST" action="customer-dashboard.php">
+    <form method="POST" action="customer-dashboard.html">
       <input type="hidden" name="action" value="order_service">
       <input type="hidden" name="booking_id" id="modalBookingId" value="">
 
@@ -371,10 +371,10 @@ function closeServiceModal() {
         <div class="footer-col">
           <h4>OUR PALACES</h4>
           <ul class="footer-links">
-            <li><a href="hotels.php#jaipur">Roma Palace Jaipur</a></li>
-            <li><a href="hotels.php#goa">Roma Palace Goa</a></li>
-            <li><a href="hotels.php#udaipur">Roma Palace Udaipur</a></li>
-            <li><a href="hotels.php#lucknow">Roma Palace Lucknow</a></li>
+            <li><a href="hotels.html#jaipur">Roma Palace Jaipur</a></li>
+            <li><a href="hotels.html#goa">Roma Palace Goa</a></li>
+            <li><a href="hotels.html#udaipur">Roma Palace Udaipur</a></li>
+            <li><a href="hotels.html#lucknow">Roma Palace Lucknow</a></li>
             <li><a href="hotels.html">Kerala & Varanasi</a></li>
           </ul>
         </div>
@@ -383,11 +383,11 @@ function closeServiceModal() {
         <div class="footer-col">
           <h4>EXPLORE</h4>
           <ul class="footer-links">
-            <li><a href="rooms.php?type=Deluxe+Room">Deluxe Rooms</a></li>
-            <li><a href="rooms.php?type=Premium+Room">Premium Rooms</a></li>
-            <li><a href="rooms.php?type=Executive+Room">Executive Suites</a></li>
-            <li><a href="rooms.php?type=Luxury+Suite">Luxury Suites</a></li>
-            <li><a href="rooms.php?type=Royal+Suite">The Royal Suite</a></li>
+            <li><a href="rooms.html?type=Deluxe+Room">Deluxe Rooms</a></li>
+            <li><a href="rooms.html?type=Premium+Room">Premium Rooms</a></li>
+            <li><a href="rooms.html?type=Executive+Room">Executive Suites</a></li>
+            <li><a href="rooms.html?type=Luxury+Suite">Luxury Suites</a></li>
+            <li><a href="rooms.html?type=Royal+Suite">The Royal Suite</a></li>
             <li><a href="offers.html">Signature Offers</a></li>
           </ul>
         </div>

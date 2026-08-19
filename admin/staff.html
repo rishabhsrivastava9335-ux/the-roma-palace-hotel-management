@@ -154,7 +154,7 @@
   <div class="admin-card-header">
     <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
       <h3 class="admin-card-title"><i class="fa-solid fa-user-tie text-gold"></i> Staff Members (12 Personnel)</h3>
-      <form method="GET" action="staff.php" style="display: flex; gap: 0.5rem;">
+      <form method="GET" action="staff.html" style="display: flex; gap: 0.5rem;">
         <select name="dept" onchange="this.form.submit()" style="padding: 0.45rem 0.8rem; border-radius: 4px; border: 1px solid var(--admin-border); font-size: 0.82rem;">
           <option value="">All Departments</option>
           <option value="Management" >Management</option>
@@ -216,7 +216,7 @@
                 <button type="button" class="btn-action-icon" title="Edit Staff" onclick='editStaffModal({"staff_id":1,"hotel_id":1,"name":"Bhawani Singh","department":"Management","position":"Resident Palace Manager","phone":"+91 98290 88771","email":"bhawani.singh@romapalace.com","joining_date":"2018-04-15","salary":180000,"status":"Active","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Jaipur","city":"Jaipur"})'>
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-                <form method="POST" action="staff.php" onsubmit="return confirm('Delete staff record Bhawani Singh?');" style="display: inline;">
+                <form method="POST" action="staff.html" onsubmit="return confirm('Delete staff record Bhawani Singh?');" style="display: inline;">
                   <input type="hidden" name="action" value="delete_staff">
                   <input type="hidden" name="staff_id" value="1">
                   <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Staff">
@@ -248,7 +248,7 @@
                 <button type="button" class="btn-action-icon" title="Edit Staff" onclick='editStaffModal({"staff_id":2,"hotel_id":1,"name":"Manish Chouhan","department":"Reception","position":"Chief Concierge & Front Office Head","phone":"+91 98290 88772","email":"manish.c@romapalace.com","joining_date":"2020-02-10","salary":75000,"status":"Active","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Jaipur","city":"Jaipur"})'>
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-                <form method="POST" action="staff.php" onsubmit="return confirm('Delete staff record Manish Chouhan?');" style="display: inline;">
+                <form method="POST" action="staff.html" onsubmit="return confirm('Delete staff record Manish Chouhan?');" style="display: inline;">
                   <input type="hidden" name="action" value="delete_staff">
                   <input type="hidden" name="staff_id" value="2">
                   <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Staff">
@@ -280,7 +280,7 @@
                 <button type="button" class="btn-action-icon" title="Edit Staff" onclick='editStaffModal({"staff_id":3,"hotel_id":1,"name":"Chef Sanjeev Sisodia","department":"Restaurant","position":"Executive Chef - Rajputana Cuisine","phone":"+91 98290 88773","email":"chef.sanjeev@romapalace.com","joining_date":"2017-09-01","salary":160000,"status":"Active","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Jaipur","city":"Jaipur"})'>
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-                <form method="POST" action="staff.php" onsubmit="return confirm('Delete staff record Chef Sanjeev Sisodia?');" style="display: inline;">
+                <form method="POST" action="staff.html" onsubmit="return confirm('Delete staff record Chef Sanjeev Sisodia?');" style="display: inline;">
                   <input type="hidden" name="action" value="delete_staff">
                   <input type="hidden" name="staff_id" value="3">
                   <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Staff">
@@ -312,7 +312,7 @@
                 <button type="button" class="btn-action-icon" title="Edit Staff" onclick='editStaffModal({"staff_id":4,"hotel_id":1,"name":"Sunita Rathore","department":"Housekeeping","position":"Executive Housekeeper","phone":"+91 98290 88774","email":"sunita.r@romapalace.com","joining_date":"2019-06-20","salary":65000,"status":"Active","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Jaipur","city":"Jaipur"})'>
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-                <form method="POST" action="staff.php" onsubmit="return confirm('Delete staff record Sunita Rathore?');" style="display: inline;">
+                <form method="POST" action="staff.html" onsubmit="return confirm('Delete staff record Sunita Rathore?');" style="display: inline;">
                   <input type="hidden" name="action" value="delete_staff">
                   <input type="hidden" name="staff_id" value="4">
                   <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Staff">
@@ -344,7 +344,7 @@
                 <button type="button" class="btn-action-icon" title="Edit Staff" onclick='editStaffModal({"staff_id":5,"hotel_id":2,"name":"Antonio Fernandes","department":"Management","position":"Resort General Manager","phone":"+91 832 998871","email":"antonio.f@romapalace.com","joining_date":"2016-11-05","salary":190000,"status":"Active","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Goa","city":"Goa"})'>
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-                <form method="POST" action="staff.php" onsubmit="return confirm('Delete staff record Antonio Fernandes?');" style="display: inline;">
+                <form method="POST" action="staff.html" onsubmit="return confirm('Delete staff record Antonio Fernandes?');" style="display: inline;">
                   <input type="hidden" name="action" value="delete_staff">
                   <input type="hidden" name="staff_id" value="5">
                   <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Staff">
@@ -376,7 +376,7 @@
                 <button type="button" class="btn-action-icon" title="Edit Staff" onclick='editStaffModal({"staff_id":6,"hotel_id":2,"name":"Chef Marco D\u2019Souza","department":"Restaurant","position":"Head of Ocean Grill & Mediterranean","phone":"+91 832 998872","email":"marco.d@romapalace.com","joining_date":"2019-01-15","salary":150000,"status":"Active","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Goa","city":"Goa"})'>
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-                <form method="POST" action="staff.php" onsubmit="return confirm('Delete staff record Chef Marco D’Souza?');" style="display: inline;">
+                <form method="POST" action="staff.html" onsubmit="return confirm('Delete staff record Chef Marco D’Souza?');" style="display: inline;">
                   <input type="hidden" name="action" value="delete_staff">
                   <input type="hidden" name="staff_id" value="6">
                   <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Staff">
@@ -408,7 +408,7 @@
                 <button type="button" class="btn-action-icon" title="Edit Staff" onclick='editStaffModal({"staff_id":7,"hotel_id":2,"name":"Pooja Naik","department":"Reception","position":"Front Desk Supervisor","phone":"+91 832 998873","email":"pooja.n@romapalace.com","joining_date":"2021-07-01","salary":55000,"status":"Active","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Goa","city":"Goa"})'>
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-                <form method="POST" action="staff.php" onsubmit="return confirm('Delete staff record Pooja Naik?');" style="display: inline;">
+                <form method="POST" action="staff.html" onsubmit="return confirm('Delete staff record Pooja Naik?');" style="display: inline;">
                   <input type="hidden" name="action" value="delete_staff">
                   <input type="hidden" name="staff_id" value="7">
                   <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Staff">
@@ -440,7 +440,7 @@
                 <button type="button" class="btn-action-icon" title="Edit Staff" onclick='editStaffModal({"staff_id":8,"hotel_id":3,"name":"Gajendra Singh Mewada","department":"Management","position":"Lake Palace Operations Director","phone":"+91 294 991122","email":"gajendra.s@romapalace.com","joining_date":"2015-03-01","salary":210000,"status":"Active","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Udaipur","city":"Udaipur"})'>
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-                <form method="POST" action="staff.php" onsubmit="return confirm('Delete staff record Gajendra Singh Mewada?');" style="display: inline;">
+                <form method="POST" action="staff.html" onsubmit="return confirm('Delete staff record Gajendra Singh Mewada?');" style="display: inline;">
                   <input type="hidden" name="action" value="delete_staff">
                   <input type="hidden" name="staff_id" value="8">
                   <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Staff">
@@ -472,7 +472,7 @@
                 <button type="button" class="btn-action-icon" title="Edit Staff" onclick='editStaffModal({"staff_id":9,"hotel_id":3,"name":"Karan Rawat","department":"Security","position":"Chief of Security & Maritime Safety","phone":"+91 294 991123","email":"karan.r@romapalace.com","joining_date":"2018-08-10","salary":60000,"status":"Active","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Udaipur","city":"Udaipur"})'>
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-                <form method="POST" action="staff.php" onsubmit="return confirm('Delete staff record Karan Rawat?');" style="display: inline;">
+                <form method="POST" action="staff.html" onsubmit="return confirm('Delete staff record Karan Rawat?');" style="display: inline;">
                   <input type="hidden" name="action" value="delete_staff">
                   <input type="hidden" name="staff_id" value="9">
                   <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Staff">
@@ -504,7 +504,7 @@
                 <button type="button" class="btn-action-icon" title="Edit Staff" onclick='editStaffModal({"staff_id":10,"hotel_id":3,"name":"Leela Sharma","department":"Wellness & Spa","position":"Lead Ayurvedic Spa Practitioner","phone":"+91 294 991124","email":"leela.s@romapalace.com","joining_date":"2020-05-15","salary":58000,"status":"Active","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Udaipur","city":"Udaipur"})'>
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-                <form method="POST" action="staff.php" onsubmit="return confirm('Delete staff record Leela Sharma?');" style="display: inline;">
+                <form method="POST" action="staff.html" onsubmit="return confirm('Delete staff record Leela Sharma?');" style="display: inline;">
                   <input type="hidden" name="action" value="delete_staff">
                   <input type="hidden" name="staff_id" value="10">
                   <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Staff">
@@ -536,7 +536,7 @@
                 <button type="button" class="btn-action-icon" title="Edit Staff" onclick='editStaffModal({"staff_id":11,"hotel_id":4,"name":"Mirza Asad Beg","department":"Restaurant","position":"Master Chef of Royal Dastarkhwan","phone":"+91 522 993344","email":"mirza.asad@romapalace.com","joining_date":"2016-08-01","salary":170000,"status":"Active","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Lucknow","city":"Lucknow"})'>
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-                <form method="POST" action="staff.php" onsubmit="return confirm('Delete staff record Mirza Asad Beg?');" style="display: inline;">
+                <form method="POST" action="staff.html" onsubmit="return confirm('Delete staff record Mirza Asad Beg?');" style="display: inline;">
                   <input type="hidden" name="action" value="delete_staff">
                   <input type="hidden" name="staff_id" value="11">
                   <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Staff">
@@ -568,7 +568,7 @@
                 <button type="button" class="btn-action-icon" title="Edit Staff" onclick='editStaffModal({"staff_id":12,"hotel_id":4,"name":"Alok Tandon","department":"Maintenance","position":"Chief Engineer & Facility Head","phone":"+91 522 993345","email":"alok.t@romapalace.com","joining_date":"2019-10-12","salary":70000,"status":"Active","created_at":"2026-08-18 10:22:39","hotel_name":"The Roma Palace Lucknow","city":"Lucknow"})'>
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-                <form method="POST" action="staff.php" onsubmit="return confirm('Delete staff record Alok Tandon?');" style="display: inline;">
+                <form method="POST" action="staff.html" onsubmit="return confirm('Delete staff record Alok Tandon?');" style="display: inline;">
                   <input type="hidden" name="action" value="delete_staff">
                   <input type="hidden" name="staff_id" value="12">
                   <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Staff">
@@ -590,7 +590,7 @@
     
     <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;" id="modalStaffHeading">Add Staff Member</h3>
 
-    <form method="POST" action="staff.php" id="staffForm">
+    <form method="POST" action="staff.html" id="staffForm">
       <input type="hidden" name="action" id="staffFormAction" value="create_staff">
       <input type="hidden" name="staff_id" id="modal_staff_id" value="">
 
@@ -702,13 +702,13 @@ function closeStaffModal() {
     <!-- Admin Bottom Bar -->
     <footer style="padding: 1.5rem 2rem; background: #FFFFFF; border-top: 1px solid var(--admin-border); font-size: 0.8rem; color: var(--admin-text-muted); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
       <div>
-        <strong>The Roma Palace Hotel Management System</strong> &bull; BTech CSE DBMS Mini Project
+        <strong>The Roma Palace Hotel Management System</strong> &bull; BTech CSE DBMS Mini Project &bull; Founder: Rishabh Srivastava
       </div>
       <div>
         <a href="demo-presentation.html" style="color: var(--admin-gold-dark); font-weight: 700; text-decoration: underline; margin-right: 15px;">
           <i class="fa-solid fa-graduation-cap"></i> Project Demo & Viva Mode
         </a>
-        <span>System Version 2.4 (Enterprise Edition)</span>
+        <span>Founded by Rishabh Srivastava &bull; System Version 2.4</span>
       </div>
     </footer>
 

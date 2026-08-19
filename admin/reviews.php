@@ -1,7 +1,7 @@
 <?php
 /**
  * THE ROMA PALACE — Guest Reviews Moderation
- * BTech CSE DBMS Mini Project
+ * BTech CSE DBMS Mini Project &bull; Founder: Rishabh Srivastava
  */
 require_once __DIR__ . '/includes/admin-header.php';
 

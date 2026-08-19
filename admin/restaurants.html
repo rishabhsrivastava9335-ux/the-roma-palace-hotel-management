@@ -179,12 +179,12 @@
             <td><small>07:00 AM – 11:30 PM</small></td>
             <td><small>Formal / Smart Casual</small></td>
             <td>
-              <a href="menu.php?rest_id=1" style="color: var(--admin-gold-dark); font-weight: 700; text-decoration: underline;">
+              <a href="menu.html?rest_id=1" style="color: var(--admin-gold-dark); font-weight: 700; text-decoration: underline;">
                 8 Dishes (Manage)
               </a>
             </td>
             <td>
-              <form method="POST" action="restaurants.php" onsubmit="return confirm('Delete restaurant?');" style="display: inline;">
+              <form method="POST" action="restaurants.html" onsubmit="return confirm('Delete restaurant?');" style="display: inline;">
                 <input type="hidden" name="action" value="delete_restaurant">
                 <input type="hidden" name="restaurant_id" value="1">
                 <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Restaurant">
@@ -200,12 +200,12 @@
             <td><small>06:30 AM – 12:00 Midnight</small></td>
             <td><small>Resort Chic / Casual Elegance</small></td>
             <td>
-              <a href="menu.php?rest_id=2" style="color: var(--admin-gold-dark); font-weight: 700; text-decoration: underline;">
+              <a href="menu.html?rest_id=2" style="color: var(--admin-gold-dark); font-weight: 700; text-decoration: underline;">
                 7 Dishes (Manage)
               </a>
             </td>
             <td>
-              <form method="POST" action="restaurants.php" onsubmit="return confirm('Delete restaurant?');" style="display: inline;">
+              <form method="POST" action="restaurants.html" onsubmit="return confirm('Delete restaurant?');" style="display: inline;">
                 <input type="hidden" name="action" value="delete_restaurant">
                 <input type="hidden" name="restaurant_id" value="2">
                 <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Restaurant">
@@ -221,12 +221,12 @@
             <td><small>12:30 PM – 03:30 PM &amp; 07:00 PM – 11:30 PM</small></td>
             <td><small>Traditional Elegant / Formal</small></td>
             <td>
-              <a href="menu.php?rest_id=3" style="color: var(--admin-gold-dark); font-weight: 700; text-decoration: underline;">
+              <a href="menu.html?rest_id=3" style="color: var(--admin-gold-dark); font-weight: 700; text-decoration: underline;">
                 7 Dishes (Manage)
               </a>
             </td>
             <td>
-              <form method="POST" action="restaurants.php" onsubmit="return confirm('Delete restaurant?');" style="display: inline;">
+              <form method="POST" action="restaurants.html" onsubmit="return confirm('Delete restaurant?');" style="display: inline;">
                 <input type="hidden" name="action" value="delete_restaurant">
                 <input type="hidden" name="restaurant_id" value="3">
                 <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Restaurant">
@@ -242,12 +242,12 @@
             <td><small>11:00 AM – 01:00 AM</small></td>
             <td><small>Evening Chic</small></td>
             <td>
-              <a href="menu.php?rest_id=4" style="color: var(--admin-gold-dark); font-weight: 700; text-decoration: underline;">
+              <a href="menu.html?rest_id=4" style="color: var(--admin-gold-dark); font-weight: 700; text-decoration: underline;">
                 8 Dishes (Manage)
               </a>
             </td>
             <td>
-              <form method="POST" action="restaurants.php" onsubmit="return confirm('Delete restaurant?');" style="display: inline;">
+              <form method="POST" action="restaurants.html" onsubmit="return confirm('Delete restaurant?');" style="display: inline;">
                 <input type="hidden" name="action" value="delete_restaurant">
                 <input type="hidden" name="restaurant_id" value="4">
                 <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Restaurant">
@@ -267,7 +267,7 @@
     <button onclick="closeRestModal()" style="position: absolute; top: 1.2rem; right: 1.2rem; background: none; border: none; font-size: 1.4rem; cursor: pointer;">&times;</button>
     <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;">Add New Restaurant</h3>
 
-    <form method="POST" action="restaurants.php">
+    <form method="POST" action="restaurants.html">
       <input type="hidden" name="action" value="create_restaurant">
 
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
@@ -335,13 +335,13 @@ function closeRestModal() { document.getElementById('restModal').style.display =
     <!-- Admin Bottom Bar -->
     <footer style="padding: 1.5rem 2rem; background: #FFFFFF; border-top: 1px solid var(--admin-border); font-size: 0.8rem; color: var(--admin-text-muted); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
       <div>
-        <strong>The Roma Palace Hotel Management System</strong> &bull; BTech CSE DBMS Mini Project
+        <strong>The Roma Palace Hotel Management System</strong> &bull; BTech CSE DBMS Mini Project &bull; Founder: Rishabh Srivastava
       </div>
       <div>
         <a href="demo-presentation.html" style="color: var(--admin-gold-dark); font-weight: 700; text-decoration: underline; margin-right: 15px;">
           <i class="fa-solid fa-graduation-cap"></i> Project Demo & Viva Mode
         </a>
-        <span>System Version 2.4 (Enterprise Edition)</span>
+        <span>Founded by Rishabh Srivastava &bull; System Version 2.4</span>
       </div>
     </footer>
 

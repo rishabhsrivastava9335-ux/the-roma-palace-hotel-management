@@ -1,7 +1,7 @@
 <?php
 /**
  * THE ROMA PALACE — Admin Sign Out
- * BTech CSE DBMS Mini Project
+ * BTech CSE DBMS Mini Project &bull; Founder: Rishabh Srivastava
  */
 require_once __DIR__ . '/../includes/auth.php';
 

@@ -192,7 +192,7 @@
                 <button type="button" class="btn-action-icon" title="Edit Property" onclick='editHotelModal({"hotel_id":1,"name":"The Roma Palace Jaipur","slug":"roma-palace-jaipur","city":"Jaipur","state":"Rajasthan","tagline":"A Royal Heritage Sanctuary of Kings","address":"Bhawani Singh Road, Rambagh Enclave, Jaipur, Rajasthan 302005","phone":"+91 141 278 9000","email":"jaipur@romapalace.com","star_rating":5,"starting_price":18500,"total_rooms":32,"image_url":"https:\/\/images.unsplash.com\/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1600&q=85","description":"Set amidst 24 acres of manicured Mughal gardens, The Roma Palace Jaipur stands as an epitome of Rajputana grandeur and timeless royal architecture.","highlights":"Heritage Architecture, Mughal Gardens, Royal Courtyard, Temperature-controlled Pool, 24\/7 Butler Service","status":"active","created_at":"2026-08-18 10:22:39","actual_rooms_count":7})'>
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-                <form method="POST" action="hotels.php" onsubmit="return confirm('Delete hotel property?');" style="display: inline;">
+                <form method="POST" action="hotels.html" onsubmit="return confirm('Delete hotel property?');" style="display: inline;">
                   <input type="hidden" name="action" value="delete_hotel">
                   <input type="hidden" name="hotel_id" value="1">
                   <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Property">
@@ -220,7 +220,7 @@
                 <button type="button" class="btn-action-icon" title="Edit Property" onclick='editHotelModal({"hotel_id":2,"name":"The Roma Palace Goa","slug":"roma-palace-goa","city":"Goa","state":"Goa","tagline":"Contemporary Coastal Escape & Oceanfront Bliss","address":"Sinquerim Beachfront, Candolim, North Goa 403515","phone":"+91 832 671 2000","email":"goa@romapalace.com","star_rating":5,"starting_price":22000,"total_rooms":28,"image_url":"https:\/\/images.unsplash.com\/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=85","description":"Perched gently along the golden sands of the Arabian Sea, The Roma Palace Goa blends Portuguese architectural refinement with serene coastal luxury.","highlights":"Private Beach Access, Infinity Ocean Pool, Ayurvedic Spa Pavilion, Sunset Deck Lounge, Water Sports","status":"active","created_at":"2026-08-18 10:22:39","actual_rooms_count":6})'>
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-                <form method="POST" action="hotels.php" onsubmit="return confirm('Delete hotel property?');" style="display: inline;">
+                <form method="POST" action="hotels.html" onsubmit="return confirm('Delete hotel property?');" style="display: inline;">
                   <input type="hidden" name="action" value="delete_hotel">
                   <input type="hidden" name="hotel_id" value="2">
                   <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Property">
@@ -248,7 +248,7 @@
                 <button type="button" class="btn-action-icon" title="Edit Property" onclick='editHotelModal({"hotel_id":3,"name":"The Roma Palace Udaipur","slug":"roma-palace-udaipur","city":"Udaipur","state":"Rajasthan","tagline":"Lakefront Opulence & Timeless Romance","address":"Haridas Ji Ki Magri, Lake Pichola Waterfront, Udaipur, Rajasthan 313001","phone":"+91 294 243 5000","email":"udaipur@romapalace.com","star_rating":5,"starting_price":28000,"total_rooms":30,"image_url":"https:\/\/images.unsplash.com\/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=85","description":"Rising serenely upon the tranquil waters of Lake Pichola with panoramic views of the Aravalli Hills, offering an unforgettable fairy-tale palace escape.","highlights":"Private Boat Jetty, Lakefront Fine Dining, Royal Spa Suites, Heritage Peepal Courtyard, Sunset Flute Recitals","status":"active","created_at":"2026-08-18 10:22:39","actual_rooms_count":6})'>
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-                <form method="POST" action="hotels.php" onsubmit="return confirm('Delete hotel property?');" style="display: inline;">
+                <form method="POST" action="hotels.html" onsubmit="return confirm('Delete hotel property?');" style="display: inline;">
                   <input type="hidden" name="action" value="delete_hotel">
                   <input type="hidden" name="hotel_id" value="3">
                   <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Property">
@@ -276,7 +276,7 @@
                 <button type="button" class="btn-action-icon" title="Edit Property" onclick='editHotelModal({"hotel_id":4,"name":"The Roma Palace Lucknow","slug":"roma-palace-lucknow","city":"Lucknow","state":"Uttar Pradesh","tagline":"Nawabi Hospitality & Refined Aristocratic Elegance","address":"Vipin Khand, Gomti Nagar Riverfront, Lucknow, Uttar Pradesh 226010","phone":"+91 522 409 8000","email":"lucknow@romapalace.com","star_rating":5,"starting_price":14500,"total_rooms":30,"image_url":"https:\/\/images.unsplash.com\/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1600&q=85","description":"Echoing the golden era of Awadhi Nawabs with grand chandeliers, arched corridors, and legendary culinary art along the serene Gomti River.","highlights":"Awadhi Culinary Masterclasses, Grand Ballroom, Imperial Spa, Executive Business Lounge, Royal Chariot Welcome","status":"active","created_at":"2026-08-18 10:22:39","actual_rooms_count":6})'>
                   <i class="fa-solid fa-pen-to-square"></i>
                 </button>
-                <form method="POST" action="hotels.php" onsubmit="return confirm('Delete hotel property?');" style="display: inline;">
+                <form method="POST" action="hotels.html" onsubmit="return confirm('Delete hotel property?');" style="display: inline;">
                   <input type="hidden" name="action" value="delete_hotel">
                   <input type="hidden" name="hotel_id" value="4">
                   <button type="submit" class="btn-action-icon" style="color: #EF4444;" title="Delete Property">
@@ -298,7 +298,7 @@
     
     <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem;" id="modalHotelHeading">Add New Palace Property</h3>
 
-    <form method="POST" action="hotels.php" id="hotelForm">
+    <form method="POST" action="hotels.html" id="hotelForm">
       <input type="hidden" name="action" id="hotelFormAction" value="create_hotel">
       <input type="hidden" name="hotel_id" id="modal_hotel_id" value="">
 
@@ -414,13 +414,13 @@ function closeHotelModal() {
     <!-- Admin Bottom Bar -->
     <footer style="padding: 1.5rem 2rem; background: #FFFFFF; border-top: 1px solid var(--admin-border); font-size: 0.8rem; color: var(--admin-text-muted); display: flex; justify-content: space-between; align-items: center; margin-top: auto;">
       <div>
-        <strong>The Roma Palace Hotel Management System</strong> &bull; BTech CSE DBMS Mini Project
+        <strong>The Roma Palace Hotel Management System</strong> &bull; BTech CSE DBMS Mini Project &bull; Founder: Rishabh Srivastava
       </div>
       <div>
         <a href="demo-presentation.html" style="color: var(--admin-gold-dark); font-weight: 700; text-decoration: underline; margin-right: 15px;">
           <i class="fa-solid fa-graduation-cap"></i> Project Demo & Viva Mode
         </a>
-        <span>System Version 2.4 (Enterprise Edition)</span>
+        <span>Founded by Rishabh Srivastava &bull; System Version 2.4</span>
       </div>
     </footer>
 

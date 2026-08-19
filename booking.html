@@ -16,7 +16,7 @@
 
   <!-- Top Announcement / Demo Bar (College Viva Helper) -->
   <div style="background: #0C0D0F; color: #DFCAAB; font-size: 0.75rem; padding: 0.35rem 1rem; text-align: center; border-bottom: 1px solid rgba(197,168,128,0.25); letter-spacing: 0.5px; z-index: 1001; position: relative;">
-    <span><i class="fa-solid fa-graduation-cap" style="color: #C5A880; margin-right: 5px;"></i> BTech CSE DBMS Mini Project — <strong>The Roma Palace</strong></span>
+    <span><i class="fa-solid fa-graduation-cap" style="color: #C5A880; margin-right: 5px;"></i> BTech CSE DBMS Mini Project &bull; Founder: Rishabh Srivastava — <strong>The Roma Palace</strong></span>
     <span style="margin: 0 10px; opacity: 0.4;">|</span>
     <a href="admin/admin-login.html" style="color: #FFFFFF; text-decoration: underline; font-weight: 600;"><i class="fa-solid fa-lock" style="font-size: 0.7rem;"></i> Admin Portal</a>
     <span style="margin: 0 10px; opacity: 0.4;">|</span>
@@ -47,7 +47,7 @@
           <li><a href="experiences.html" class="nav-link ">EXPERIENCES</a></li>
           <li><a href="offers.html" class="nav-link ">OFFERS</a></li>
           <li><a href="wellness.html" class="nav-link ">WELLNESS</a></li>
-          <li><a href="index.php#about" class="nav-link">ABOUT</a></li>
+          <li><a href="index.html#about" class="nav-link">ABOUT</a></li>
         </ul>
       </nav>
 
@@ -600,10 +600,10 @@ window.addEventListener('load', () => {
         <div class="footer-col">
           <h4>OUR PALACES</h4>
           <ul class="footer-links">
-            <li><a href="hotels.php#jaipur">Roma Palace Jaipur</a></li>
-            <li><a href="hotels.php#goa">Roma Palace Goa</a></li>
-            <li><a href="hotels.php#udaipur">Roma Palace Udaipur</a></li>
-            <li><a href="hotels.php#lucknow">Roma Palace Lucknow</a></li>
+            <li><a href="hotels.html#jaipur">Roma Palace Jaipur</a></li>
+            <li><a href="hotels.html#goa">Roma Palace Goa</a></li>
+            <li><a href="hotels.html#udaipur">Roma Palace Udaipur</a></li>
+            <li><a href="hotels.html#lucknow">Roma Palace Lucknow</a></li>
             <li><a href="hotels.html">Kerala & Varanasi</a></li>
           </ul>
         </div>
@@ -612,11 +612,11 @@ window.addEventListener('load', () => {
         <div class="footer-col">
           <h4>EXPLORE</h4>
           <ul class="footer-links">
-            <li><a href="rooms.php?type=Deluxe+Room">Deluxe Rooms</a></li>
-            <li><a href="rooms.php?type=Premium+Room">Premium Rooms</a></li>
-            <li><a href="rooms.php?type=Executive+Room">Executive Suites</a></li>
-            <li><a href="rooms.php?type=Luxury+Suite">Luxury Suites</a></li>
-            <li><a href="rooms.php?type=Royal+Suite">The Royal Suite</a></li>
+            <li><a href="rooms.html?type=Deluxe+Room">Deluxe Rooms</a></li>
+            <li><a href="rooms.html?type=Premium+Room">Premium Rooms</a></li>
+            <li><a href="rooms.html?type=Executive+Room">Executive Suites</a></li>
+            <li><a href="rooms.html?type=Luxury+Suite">Luxury Suites</a></li>
+            <li><a href="rooms.html?type=Royal+Suite">The Royal Suite</a></li>
             <li><a href="offers.html">Signature Offers</a></li>
           </ul>
         </div>
@@ -669,5 +669,83 @@ window.addEventListener('load', () => {
 
   <!-- Scripts -->
   <script src="assets/js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('masterBookingForm');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const hotelSelect = document.getElementById('hotel_id');
+      const hotelName = hotelSelect ? hotelSelect.options[hotelSelect.selectedIndex].text.replace(/\s*\([^)]*\)/, '').trim() : 'The Roma Palace Jaipur';
+
+      const roomSelect = document.getElementById('room_select');
+      const roomText = roomSelect ? roomSelect.options[roomSelect.selectedIndex].text.split('—')[0].trim() : 'Deluxe Room';
+      const roomPrice = roomSelect ? parseFloat(roomSelect.options[roomSelect.selectedIndex].getAttribute('data-price') || 18500) : 18500;
+
+      const checkIn = document.getElementById('check_in_date') ? document.getElementById('check_in_date').value : '2026-08-25';
+      const checkOut = document.getElementById('check_out_date') ? document.getElementById('check_out_date').value : '2026-08-27';
+      const guests = document.getElementById('total_guests') ? document.getElementById('total_guests').value : '2';
+
+      const guestName = document.getElementById('full_name') ? document.getElementById('full_name').value : 'Rohan Malhotra';
+      const guestEmail = document.getElementById('email') ? document.getElementById('email').value : 'rohan@example.com';
+      const guestPhone = document.getElementById('phone') ? document.getElementById('phone').value : '+91 98110 54321';
+      const idType = document.getElementById('id_type') ? document.getElementById('id_type').value : 'Aadhaar Card';
+      const idNumber = document.getElementById('id_number') ? document.getElementById('id_number').value : '4589 1234 9876';
+
+      const d1 = new Date(checkIn);
+      const d2 = new Date(checkOut);
+      let nights = Math.ceil((d2 - d1) / (1000 * 60 * 60 * 24));
+      if (isNaN(nights) || nights < 1) nights = 2;
+
+      const roomTotal = roomPrice * nights;
+
+      let serviceTotal = 0;
+      const selectedServices = [];
+      document.querySelectorAll('.addon-checkbox:checked').forEach(cb => {
+        const p = parseFloat(cb.getAttribute('data-price')) || 0;
+        serviceTotal += p;
+        const card = cb.closest('.addon-card');
+        const name = card && card.querySelector('h4') ? card.querySelector('h4').textContent.trim() : 'Service';
+        selectedServices.push({ name: name, price: p });
+      });
+
+      const taxable = roomTotal + serviceTotal;
+      const gst = Math.round(taxable * 0.18);
+      const grandTotal = taxable + gst;
+
+      const paymentMethodRadio = document.querySelector('input[name="payment_method"]:checked');
+      const paymentMethod = paymentMethodRadio ? paymentMethodRadio.value : 'UPI';
+
+      const bookingRef = 'RP-2026-X' + Math.floor(1000 + Math.random() * 9000);
+
+      const bookingData = {
+        bookingRef: bookingRef,
+        hotelName: hotelName,
+        roomText: roomText,
+        roomPrice: roomPrice,
+        checkIn: checkIn,
+        checkOut: checkOut,
+        nights: nights,
+        guests: guests,
+        guestName: guestName,
+        guestEmail: guestEmail,
+        guestPhone: guestPhone,
+        idType: idType,
+        idNumber: idNumber,
+        roomTotal: roomTotal,
+        serviceTotal: serviceTotal,
+        selectedServices: selectedServices,
+        gst: gst,
+        grandTotal: grandTotal,
+        paymentMethod: paymentMethod
+      };
+
+      localStorage.setItem('roma_last_booking', JSON.stringify(bookingData));
+      window.location.href = 'confirmation.html?ref=' + bookingRef;
+    });
+  }
+});
+</script>
 </body>
 </html>
