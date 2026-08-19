@@ -15,7 +15,7 @@
 <body>
 
   <!-- Top Announcement / Demo Bar (College Viva Helper) -->
-  <div style="background: #0C0D0F; color: #DFCAAB; font-size: 0.75rem; padding: 0.35rem 1rem; text-align: center; border-bottom: 1px solid rgba(197,168,128,0.25); letter-spacing: 0.5px; z-index: 1001; position: relative;">
+  <div style="background: #0C0D0F; color: #DFCAAB; font-size: 0.75rem; padding: 0.35rem 1rem; text-align: center; border-bottom: 1px solid rgba(197₹68₹28,0.25); letter-spacing: 0.5px; z-index: 1001; position: relative;">
     <span><i class="fa-solid fa-graduation-cap" style="color: #C5A880; margin-right: 5px;"></i> BTech CSE DBMS Mini Project &bull; Founder: Rishabh Srivastava — <strong>The Roma Palace</strong></span>
     <span style="margin: 0 10px; opacity: 0.4;">|</span>
     <a href="admin/admin-login.html" style="color: #FFFFFF; text-decoration: underline; font-weight: 600;"><i class="fa-solid fa-lock" style="font-size: 0.7rem;"></i> Admin Portal</a>
@@ -90,91 +90,131 @@
     </div>
 
     <!-- Official Printable Luxury Tax Invoice -->
-    <div class="confirmation-invoice-wrapper">
+        <!-- Official Printable Luxury Tax Invoice -->
+    <div class="confirmation-invoice-wrapper" id="printableInvoiceSection">
       
       <!-- Invoice Header -->
       <div class="invoice-header">
-        <div class="invoice-brand-block"><div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem;"><div class="rp-monogram" style="background: var(--color-charcoal);"><span>RP</span></div><div><h2>THE ROMA PALACE</h2><p>Luxury Hotels & Heritage Retreats</p></div></div><p style="font-size: 0.82rem; color: var(--text-dark-secondary); margin-top: 0.5rem; line-height: 1.5;"><strong id="inv_hotel_name">The Roma Palace Jaipur</strong><br>
-            Bhawani Singh Road, Rambagh Enclave, Jaipur, Rajasthan 302005<br>
-            GSTIN: 08AAAAA0000A1Z5 | Phone: +91 141 278 9000          </p>
+        <div class="invoice-brand-block">
+          <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.5rem;">
+            <div class="rp-monogram" style="background: var(--color-charcoal);">
+              <span>RP</span>
+            </div>
+            <div>
+              <h2 style="margin: 0; font-size: 1.4rem;">THE ROMA PALACE</h2>
+              <p style="margin: 0; font-size: 0.8rem; color: var(--color-gold-dark); font-weight: 700; letter-spacing: 1px;">HOTELS &amp; HERITAGE RETREATS</p>
+            </div>
+          </div>
+          <p style="font-size: 0.82rem; color: var(--text-dark-secondary); margin-top: 0.5rem; line-height: 1.5;">
+            <strong id="inv_hotel_name">The Roma Palace Jaipur</strong><br>
+            <span id="inv_hotel_address">Bhawani Singh Road, Rambagh Enclave, Jaipur, Rajasthan 302005</span><br>
+            GSTIN: <strong>08AAAAA0000A1Z5</strong> | Phone: +91 141 278 9000
+          </p>
         </div>
 
-        <div class="invoice-meta-block">
-          <span class="booking-ref-badge" id="inv_booking_ref">RP-2026-X8841</span>
-          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.3rem;">
-            Date of Issue: 18 Aug 2026, 07:12 PM          </div>
+        <div class="invoice-meta-block" style="text-align: right;">
+          <span class="booking-ref-badge" id="inv_booking_ref" style="font-size: 1.1rem; font-family: monospace; font-weight: 700; background: var(--color-charcoal); color: var(--color-gold-light); padding: 0.4rem 1rem; border-radius: 3px; display: inline-block;">RP-2026-X8841</span>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">
+            Date of Issue: <strong id="inv_issue_date">19 Aug 2026</strong>
+          </div>
           <div style="margin-top: 0.5rem;">
-            <span class="badge badge-success">BOOKING COMPLETED</span>
+            <span class="badge badge-success" style="font-size: 0.75rem;"><i class="fa-solid fa-circle-check"></i> OFFICIAL TAX INVOICE (PAID)</span>
           </div>
         </div>
       </div>
 
       <!-- Guest & Stay Coordinates Grid -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; background: var(--color-ivory); padding: 1.5rem; border-radius: 3px; border: 1px solid var(--border-light);">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 1.5rem 0 2rem 0; background: var(--color-ivory); padding: 1.5rem; border-radius: 3px; border: 1px solid var(--border-light);">
         
+        <!-- Guest Details Column -->
         <div>
-          <strong style="font-family: var(--font-accent); font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--color-gold-dark); display: block; margin-bottom: 0.6rem;">
-            Guest Information
+          <strong style="font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--color-gold-dark); display: block; margin-bottom: 0.4rem;">
+            Guest Information (Government ID Verified)
           </strong>
-          <h4 id="inv_guest_heading" style="font-size: 1.1rem; color: var(--color-charcoal); margin-bottom: 0.3rem;">Kavita Patel</h4><div id="inv_guest_meta" style="font-size: 0.86rem; color: var(--text-dark-secondary); line-height: 1.6;">Email: guest@romapalace.com<br>Phone: +91 98110 54321<br>Govt ID: Aadhaar Card (4589 1234 9876)</div>
+          <h3 id="inv_guest_name" style="font-size: 1.3rem; color: var(--color-charcoal); margin: 0 0 0.5rem 0;">Rishabh Srivastava</h3>
+          <div style="font-size: 0.86rem; color: var(--text-dark-secondary); line-height: 1.7;">
+            <div>Email: <strong id="inv_guest_email" style="color: var(--color-charcoal);">rishabh@example.com</strong></div>
+            <div>Phone: <strong id="inv_guest_phone" style="color: var(--color-charcoal);">+91 98765 43210</strong></div>
+            <div>Govt ID: <strong id="inv_guest_id" style="color: var(--color-charcoal);">Aadhaar Card (4589 1234 9876)</strong></div>
+          </div>
         </div>
 
+        <!-- Stay Schedule Column -->
         <div>
-          <strong style="font-family: var(--font-accent); font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--color-gold-dark); display: block; margin-bottom: 0.6rem;">
-            Stay Schedule & Room
+          <strong style="font-size: 0.72rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--color-gold-dark); display: block; margin-bottom: 0.4rem;">
+            Stay Schedule &amp; Reserved Accommodation
           </strong>
-          <h4 id="inv_room_heading" style="font-size: 1.1rem; color: var(--color-charcoal); margin-bottom: 0.3rem;">Executive Room (Room JP-202)</h4>
-          <div id="inv_stay_meta" style="font-size: 0.86rem; color: var(--text-dark-secondary); line-height: 1.6;">Check-in: <strong>25 Aug 2026</strong> (02:00 PM)<br>Check-out: <strong>27 Aug 2026</strong> (12:00 Noon)<br>Duration: 2 Nights | 2 Guests</div>
+          <h3 id="inv_room_name" style="font-size: 1.3rem; color: var(--color-charcoal); margin: 0 0 0.5rem 0;">Royal Heritage Suite</h3>
+          <div style="font-size: 0.86rem; color: var(--text-dark-secondary); line-height: 1.7;">
+            <div>Palace: <strong id="inv_hotel_tag" style="color: var(--color-charcoal);">The Roma Palace Jaipur</strong></div>
+            <div>Check-in: <strong id="inv_checkin_date" style="color: var(--color-charcoal);">25 Aug 2026</strong> (02:00 PM)</div>
+            <div>Check-out: <strong id="inv_checkout_date" style="color: var(--color-charcoal);">27 Aug 2026</strong> (12:00 Noon)</div>
+            <div>Duration: <strong id="inv_stay_duration" style="color: var(--color-charcoal);">2 Nights</strong> | Guests: <strong id="inv_guest_count">2 Guests</strong></div>
+          </div>
         </div>
 
       </div>
 
       <!-- Itemized Financial Breakdown Table -->
-      <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem; font-size: 0.88rem;">
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.88rem;">
         <thead>
           <tr style="background: var(--color-charcoal); color: var(--color-gold-light);">
-            <th style="padding: 0.8rem 1rem; text-align: left;">Description</th>
+            <th style="padding: 0.8rem 1rem; text-align: left;">Billing Description</th>
             <th style="padding: 0.8rem 1rem; text-align: center;">Qty / Nights</th>
             <th style="padding: 0.8rem 1rem; text-align: right;">Unit Rate</th>
-            <th style="padding: 0.8rem 1rem; text-align: right;">Total Amount</th>
+            <th style="padding: 0.8rem 1rem; text-align: right;">Total (INR)</th>
           </tr>
         </thead>
         <tbody id="inv_table_body">
-  <tr style="border-bottom: 1px solid var(--border-light);">
-    <td style="padding: 1rem;">
-      <strong id="inv_item_room_desc">Accommodation: Deluxe Courtyard Room</strong><br>
-      <small id="inv_item_hotel_desc" style="color: var(--text-muted);">The Roma Palace Jaipur</small>
-    </td>
-    <td id="inv_item_nights" style="padding: 1rem; text-align: center;">2 Nights</td>
-    <td id="inv_item_unit_rate" style="padding: 1rem; text-align: right;">₹18,500</td>
-    <td id="inv_item_room_total" style="padding: 1rem; text-align: right; font-weight: 600;">₹37,000</td>
-  </tr>
-</tbody>
+          <tr style="border-bottom: 1px solid var(--border-light);">
+            <td style="padding: 1rem;">
+              <strong id="inv_row_room_title">Accommodation: Royal Heritage Suite</strong><br>
+              <small id="inv_row_hotel_title" style="color: var(--text-muted);">The Roma Palace Jaipur</small>
+            </td>
+            <td id="inv_row_nights" style="padding: 1rem; text-align: center;">2 Nights</td>
+            <td id="inv_row_unit_price" style="padding: 1rem; text-align: right;">₹35,000</td>
+            <td id="inv_row_room_total" style="padding: 1rem; text-align: right; font-weight: 600;">₹70,000</td>
+          </tr>
+        </tbody>
+        <tfoot style="background: #F9FAFB; font-size: 0.9rem;">
+          <tr style="border-top: 2px solid var(--border-light);">
+            <td colspan="3" style="padding: 0.8rem 1rem; text-align: right; font-weight: 600;">Net Accommodation &amp; Services Subtotal:</td>
+            <td id="inv_subtotal_amount" style="padding: 0.8rem 1rem; text-align: right; font-weight: 700;">₹70,000</td>
+          </tr>
+          <tr style="color: var(--color-charcoal);">
+            <td colspan="3" style="padding: 0.6rem 1rem; text-align: right; font-weight: 600;">Luxury Goods &amp; Services Tax (GST @ 18%):</td>
+            <td id="inv_gst_amount" style="padding: 0.6rem 1rem; text-align: right; font-weight: 700; color: #B45309;">₹12,600</td>
+          </tr>
+          <tr style="background: var(--color-cream); font-size: 1.15rem; color: var(--color-charcoal); border-top: 2px solid var(--color-gold-dark);">
+            <td colspan="3" style="padding: 1rem; text-align: right; font-weight: 800;">GRAND TOTAL PAID:</td>
+            <td id="inv_grand_total_amount" style="padding: 1rem; text-align: right; font-weight: 800; color: var(--color-gold-dark);">₹82,600</td>
+          </tr>
+        </tfoot>
       </table>
 
       <!-- Payment & Transaction Details -->
       <div style="display: flex; justify-content: space-between; align-items: center; background: var(--color-ivory); padding: 1.2rem 1.5rem; border-radius: 2px; border-left: 4px solid var(--color-gold-dark); margin-bottom: 2rem;">
         <div>
-          <span class="price-label">Settlement Mode</span>
-          <strong style="color: var(--color-charcoal); font-size: 0.95rem;">Credit Card</strong>
+          <span style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; display: block;">Settlement Mode</span>
+          <strong id="inv_settlement_mode" style="color: var(--color-charcoal); font-size: 0.95rem;">UPI / Instant Transfer</strong>
         </div>
         <div>
-          <span class="price-label">Transaction ID</span>
-          <code style="background: var(--color-white); padding: 0.2rem 0.5rem; border-radius: 2px; border: 1px solid var(--border-light); font-weight: 700;">CC_HDFC_3344556677</code>
+          <span style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; display: block;">Transaction ID</span>
+          <code id="inv_txn_id" style="background: #FFFFFF; padding: 0.2rem 0.6rem; border-radius: 2px; border: 1px solid var(--border-light); font-weight: 700; color: var(--color-charcoal);">TXN_UPI_99887766</code>
         </div>
         <div>
-          <span class="price-label">Payment Status</span>
-          <span class="badge badge-success">PAID</span>
+          <span style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; display: block;">Payment Status</span>
+          <span class="badge badge-success"><i class="fa-solid fa-check"></i> SETTLED &amp; VERIFIED</span>
         </div>
       </div>
 
       <!-- Barcode / QR Simulation for Reception Check-in -->
       <div style="text-align: center; padding-top: 1.5rem; border-top: 1px dashed var(--border-light);">
-        <div style="font-family: 'Courier New', monospace; letter-spacing: 5px; font-size: 1.4rem; color: var(--color-charcoal); margin-bottom: 0.4rem;">
+        <div style="font-family: 'Courier New', monospace; letter-spacing: 6px; font-size: 1.5rem; color: var(--color-charcoal); margin-bottom: 0.4rem;">
           ||||| | |||| ||| |||||| | |||| |||||
         </div>
-        <small style="color: var(--text-muted); font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase;">
-          Please present this digital receipt or Booking Reference ID upon arrival at the Reception Desk.
+        <small style="color: var(--text-muted); font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase;">
+          Please present this digital receipt or Booking Reference ID upon arrival at the Palace Reception.
         </small>
       </div>
 
@@ -283,48 +323,71 @@
 
   <!-- Scripts -->
   <script src="assets/js/main.js"></script>
+
 <script>
 window.addEventListener('DOMContentLoaded', () => {
+  // Read booking from LocalStorage
   const lastBookingStr = localStorage.getItem('roma_last_booking');
   if (lastBookingStr) {
     try {
       const b = JSON.parse(lastBookingStr);
+
       if (b.bookingRef && document.getElementById('inv_booking_ref')) {
         document.getElementById('inv_booking_ref').textContent = b.bookingRef;
       }
-      if (b.hotelName && document.getElementById('inv_hotel_name')) {
-        document.getElementById('inv_hotel_name').textContent = b.hotelName;
+      if (b.hotelName) {
+        if (document.getElementById('inv_hotel_name')) document.getElementById('inv_hotel_name').textContent = b.hotelName;
+        if (document.getElementById('inv_hotel_tag')) document.getElementById('inv_hotel_tag').textContent = b.hotelName;
+        if (document.getElementById('inv_row_hotel_title')) document.getElementById('inv_row_hotel_title').textContent = b.hotelName;
       }
-      if (b.guestName && document.getElementById('inv_guest_heading')) {
-        document.getElementById('inv_guest_heading').textContent = b.guestName;
+      
+      // Guest Personal Details
+      if (b.guestName && document.getElementById('inv_guest_name')) {
+        document.getElementById('inv_guest_name').textContent = b.guestName;
       }
-      if (document.getElementById('inv_guest_meta')) {
-        document.getElementById('inv_guest_meta').innerHTML = 
-          `Email: <strong>${b.guestEmail || 'guest@romapalace.com'}</strong><br>` +
-          `Phone: <strong>${b.guestPhone || '+91 98110 54321'}</strong><br>` +
-          `Govt ID: <strong>${b.idType || 'Aadhaar Card'} (${b.idNumber || '4589 1234 9876'})</strong>`;
+      if (b.guestEmail && document.getElementById('inv_guest_email')) {
+        document.getElementById('inv_guest_email').textContent = b.guestEmail;
       }
-      if (b.roomText && document.getElementById('inv_room_heading')) {
-        document.getElementById('inv_room_heading').textContent = b.roomText;
+      if (b.guestPhone && document.getElementById('inv_guest_phone')) {
+        document.getElementById('inv_guest_phone').textContent = b.guestPhone;
       }
-      if (document.getElementById('inv_stay_meta')) {
-        document.getElementById('inv_stay_meta').innerHTML = 
-          `Check-in: <strong>${b.checkIn || '25 Aug 2026'}</strong> (02:00 PM)<br>` +
-          `Check-out: <strong>${b.checkOut || '27 Aug 2026'}</strong> (12:00 Noon)<br>` +
-          `Duration: <strong>${b.nights || 2} Nights</strong> | <strong>${b.guests || 2} Guests</strong>`;
+      if (b.idType && document.getElementById('inv_guest_id')) {
+        document.getElementById('inv_guest_id').textContent = `${b.idType} (${b.idNumber || 'Verified'})`;
       }
+
+      // Room & Dates
+      if (b.roomText) {
+        if (document.getElementById('inv_room_name')) document.getElementById('inv_room_name').textContent = b.roomText;
+        if (document.getElementById('inv_row_room_title')) document.getElementById('inv_row_room_title').textContent = 'Accommodation: ' + b.roomText;
+      }
+      if (b.checkIn && document.getElementById('inv_checkin_date')) {
+        document.getElementById('inv_checkin_date').textContent = b.checkIn;
+      }
+      if (b.checkOut && document.getElementById('inv_checkout_date')) {
+        document.getElementById('inv_checkout_date').textContent = b.checkOut;
+      }
+      if (b.nights) {
+        if (document.getElementById('inv_stay_duration')) document.getElementById('inv_stay_duration').textContent = b.nights + ' Nights';
+        if (document.getElementById('inv_row_nights')) document.getElementById('inv_row_nights').textContent = b.nights + ' Nights';
+      }
+      if (b.guests && document.getElementById('inv_guest_count')) {
+        document.getElementById('inv_guest_count').textContent = b.guests + ' Guest(s)';
+      }
+
+      // Financial Calculation Table
       if (document.getElementById('inv_table_body')) {
         let rows = `
           <tr style="border-bottom: 1px solid var(--border-light);">
             <td style="padding: 1rem;">
-              <strong>Accommodation: ${b.roomText || 'Deluxe Room'}</strong><br>
-              <small style="color: var(--text-muted);">${b.hotelName || 'The Roma Palace Jaipur'}</small>
+              <strong>Accommodation: ${b.roomText || 'Luxury Suite'}</strong><br>
+              <small style="color: var(--text-muted);">${b.hotelName || 'The Roma Palace'}</small>
             </td>
             <td style="padding: 1rem; text-align: center;">${b.nights || 2} Nights</td>
             <td style="padding: 1rem; text-align: right;">₹${(b.roomPrice || 18500).toLocaleString('en-IN')}</td>
             <td style="padding: 1rem; text-align: right; font-weight: 600;">₹${(b.roomTotal || 37000).toLocaleString('en-IN')}</td>
           </tr>
         `;
+
         if (b.selectedServices && b.selectedServices.length > 0) {
           b.selectedServices.forEach(s => {
             rows += `
@@ -341,13 +404,33 @@ window.addEventListener('DOMContentLoaded', () => {
         }
         document.getElementById('inv_table_body').innerHTML = rows;
       }
+
+      // Amounts & GST
       const subtotal = (b.roomTotal || 37000) + (b.serviceTotal || 0);
-      if (document.getElementById('inv_subtotal')) document.getElementById('inv_subtotal').textContent = '₹' + subtotal.toLocaleString('en-IN');
-      if (document.getElementById('inv_gst')) document.getElementById('inv_gst').textContent = '₹' + (b.gst || Math.round(subtotal * 0.18)).toLocaleString('en-IN');
-      if (document.getElementById('inv_grand_total')) document.getElementById('inv_grand_total').textContent = '₹' + (b.grandTotal || (subtotal + Math.round(subtotal * 0.18))).toLocaleString('en-IN');
-      if (document.getElementById('inv_payment_method')) document.getElementById('inv_payment_method').textContent = b.paymentMethod || 'UPI';
+      const gst = b.gst || Math.round(subtotal * 0.18);
+      const grandTotal = b.grandTotal || (subtotal + gst);
+
+      if (document.getElementById('inv_subtotal_amount')) {
+        document.getElementById('inv_subtotal_amount').textContent = '₹' + subtotal.toLocaleString('en-IN');
+      }
+      if (document.getElementById('inv_gst_amount')) {
+        document.getElementById('inv_gst_amount').textContent = '₹' + gst.toLocaleString('en-IN');
+      }
+      if (document.getElementById('inv_grand_total_amount')) {
+        document.getElementById('inv_grand_total_amount').textContent = '₹' + grandTotal.toLocaleString('en-IN');
+      }
+      if (document.getElementById('inv_settlement_mode')) {
+        document.getElementById('inv_settlement_mode').textContent = b.paymentMethod || 'UPI / Instant Transfer';
+      }
+      if (document.getElementById('inv_txn_id')) {
+        document.getElementById('inv_txn_id').textContent = 'TXN_' + (b.paymentMethod || 'UPI').toUpperCase().replace(/\s/g, '') + '_' + Math.floor(10000000 + Math.random() * 90000000);
+      }
+      if (document.getElementById('inv_issue_date')) {
+        document.getElementById('inv_issue_date').textContent = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+      }
+
     } catch(err) {
-      console.error(err);
+      console.error('Error loading dynamic invoice:', err);
     }
   }
 });

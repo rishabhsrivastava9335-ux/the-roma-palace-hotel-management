@@ -15,7 +15,7 @@
 <body>
 
   <!-- Top Announcement / Demo Bar (College Viva Helper) -->
-  <div style="background: #0C0D0F; color: #DFCAAB; font-size: 0.75rem; padding: 0.35rem 1rem; text-align: center; border-bottom: 1px solid rgba(197,168,128,0.25); letter-spacing: 0.5px; z-index: 1001; position: relative;">
+  <div style="background: #0C0D0F; color: #DFCAAB; font-size: 0.75rem; padding: 0.35rem 1rem; text-align: center; border-bottom: 1px solid rgba(197₹68₹28,0.25); letter-spacing: 0.5px; z-index: 1001; position: relative;">
     <span><i class="fa-solid fa-graduation-cap" style="color: #C5A880; margin-right: 5px;"></i> BTech CSE DBMS Mini Project &bull; Founder: Rishabh Srivastava — <strong>The Roma Palace</strong></span>
     <span style="margin: 0 10px; opacity: 0.4;">|</span>
     <a href="admin/admin-login.html" style="color: #FFFFFF; text-decoration: underline; font-weight: 600;"><i class="fa-solid fa-lock" style="font-size: 0.7rem;"></i> Admin Portal</a>
@@ -75,7 +75,7 @@
   
   
 <!-- Page Banner -->
-<section style="background: linear-gradient(rgba(18,19,22,0.75), rgba(18,19,22,0.9)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat; padding: 7rem 2rem 3.5rem 2rem; text-align: center; color: #FFFFFF;">
+<section style="background: linear-gradient(rgba(18₹9,22,0.75), rgba(18₹9,22,0.9)), url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat; padding: 7rem 2rem 3.5rem 2rem; text-align: center; color: #FFFFFF;">
   <div class="container">
     <span class="section-tag" style="color: var(--color-gold-light);">DIRECT RESERVATION</span>
     <h1 style="color: #FFFFFF; font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 0.5rem;">SECURE YOUR PALACE STAY</h1>
@@ -669,35 +669,54 @@ window.addEventListener('load', () => {
 
   <!-- Scripts -->
   <script src="assets/js/main.js"></script>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('masterBookingForm');
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
 
+      // Extract Palace Name
       const hotelSelect = document.getElementById('hotel_id');
       const hotelName = hotelSelect ? hotelSelect.options[hotelSelect.selectedIndex].text.replace(/\s*\([^)]*\)/, '').trim() : 'The Roma Palace Jaipur';
 
+      // Extract Room Name & Unit Price
       const roomSelect = document.getElementById('room_select');
-      const roomText = roomSelect ? roomSelect.options[roomSelect.selectedIndex].text.split('—')[0].trim() : 'Deluxe Room';
+      const roomText = roomSelect ? roomSelect.options[roomSelect.selectedIndex].text.split('—')[0].trim() : 'Deluxe Courtyard Room';
       const roomPrice = roomSelect ? parseFloat(roomSelect.options[roomSelect.selectedIndex].getAttribute('data-price') || 18500) : 18500;
 
-      const checkIn = document.getElementById('check_in_date') ? document.getElementById('check_in_date').value : '2026-08-25';
-      const checkOut = document.getElementById('check_out_date') ? document.getElementById('check_out_date').value : '2026-08-27';
-      const guests = document.getElementById('total_guests') ? document.getElementById('total_guests').value : '2';
-
-      const guestName = document.getElementById('full_name') ? document.getElementById('full_name').value : 'Rohan Malhotra';
-      const guestEmail = document.getElementById('email') ? document.getElementById('email').value : 'rohan@example.com';
-      const guestPhone = document.getElementById('phone') ? document.getElementById('phone').value : '+91 98110 54321';
-      const idType = document.getElementById('id_type') ? document.getElementById('id_type').value : 'Aadhaar Card';
-      const idNumber = document.getElementById('id_number') ? document.getElementById('id_number').value : '4589 1234 9876';
+      // Extract Dates & Nights
+      const checkInEl = document.getElementById('checkin_date') || document.getElementById('check_in_date') || document.querySelector('[name="check_in"]');
+      const checkOutEl = document.getElementById('checkout_date') || document.getElementById('check_out_date') || document.querySelector('[name="check_out"]');
+      const checkIn = checkInEl && checkInEl.value ? checkInEl.value : '2026-08-25';
+      const checkOut = checkOutEl && checkOutEl.value ? checkOutEl.value : '2026-08-27';
 
       const d1 = new Date(checkIn);
       const d2 = new Date(checkOut);
       let nights = Math.ceil((d2 - d1) / (1000 * 60 * 60 * 24));
       if (isNaN(nights) || nights < 1) nights = 2;
 
+      // Extract Guest Personal Information (EXACT USER INPUT)
+      const nameEl = document.getElementById('guest_name') || document.getElementById('full_name') || document.querySelector('[name="guest_name"]');
+      const guestName = nameEl && nameEl.value.trim() ? nameEl.value.trim() : 'Rishabh Srivastava';
+
+      const emailEl = document.getElementById('guest_email') || document.getElementById('email') || document.querySelector('[name="guest_email"]');
+      const guestEmail = emailEl && emailEl.value.trim() ? emailEl.value.trim() : 'guest@romapalace.com';
+
+      const phoneEl = document.getElementById('guest_phone') || document.getElementById('phone') || document.querySelector('[name="guest_phone"]');
+      const guestPhone = phoneEl && phoneEl.value.trim() ? phoneEl.value.trim() : '+91 98110 54321';
+
+      const idTypeEl = document.getElementById('id_type') || document.querySelector('[name="id_type"]');
+      const idType = idTypeEl ? idTypeEl.value : 'Aadhaar Card';
+
+      const idNumEl = document.getElementById('id_number') || document.querySelector('[name="id_number"]');
+      const idNumber = idNumEl && idNumEl.value.trim() ? idNumEl.value.trim() : '4589 1234 9876';
+
+      const guestsEl = document.getElementById('total_guests') || document.querySelector('[name="total_guests"]');
+      const guests = guestsEl ? guestsEl.value : '2';
+
+      // Calculate Totals & Add-ons
       const roomTotal = roomPrice * nights;
 
       let serviceTotal = 0;
@@ -706,8 +725,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const p = parseFloat(cb.getAttribute('data-price')) || 0;
         serviceTotal += p;
         const card = cb.closest('.addon-card');
-        const name = card && card.querySelector('h4') ? card.querySelector('h4').textContent.trim() : 'Service';
-        selectedServices.push({ name: name, price: p });
+        const sName = card && card.querySelector('h4') ? card.querySelector('h4').textContent.trim() : 'Enhancement Service';
+        selectedServices.push({ name: sName, price: p });
       });
 
       const taxable = roomTotal + serviceTotal;
@@ -715,10 +734,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const grandTotal = taxable + gst;
 
       const paymentMethodRadio = document.querySelector('input[name="payment_method"]:checked');
-      const paymentMethod = paymentMethodRadio ? paymentMethodRadio.value : 'UPI';
+      const paymentMethod = paymentMethodRadio ? paymentMethodRadio.value : 'UPI / Online';
 
       const bookingRef = 'RP-2026-X' + Math.floor(1000 + Math.random() * 9000);
 
+      // Save Full Booking Payload
       const bookingData = {
         bookingRef: bookingRef,
         hotelName: hotelName,
